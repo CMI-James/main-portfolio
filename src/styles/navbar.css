@@ -1,0 +1,40 @@
+/* Navbar.css */
+:root {
+    --burger-line-color: #f5f5dc; /* Default color */
+  }
+  
+  .burger {
+    width: 100%;
+  }
+  
+  .burger::after,
+  .burger::before {
+    content: "";
+    display: block;
+    z-index: 10000;
+    height: 1px;
+    width: 40%;
+    margin: auto;
+    background-color: var(--burger-line-color); /* Use CSS variable */
+    position: absolute; /* Change to absolute for correct positioning */
+    transition: transform 0.3s, background-color 0.5s; /* Add background-color transition */
+  }
+  
+  .burger::after {
+    top: -5px;
+  }
+  
+  .burger::before {
+    top: 5px;
+  }
+  
+  .burgerActive::after {
+    transform: rotate(45deg);
+    top: -1px;
+  }
+  
+  .burgerActive::before {
+    transform: rotate(-45deg);
+    top: 0px;
+  }
+  
