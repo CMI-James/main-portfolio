@@ -1,7 +1,7 @@
 import Transition from "@/components/PageTransition/Transition";
 import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";
-import { Typewriter } from 'react-simple-typewriter';
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 const Memory = () => {
   const router = useRouter();
@@ -18,22 +18,25 @@ const Memory = () => {
   }, []);
 
   useEffect(() => {
-    if (name === undefined) {
+    if (name === undefined && !isRedirecting) {
+      setIsRedirecting(true);
       // Redirect to /memory-login if name is not present in the query
       router.replace("/memory-login");
-      setIsRedirecting(true);
     }
-  }, [name, router]);
+  }, [name, router, isRedirecting]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push("/nothing");
-    }, 5000); // Navigate after 5 seconds
+  const [followText] = useTypewriter({
+    words: ["Let's head over to memory, shall we?"],
+    loop: 1,
+    onLoopDone: () => {
+      console.log(`loop completed.`);
+      setTimeout(() => {
+        router.push("/nothing"); // Navigate to /nothing after 2 seconds
+      }, 2000);
+    },
+  });
 
-    return () => clearTimeout(timer); // Cleanup timer if component unmounts
-  }, [router]);
-
-  if (isRedirecting) {
+  if (isRedirecting || name === undefined) {
     return null; // Optionally, you can show a loading spinner or message while redirecting
   }
 
@@ -44,16 +47,7 @@ const Memory = () => {
         <p className="text-heading lg:text-special">
           Hey {name}, <br className="lg:hidden" /> Welcome!
         </p>
-        <p className="text-2xl">
-          <Typewriter
-            words={["Let's head over to memory, shall we?"]}
-            cursor
-            cursorStyle="|"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          />
-        </p>
+        <p className="text-2xl">{followText}<Cursor /></p>
       </div>
     </Transition>
   );
