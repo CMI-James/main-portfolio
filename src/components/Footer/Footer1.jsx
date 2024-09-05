@@ -9,7 +9,7 @@ export default function Footer1() {
       setTime(new Date().toLocaleTimeString());
     }, 1000);
 
-    // Cleanup the interval on component unmount
+    // Cleanup the interval on component unmount okay
     return () => clearInterval(intervalId);
   }, []);
 
