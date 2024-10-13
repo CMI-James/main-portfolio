@@ -59,7 +59,7 @@ const Home = () => {
     // Animate button when entering the second section
     if (section > 0) {
       buttonControls.start({
-        opacity: 0.5,
+        opacity: 1,
         scale: 1,
         transition: { duration: 1 },
       });
@@ -81,6 +81,7 @@ const Home = () => {
       window.scrollTimeout = setTimeout(() => {
         setIsScrolling(false);
       }, 2000);
+    
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -89,7 +90,9 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  useEffect(() => {
+    console.log("Scrolling status:", isScrolling);
+  }, [isScrolling]);
   const { backgroundColor, color } = currentColors;
 
   const scrollToTop = () => {
@@ -119,21 +122,25 @@ const Home = () => {
         <Testimonial />
         <Contact />
 
-         <motion.button
-          onClick={scrollToTop}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
-          style={{
-            backgroundColor: color,
-            color: backgroundColor,
-            opacity: isScrolling ? 0.9 : 0.1,
-          }}
-          initial={{ opacity: 0, scale: 0 }} // Initial hidden state
-          animate={buttonControls} // Controls for the button animation
-        >
-          <FaArrowUp className="text-2xl" />
-        </motion.button>
+        <motion.button
+  onClick={scrollToTop}
+  onMouseDown={handleMouseDown}
+  onMouseUp={handleMouseUp}
+  className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
+  style={{
+    backgroundColor: color,
+    color: backgroundColor,
+  }}
+  initial={{ opacity: 0, scale: 0 }}
+  animate={{
+    opacity: isScrolling ? 0.9 : 0.1,
+    scale: 1,
+    transition: { duration: 0.5 }, // Adjust the transition duration here
+  }}
+>
+  <FaArrowUp className="text-2xl" />
+</motion.button>
+
       </motion.div>
     </Transition>
   );

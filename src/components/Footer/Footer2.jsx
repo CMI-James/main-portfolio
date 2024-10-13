@@ -27,11 +27,11 @@ export default function Footer2() {
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 h-[30vh] w-full">
-        <div className="bg-brown-1000 text-beige py-8 px-12 h-full w-full flex flex-col justify-between">
+        <div className="bg-brown-1000 text-beige  px-12 h-full w-full flex flex-col justify-between">
           <div className="flex shrink-0 gap-20">
             {/* Add any additional elements here if necessary */}
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-end">
             <h1
               className="text-beige text-[10vw] leading-[0.8] cursor-pointer"
               onMouseDown={handleMouseDown}
@@ -39,7 +39,7 @@ export default function Footer2() {
             >
               Griezzman
             </h1>
-            <p className="fixed bottom-0 left-1/2 transform -translate-x-1/2 text-sm text-center">©{year} Chibuikem Ilonze</p>
+            <p className=" text-sm ">©{year} Chibuikem Ilonze</p>
             
           </div>
         </div>
