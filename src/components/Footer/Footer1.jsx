@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import Heading from "../ui/Heading";
-import { H4, SocialLink } from "./components/reusable";
+import ContactForm from "./components/contactForm";
+import ContactDetails from "./components/contactDetails";
 
 export default function Footer1() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -29,119 +30,9 @@ export default function Footer1() {
             I am currently available for freelance frontend development work and
             open to new projects.
           </p>
-          <form
-            name="contact"
-            action="/contact"
-            autoComplete="off"
-            className="pt-10 "
-            method="POST"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2">
-              <div className="relative z-0">
-                <input
-                  required
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="peer block w-full appearance-none border-0 border-b border-brown-1000 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
-                  placeholder=" "
-                />
-                <label
-                  htmlFor="name"
-                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-brown-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                >
-                  Your name
-                </label>
-              </div>
-              <div className="relative z-0">
-                <input
-                  required
-                  type="text"
-                  name="email"
-                  id="email"
-                  className="peer block w-full appearance-none border-0 border-b border-brown-1000 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
-                  placeholder=" "
-                />
-                <label
-                  htmlFor="email"
-                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-brown-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                >
-                  Your email
-                </label>
-              </div>
-              <div className="relative z-0 sm:col-span-2">
-                <textarea
-                  required
-                  id="message"
-                  name="message"
-                  rows="5"
-                  className="peer block w-full appearance-none border-0 border-b border-brown-1000 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
-                  placeholder=" "
-                ></textarea>
-                <label
-                  htmlFor="message"
-                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-brown-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                >
-                  Your message
-                </label>
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="button group pt-10  duration-200 hover:bg-transparent"
-            >
-              <span className="relative">
-                <span className="hover:text-brown-1000 hover:bg-beige border border-brown-1000 transition-colors duration-500 bg-brown-1000 text-beige rounded-xl p-2">
-                  Send Message
-                </span>
-              </span>
-            </button>
-          </form>
+          <ContactForm />
         </div>
-        <div className="col-span-2 grid grid-cols-1 gap-x-4 gap-y-8 text-brown-700 sm:grid-cols-2 sm:gap-y-0 md:grid-cols-1">
-          <div className="space-y-3 ">
-            <H4>Contact Details</H4>
-            <div className="flex flex-col space-y-3 text-body-2 2xl:text-3xl">
-              <SocialLink
-                href="mailto:chibuikemichaelilonze@gmail.com"
-                platform="chibuikemichaelilonze@gmail.com"
-              />
-            </div>
-          </div>
-          <div className="space-y-3 ">
-            <H4>Others</H4>
-            <div className="space-y-3 text-body-2 2xl:text-3xl">
-              <SocialLink
-                href="https://github.com/ChibuikemMichaelIlonze"
-                platform="Github"
-              />
-              <SocialLink
-                href="https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/"
-                platform="LinkedIn"
-              />
-              <SocialLink
-                href="https://web.facebook.com/chibuike.ilonze.1"
-                platform="Facebook"
-              />
-              <SocialLink
-                href="https://twitter.com/BikeManJames"
-                platform="X (Twitter)"
-              />
-            </div>
-          </div>
-          <div className="space-y-3 ">
-            <h4 className="text-body-1 font-semibold 2xl:text-4xl text-brown-1000">
-              Location
-            </h4>
-            <div className="space-y-2 text-body-2 2xl:text-3xl">
-              <p>
-                Enugu, Nigeria <br></br>
-                {time}
-              </p>
-            </div>
-          </div>
-        </div>
+        <ContactDetails />
       </div>
     </section>
   );
