@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import Heading from "../ui/Heading";
-
+import { H4, SocialLink } from "./components/reusable";
 
 export default function Footer1() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -92,7 +92,6 @@ export default function Footer1() {
               className="button group pt-10  duration-200 hover:bg-transparent"
             >
               <span className="relative">
-               
                 <span className="hover:text-brown-1000 hover:bg-beige border border-brown-1000 transition-colors duration-500 bg-brown-1000 text-beige rounded-xl p-2">
                   Send Message
                 </span>
@@ -102,70 +101,33 @@ export default function Footer1() {
         </div>
         <div className="col-span-2 grid grid-cols-1 gap-x-4 gap-y-8 text-brown-700 sm:grid-cols-2 sm:gap-y-0 md:grid-cols-1">
           <div className="space-y-3 ">
-            <h4 className="text-body-1 2xl:text-4xl font-semibold text-brown-1000">
-              Contact Details
-            </h4>
+            <H4>Contact Details</H4>
             <div className="flex flex-col space-y-3 text-body-2 2xl:text-3xl">
-              <a
+              <SocialLink
                 href="mailto:chibuikemichaelilonze@gmail.com"
-                className="group relative w-fit cursor-pointer"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span>chibuikemichaelilonze@gmail.com</span>
-                <span className="absolute bottom-0 left-0 h-[0.12em] w-0 rounded-full bg-brown-500  duration-300 ease-in-out group-hover:w-full"></span>
-              </a>
+                platform="chibuikemichaelilonze@gmail.com"
+              />
             </div>
           </div>
           <div className="space-y-3 ">
-            <h4 className="text-body-1 2xl:text-4xl font-semibold text-brown-1000">
-              Others
-            </h4>
+            <H4>Others</H4>
             <div className="space-y-3 text-body-2 2xl:text-3xl">
-              <a
+              <SocialLink
                 href="https://github.com/ChibuikemMichaelIlonze"
-                className="group flex items-center space-x-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="relative">
-                  <span>Github</span>
-                  <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-500 duration-300 ease-in-out group-hover:w-full"></span>
-                </div>
-              </a>
-              <a
+                platform="Github"
+              />
+              <SocialLink
                 href="https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/"
-                className="group group flex w-fit items-center space-x-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="relative">
-                  <span>LinkedIn</span>
-                  <span className="absolute bottom-0 left-0 h-[0.12em] w-0 rounded-full bg-brown-500 duration-300 ease-in-out group-hover:w-full"></span>
-                </div>
-              </a>
-              <a
+                platform="LinkedIn"
+              />
+              <SocialLink
                 href="https://web.facebook.com/chibuike.ilonze.1"
-                className="group flex items-center space-x-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="relative">
-                  <span>Facebook</span>
-                  <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-500 duration-300 ease-in-out group-hover:w-full"></span>
-                </div>
-              </a>{" "}
-              <a
+                platform="Facebook"
+              />
+              <SocialLink
                 href="https://twitter.com/BikeManJames"
-                className="group flex items-center space-x-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="relative">
-                  <span>X (Twitter)</span>
-                  <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-500 duration-300 ease-in-out group-hover:w-full"></span>
-                </div>
-              </a>
+                platform="X (Twitter)"
+              />
             </div>
           </div>
           <div className="space-y-3 ">
