@@ -3,7 +3,7 @@ import Heading from "../ui/Heading";
 import ContactForm from "./components/contactForm";
 import ContactDetails from "./components/contactDetails";
 
-export default function Footer1() {
+export default function Contact() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Footer1() {
           </p>
           <ContactForm />
         </div>
-        <ContactDetails />
+        <ContactDetails  time={time}/>
       </div>
     </section>
   );

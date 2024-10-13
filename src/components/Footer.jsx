@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-export default function Footer2() {
+export default function Footer() {
   const year = new Date().getFullYear();
   const [timer, setTimer] = useState(null);
-  
 
   const router = useRouter();
 
   const handleMouseDown = () => {
     const newTimer = setTimeout(() => {
-      router.push('/memory-login'); 
+      router.push("/memory-login");
     }, 1500);
     setTimer(newTimer);
   };
@@ -18,7 +17,7 @@ export default function Footer2() {
   const handleMouseUp = () => {
     clearTimeout(timer);
     setTimer(null);
-    router.push('/nothing');  
+    router.push("/nothing");
   };
 
   return (
@@ -40,7 +39,6 @@ export default function Footer2() {
               Griezzman
             </h1>
             <p className=" text-sm ">©{year} Chibuikem Ilonze</p>
-            
           </div>
         </div>
       </div>

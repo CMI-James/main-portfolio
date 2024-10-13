@@ -1,7 +1,6 @@
 import React from "react";
-import Word from "../ui/TextReveal"
-
-export default function Hero2() {
+import Word from "./ui/TextReveal"
+export default function Description() {
   const paragraph=
     "I create captivating user interfaces that inspire and connect with people through development and design.";
   return (

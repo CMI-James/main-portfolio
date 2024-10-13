@@ -8,9 +8,11 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Testimonial from "@/components/Testimonial";
-import Contact from "@/components/Contact";
+import Contact from "@/components/Contact/Contact";
 import useScrollSection from "@/hooks/useScrollSection";
 import { useRouter } from "next/router";
+import Footer from "@/components/Footer";
+import Description from "@/components/Description";
 const Home = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -81,7 +83,6 @@ const Home = () => {
       window.scrollTimeout = setTimeout(() => {
         setIsScrolling(false);
       }, 2000);
-    
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -116,31 +117,32 @@ const Home = () => {
         className={`min-h-screen relative`}
       >
         <Hero />
+        <Description/>
         <About />
         <Services />
         <Projects />
         <Testimonial />
         <Contact />
+        <Footer />
 
         <motion.button
-  onClick={scrollToTop}
-  onMouseDown={handleMouseDown}
-  onMouseUp={handleMouseUp}
-  className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
-  style={{
-    backgroundColor: color,
-    color: backgroundColor,
-  }}
-  initial={{ opacity: 0, scale: 0 }}
-  animate={{
-    opacity: isScrolling ? 0.9 : 0.1,
-    scale: 1,
-    transition: { duration: 0.5 }, // Adjust the transition duration here
-  }}
->
-  <FaArrowUp className="text-2xl" />
-</motion.button>
-
+          onClick={scrollToTop}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
+          style={{
+            backgroundColor: color,
+            color: backgroundColor,
+          }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{
+            opacity: isScrolling ? 0.9 : 0.1,
+            scale: 1,
+            transition: { duration: 0.5 }, // Adjust the transition duration here
+          }}
+        >
+          <FaArrowUp className="text-2xl" />
+        </motion.button>
       </motion.div>
     </Transition>
   );
