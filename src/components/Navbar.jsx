@@ -46,7 +46,11 @@ const Navbar = ({ controls, section }) => {
       burgerLineColor
     );
   }, [burgerLineColor]);
-
+  const navLinks = [
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/projects", label: "Projects" },
+  ];
   return (
     <motion.div
       className={`fixed top-0 z-[1000] ${navbarClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
@@ -80,33 +84,20 @@ const Navbar = ({ controls, section }) => {
 
         <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
         <ul className="hidden sm:flex gap-10 items-center justify-between">
-          <li className="group flex items-center space-x-2">
-            <Link href="/about" scroll={false} className="relative">
-              <span>About</span>
-              <span
-                className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
-              ></span>
-            </Link>
-          </li>
-          <li className="group flex items-center space-x-2">
-            <Link href="/services" scroll={false} className="relative">
-              <span>Services</span>
-              <span
-                className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
-              ></span>
-            </Link>
-          </li>
-          <li className="group flex items-center space-x-2">
-            <Link href="/projects" scroll={false} className="relative">
-              <span>Projects</span>
-              <span
-                className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
-              ></span>
-            </Link>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.href} className="group flex items-center space-x-2">
+              <Link href={link.href} scroll={false} className="relative">
+                <span>{link.label}</span>
+                <span
+                  className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
+                ></span>
+              </Link>
+            </li>
+          ))}
+
           <li>
             <button
-              className={`rounded-lg border-[1px] py-1 px-2 transition-colors duration-500 ${buttonClass}`}
+              className={`rounded-lg border py-1 px-2 transition-colors duration-500 ${buttonClass}`}
             >
               <Link href="/contact" scroll={false}>
                 Contact me

@@ -92,8 +92,8 @@ export default function Footer1() {
               className="button group pt-10  duration-200 hover:bg-transparent"
             >
               <span className="relative">
-                <span className="absolute bottom-2 h-1 w-0 bg-brown-1000 opacity-90 duration-300 ease-out group-hover:w-full"></span>
-                <span className="group-hover:text-beige bg-brown-1000 text-beige rounded-xl p-2">
+               
+                <span className="hover:text-brown-1000 hover:bg-beige border border-brown-1000 transition-colors duration-500 bg-brown-1000 text-beige rounded-xl p-2">
                   Send Message
                 </span>
               </span>
