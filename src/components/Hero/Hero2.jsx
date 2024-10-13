@@ -1,5 +1,5 @@
 import React from "react";
-import Word from "../TextReveal"
+import Word from "../ui/TextReveal"
 
 export default function Hero2() {
   const paragraph=

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import SmoothScrollWrapper from '@/components/SmoothScrollWrapper';
+import SmoothScrollWrapper from '@/components/ui/SmoothScrollWrapper';
 import Layout from '@/components/Layout';
 import '@/styles/globals.css';
 import "@/styles/navbar.css";

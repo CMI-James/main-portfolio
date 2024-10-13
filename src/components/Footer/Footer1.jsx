@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import Heading from "../Heading";
+import Heading from "../ui/Heading";
+
 
 export default function Footer1() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());

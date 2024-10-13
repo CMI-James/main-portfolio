@@ -19,6 +19,9 @@ const Navbar = ({ controls, section }) => {
       ? "bg-brown-1000 border-brown-1000 text-beige hover:border-brown-1000 hover:bg-beige hover:text-brown-1000"
       : "bg-beige border-beige text-brown-1000 hover:border-beige hover:bg-brown-1000 hover:text-beige";
 
+  const navbarClass = section % 2 == 0 ? "bg-beige" : "bg-brown-1000";
+  const underlineClass = section % 2 == 0 ? "bg-brown-1000" : "bg-beige"
+  console.log("testers", navbarClass, underlineClass);
   const harmburgerClass =
     section % 2 === 0
       ? isReversed
@@ -46,12 +49,14 @@ const Navbar = ({ controls, section }) => {
 
   return (
     <motion.div
-      className="fixed top-0 z-[1000] py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center"
+      className={`fixed top-0 z-[1000] ${navbarClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
       animate={controls}
     >
       <div>
         <p className="text-2xl font-extrabold">
-          <Link href="/" scroll={false}>CMI</Link>
+          <Link href="/" scroll={false}>
+            CMI
+          </Link>
         </p>
       </div>
       <div>
@@ -78,26 +83,34 @@ const Navbar = ({ controls, section }) => {
           <li className="group flex items-center space-x-2">
             <Link href="/about" scroll={false} className="relative">
               <span>About</span>
-              <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-500 duration-300 ease-in-out group-hover:w-full"></span>
+              <span
+                className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
+              ></span>
             </Link>
           </li>
           <li className="group flex items-center space-x-2">
-            <Link  href="/services" scroll={false} className="relative">
+            <Link href="/services" scroll={false} className="relative">
               <span>Services</span>
-              <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-500 duration-300 ease-in-out group-hover:w-full"></span>
+              <span
+                className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
+              ></span>
             </Link>
           </li>
           <li className="group flex items-center space-x-2">
             <Link href="/projects" scroll={false} className="relative">
               <span>Projects</span>
-              <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-500 duration-300 ease-in-out group-hover:w-full"></span>
+              <span
+                className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
+              ></span>
             </Link>
           </li>
           <li>
             <button
               className={`rounded-lg border-[1px] py-1 px-2 transition-colors duration-500 ${buttonClass}`}
             >
-              <Link href="/contact" scroll={false}>Contact me</Link>
+              <Link href="/contact" scroll={false}>
+                Contact me
+              </Link>
             </button>
           </li>
         </ul>

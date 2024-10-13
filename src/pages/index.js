@@ -3,7 +3,6 @@ import { motion, useAnimation } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa";
 import { getSectionClasses } from "@/utils/sectionUtils";
 import Transition from "@/components/PageTransition/Transition";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
@@ -18,6 +17,7 @@ const Home = () => {
   const section = useScrollSection();
   const controls = useAnimation();
   const navControls = useAnimation();
+  const buttonControls = useAnimation();
   const ref = useRef(null);
   const [currentColors, setCurrentColors] = useState({
     backgroundColor: "#f5f5dc",
@@ -56,10 +56,23 @@ const Home = () => {
       transition: { duration: 0.5 },
       color: color,
     });
-
+    // Animate button when entering the second section
+    if (section > 0) {
+      buttonControls.start({
+        opacity: 0.5,
+        scale: 1,
+        transition: { duration: 1 },
+      });
+    } else {
+      buttonControls.start({
+        opacity: 0,
+        scale: 0,
+        transition: { duration: 1 },
+      });
+    }
     root.style.setProperty("--scrollbar-track-color", backgroundColor);
     root.style.setProperty("--scrollbar-thumb-color", color);
-  }, [section, controls, navControls]);
+  }, [section, controls, buttonControls, navControls]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -106,19 +119,21 @@ const Home = () => {
         <Testimonial />
         <Contact />
 
-        <button
+         <motion.button
           onClick={scrollToTop}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
-          className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full transition-opacity duration-1000`}
+          className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
           style={{
             backgroundColor: color,
             color: backgroundColor,
             opacity: isScrolling ? 0.9 : 0.1,
           }}
+          initial={{ opacity: 0, scale: 0 }} // Initial hidden state
+          animate={buttonControls} // Controls for the button animation
         >
           <FaArrowUp className="text-2xl" />
-        </button>
+        </motion.button>
       </motion.div>
     </Transition>
   );
