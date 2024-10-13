@@ -11,6 +11,8 @@ import useScrollSection from "@/hooks/useScrollSection";
 import { useRouter } from "next/router";
 import Transition from "@/components/ui/Transition";
 import Contact from "@/components/contact/Contact";
+import Description from "@/components/Description";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   const router = useRouter();
@@ -111,12 +113,13 @@ const Home = () => {
         className={`min-h-screen relative`}
       >
         <Hero />
+        <Description />
         <About />
         <Services />
         <Projects />
         <Testimonial />
         <Contact />
-
+        <Footer />
         <motion.button
           onClick={scrollToTop}
           onMouseDown={handleMouseDown}

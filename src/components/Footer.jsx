@@ -36,9 +36,9 @@ export default function Footer() {
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
             >
-              Griezzman
+             Griezzman
             </h1>
-            <p className=" text-sm ">©{year} Chibuikem Ilonze</p>
+            <p className=" text-sm ">Chibuikem Ilonze ©{year} </p>
           </div>
         </div>
       </div>
