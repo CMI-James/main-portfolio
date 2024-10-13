@@ -110,7 +110,7 @@ const Home = () => {
         ref={ref}
         initial={{ backgroundColor: "#f5f5dc", color: "#0f0500" }}
         animate={controls}
-        className={`min-h-screen relative `}
+        className={`min-h-screen relative`}
       >
         <Hero />
         <About />
