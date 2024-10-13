@@ -1,5 +1,5 @@
 
-import Transition from "@/components/PageTransition/Transition";
+import Transition from "@/components/ui/Transition";
 import React from "react";
 
 const About = () => {

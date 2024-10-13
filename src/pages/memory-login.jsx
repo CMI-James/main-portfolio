@@ -1,7 +1,7 @@
 // pages/memory-login.js
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Transition from '@/components/PageTransition/Transition';
+import Transition from '@/components/ui/Transition';
 
 
 const validNames = [

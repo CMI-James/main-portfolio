@@ -1,9 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { opacity, expand } from "./anim";
+import { expand, opacity } from "./anim";
 import useScrollSection from "@/hooks/useScrollSection";
 import { getSectionClasses } from "@/utils/sectionUtils";
-
 
 export default function Transition({ children, backgroundColor }) {
   const anim = (variants, custom = null) => {

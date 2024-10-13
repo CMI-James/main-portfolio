@@ -2,25 +2,24 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa";
 import { getSectionClasses } from "@/utils/sectionUtils";
-import Transition from "@/components/PageTransition/Transition";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Testimonial from "@/components/Testimonial";
-import Contact from "@/components/Contact/Contact";
 import useScrollSection from "@/hooks/useScrollSection";
 import { useRouter } from "next/router";
-import Footer from "@/components/Footer";
-import Description from "@/components/Description";
+import Transition from "@/components/ui/Transition";
+import Contact from "@/components/contact/Contact";
+
 const Home = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
   const section = useScrollSection();
   const controls = useAnimation();
   const navControls = useAnimation();
   const buttonControls = useAnimation();
   const ref = useRef(null);
+
   const [currentColors, setCurrentColors] = useState({
     backgroundColor: "#f5f5dc",
     color: "#0f0500",
@@ -58,31 +57,19 @@ const Home = () => {
       transition: { duration: 0.5 },
       color: color,
     });
-    // Animate button when entering the second section
-    if (section > 0) {
-      buttonControls.start({
-        opacity: 1,
-        scale: 1,
-        transition: { duration: 1 },
-      });
-    } else {
-      buttonControls.start({
-        opacity: 0,
-        scale: 0,
-        transition: { duration: 1 },
-      });
-    }
+
     root.style.setProperty("--scrollbar-track-color", backgroundColor);
     root.style.setProperty("--scrollbar-thumb-color", color);
-  }, [section, controls, buttonControls, navControls]);
+  }, [section, controls, navControls]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolling(true);
       clearTimeout(window.scrollTimeout);
+
       window.scrollTimeout = setTimeout(() => {
         setIsScrolling(false);
-      }, 2000);
+      }, 200); // reduced debounce time for faster responsiveness
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -91,9 +78,16 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   useEffect(() => {
-    console.log("Scrolling status:", isScrolling);
-  }, [isScrolling]);
+    // Update button animation based on isScrolling and section
+    buttonControls.start({
+      opacity: isScrolling ? 0.6 : 0.1,
+      scale: section > 0 ? 1 : 0,
+      transition: { duration: 1 }, // Smooth transition between states
+    });
+  }, [isScrolling, section, buttonControls]);
+
   const { backgroundColor, color } = currentColors;
 
   const scrollToTop = () => {
@@ -117,13 +111,11 @@ const Home = () => {
         className={`min-h-screen relative`}
       >
         <Hero />
-        <Description/>
         <About />
         <Services />
         <Projects />
         <Testimonial />
         <Contact />
-        <Footer />
 
         <motion.button
           onClick={scrollToTop}
@@ -135,11 +127,7 @@ const Home = () => {
             color: backgroundColor,
           }}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{
-            opacity: isScrolling ? 0.9 : 0.1,
-            scale: 1,
-            transition: { duration: 0.5 }, // Adjust the transition duration here
-          }}
+          animate={buttonControls}
         >
           <FaArrowUp className="text-2xl" />
         </motion.button>

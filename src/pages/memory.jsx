@@ -1,4 +1,4 @@
-import Transition from "@/components/PageTransition/Transition";
+import Transition from "@/components/ui/Transition";
 import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";

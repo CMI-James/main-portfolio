@@ -3,24 +3,25 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Nav from "./nav/nav";
+import Nav from "./ui/nav";
+import useScrollSection from "@/hooks/useScrollSection";
+import { getSectionClasses } from "@/utils/sectionUtils";
 
-const Navbar = ({ controls, section }) => {
+
+
+
+const Navbar = ({ controls}) => {
   const [isActive, setIsActive] = useState(true);
   const [isReversed, setIsReversed] = useState(false);
   const router = useRouter();
-
+  const section = useScrollSection();
+  const { buttonClass } = getSectionClasses(section);
   useEffect(() => {
     if (isActive) setIsActive(false);
   }, [router.pathname]);
 
-  const buttonClass =
-    section % 2 === 0
-      ? "bg-brown-1000 border-brown-1000 text-beige hover:border-brown-1000 hover:bg-beige hover:text-brown-1000"
-      : "bg-beige border-beige text-brown-1000 hover:border-beige hover:bg-brown-1000 hover:text-beige";
-
   const navbarClass = section % 2 == 0 ? "bg-beige" : "bg-brown-1000";
-  const underlineClass = section % 2 == 0 ? "bg-brown-1000" : "bg-beige"
+  const underlineClass = section % 2 == 0 ? "bg-brown-1000" : "bg-beige";
   console.log("testers", navbarClass, underlineClass);
   const harmburgerClass =
     section % 2 === 0
