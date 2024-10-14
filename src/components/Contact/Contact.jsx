@@ -3,7 +3,7 @@ import Heading from "../ui/Heading";
 import ContactForm from "./components/contactForm";
 import ContactDetails from "./components/contactDetails";
 
-export default function Contact() {
+export default function ContactMe() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -17,11 +17,11 @@ export default function Contact() {
 
   return (
     <section
-      className="py-[10%] px-5 md:px-10 xl:px-20 2xl:px-28"
+      className="py-[10%] px-5 md:px-10 xl:px-20 2xl:px-28 relative"
       aria-label="contact me"
     >
-      <Heading title="Contact" />
-      <div className="pt-10 flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
+      {/* <Heading title="Contact" /> */}
+      <div className="pt-10 flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12 sticky top-0">
         <div className="col-span-4">
           <h3 className="max-w-lg 2xl:max-w-3xl text-heading-3 2xl:text-7xl font-semibold leading-tight text-brown-1000">
             Got a great idea? <br /> Let's make it happen!

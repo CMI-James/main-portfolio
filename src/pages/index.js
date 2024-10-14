@@ -13,6 +13,7 @@ import Transition from "@/components/ui/Transition";
 import Contact from "@/components/contact/Contact";
 import Description from "@/components/Description";
 import Footer from "@/components/Footer";
+import ContactMe from "@/components/contact/Contact";
 
 const Home = () => {
   const router = useRouter();
@@ -118,7 +119,7 @@ const Home = () => {
         <Services />
         <Projects />
         <Testimonial />
-        <Contact />
+        <ContactMe/>
         <Footer />
         <motion.button
           onClick={scrollToTop}
