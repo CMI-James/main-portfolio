@@ -4,7 +4,7 @@ import { expand, opacity } from "./anim";
 import useScrollSection from "@/hooks/useScrollSection";
 import { getSectionClasses } from "@/utils/sectionUtils";
 
-export default function Transition({ children, backgroundColor }) {
+export default function Transition({ children, backgroundColor, className }) {
   const anim = (variants, custom = null) => {
     return {
       initial: "initial",
@@ -17,9 +17,9 @@ export default function Transition({ children, backgroundColor }) {
 
   const nbOfColumns = 5;
   const section = useScrollSection();
-  const { transitionColor } = getSectionClasses(section);
+  const { transitionColor, dotColor } = getSectionClasses(section);
   return (
-    <div className="page stairs" style={{ backgroundColor }}>
+    <div className={`page stairs py-10 px-4 md:px-8 xl:px-12 ${dotColor} ${className}`} style={{ backgroundColor }}>
       <motion.div
         {...anim(opacity)}
         className={`fixed w-full h-screen  z-[100000] pointer-events-none top-0 left-0 ${transitionColor}`}
