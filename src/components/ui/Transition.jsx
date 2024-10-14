@@ -19,7 +19,7 @@ export default function Transition({ children, backgroundColor, className }) {
   const section = useScrollSection();
   const { transitionColor, dotColor } = getSectionClasses(section);
   return (
-    <div className={`page stairs py-10 px-4 md:px-8 xl:px-12 ${dotColor} ${className}`} style={{ backgroundColor }}>
+    <div className={`page stairs  ${dotColor} ${className}`} style={{ backgroundColor }}>
       <motion.div
         {...anim(opacity)}
         className={`fixed w-full h-screen  z-[100000] pointer-events-none top-0 left-0 ${transitionColor}`}
