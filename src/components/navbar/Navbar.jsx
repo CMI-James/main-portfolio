@@ -54,7 +54,7 @@ const Navbar = ({ controls}) => {
   ];
   return (
     <motion.div
-      className={`fixed top-0 z-[1000] ${navbarClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
+      className={`fixed top-0 z-[1000] transition-colors duration-500  ${navbarClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
       animate={controls}
     >
       <div>
@@ -88,7 +88,7 @@ const Navbar = ({ controls}) => {
           {navLinks.map((link) => (
             <li key={link.href} className="group flex items-center space-x-2">
               <Link href={link.href} scroll={false} className="relative">
-                <span>{link.label}</span>
+                <span >{link.label}</span>
                 <span
                   className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
                 ></span>
@@ -98,7 +98,7 @@ const Navbar = ({ controls}) => {
 
           <li>
             <button
-              className={`rounded-lg border py-1 px-2 transition-colors duration-500 ${buttonClass}`}
+              className={`rounded-lg border py-1 px-2 ${buttonClass}`}
             >
               <Link href="/contact" scroll={false}>
                 Contact me

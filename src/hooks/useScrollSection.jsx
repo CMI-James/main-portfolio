@@ -6,7 +6,7 @@ const useScrollSection = () => {
   const updateSection = useCallback(() => {
     const scrollY = window.scrollY;
     const sectionHeight = window.innerHeight;
-    const transitionPoint = sectionHeight * 0.3;
+    const transitionPoint = sectionHeight * 0.16;
     const newSection = Math.floor((scrollY + transitionPoint) / sectionHeight);
     setSection(newSection);
   }, []);

@@ -10,7 +10,10 @@ export default function Paragraph({ paragraph }) {
 
   const words = paragraph.split(" ");
   return (
-    <p ref={container} className="flex text-heading lg:text-heading-1 text-beige flex-wrap">
+    <p
+      ref={container}
+      className="flex text-heading lg:text-heading-1 text-beige flex-wrap"
+    >
       {words.map((word, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;
@@ -28,7 +31,7 @@ const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
     <span className="relative mr-3 leading-none mt-3">
-      <span className="absolute opacity-20">{children}</span>
+      <span className="absolute opacity-10">{children}</span>
       <motion.span style={{ opacity: opacity }}>{children}</motion.span>
     </span>
   );

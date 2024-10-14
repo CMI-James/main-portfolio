@@ -22,7 +22,7 @@ export default function Footer() {
 
   return (
     <div
-      className="relative h-[30vh]"
+      className="relative h-[30vh] "
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 h-[30vh] w-full">
