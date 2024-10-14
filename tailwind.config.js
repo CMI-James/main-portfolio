@@ -46,6 +46,9 @@ module.exports = {
       fontFamily: {
         main: ["Main", "sans-serif"], // Adding your custom font family
       },
+      clipPath: {
+        "hero-clip": "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
+      },
     },
   },
   plugins: [],
