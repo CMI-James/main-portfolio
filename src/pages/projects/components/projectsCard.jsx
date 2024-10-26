@@ -26,7 +26,7 @@ const Card = ({
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0"
+      className="h-screen flex flex-col items-center justify-center sticky top-0"
     >
       <motion.div
         style={{
@@ -76,6 +76,7 @@ const Card = ({
           </div>
         </div>
       </motion.div>
+ 
     </div>
   );
 };

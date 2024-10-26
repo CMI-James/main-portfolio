@@ -39,4 +39,5 @@ export const projects = [
     link: "https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/",
     color: "#88A28D",
   },
+  
 ];
