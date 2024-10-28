@@ -21,7 +21,6 @@ const Projects = () => {
   ); // Gradually reduce size
   useEffect(() => {
     const lenis = new Lenis();
-
     
     function raf(time) {
       lenis.raf(time);
