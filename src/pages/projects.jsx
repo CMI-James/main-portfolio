@@ -30,7 +30,7 @@ const Projects = () => {
   return (
     <Transition ref={container} className="relative py-10 px-4 md:px-8 xl:px-12">
       <motion.p
-        className=" sticky top-0 text-center"
+        className="z-[10000] sticky top-0  mx-auto w-fit"
         style={{ fontSize }} // Use the dynamic font size
       >
         Projects

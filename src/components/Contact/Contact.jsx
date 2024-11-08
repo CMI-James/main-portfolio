@@ -3,7 +3,7 @@ import Heading from "../ui/Heading";
 import ContactForm from "./components/contactForm";
 import ContactDetails from "./components/contactDetails";
 
-export default function ContactMe() {
+export default function ContactMe({ className = "" }) {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function ContactMe() {
 
   return (
     <section
-      className="py-[10%] px-5 md:px-10 xl:px-20 2xl:px-28 relative"
+    className={`px-5 md:px-10 xl:px-20 2xl:px-28 relative ${className}`}
       aria-label="contact me"
     >
       {/* <Heading title="Contact" /> */}

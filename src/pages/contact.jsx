@@ -18,9 +18,9 @@ const Contact = () => {
   ); // Gradually reduce size
   return (
     <Transition ref={container}>
-      <div className="flex flex-col justify-center items-center  w-full">
+      <div className="relative py-10 mb-10 px-4 md:px-8 xl:px-12">
         <motion.p
-          className=" sticky top-0 text-center"
+         className="z-[10000] sticky top-0  mx-auto w-fit"
           style={{ fontSize }} // Use the dynamic font size
         >
           Contact

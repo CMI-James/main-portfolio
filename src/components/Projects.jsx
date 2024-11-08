@@ -8,7 +8,7 @@ import Lenis from "@studio-freight/lenis";
 
 import Card from "@/pages/projects/components/projectsCard";
 import { projects } from "@/data/project";
-const Projects = () => {
+const Projects = ({ limit }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -21,7 +21,7 @@ const Projects = () => {
   ); // Gradually reduce size
   useEffect(() => {
     const lenis = new Lenis();
-    
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -29,17 +29,23 @@ const Projects = () => {
 
     requestAnimationFrame(raf);
   });
+  // Conditionally slice projects if limit is defined
+  const displayedProjects = limit ? projects.slice(0, limit) : projects;
+
   return (
-    <Transition ref={container} className="relative py-10 mb-10 px-4 md:px-8 xl:px-12">
+    <Transition
+      ref={container}
+      className="relative py-10 mb-10 px-4 md:px-8 xl:px-12"
+    >
       <motion.p
-        className=" sticky top-0 text-center"
+        className="z-[10000] sticky top-0  mx-auto w-fit"
         style={{ fontSize }} // Use the dynamic font size
       >
         Projects
       </motion.p>
 
       <div className="">
-        {projects.map((project, i) => {
+        {displayedProjects.map((project, i) => {
           const targetScale = 1 - (projects.length - i) * 0.05;
           return (
             <Card
@@ -50,12 +56,13 @@ const Projects = () => {
               range={[i * 0.25, 1]}
               targetScale={targetScale}
             />
-          
           );
         })}
-        <div className="w-full h-[40vh] bg-opacity-95 rounded-3xl bg-brown-1000 bottom-0 sticky flex justify-end items-end p-4 text-beige text-heading-3"> See more</div>
+        {/* <div className="w-full h-[40vh] bg-opacity-95 rounded-3xl bg-brown-1000 bottom-0 sticky flex justify-end items-end p-4 text-beige text-heading-3">
+          {" "}
+          See more
+        </div> */}
       </div>
-      
     </Transition>
   );
 };

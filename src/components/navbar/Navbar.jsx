@@ -7,15 +7,12 @@ import Nav from "./ui/nav";
 import useScrollSection from "@/hooks/useScrollSection";
 import { getSectionClasses } from "@/utils/sectionUtils";
 
-
-
-
-const Navbar = ({ controls}) => {
+const Navbar = ({ controls }) => {
   const [isActive, setIsActive] = useState(true);
   const [isReversed, setIsReversed] = useState(false);
   const router = useRouter();
   const section = useScrollSection();
-  const { buttonClass } = getSectionClasses(section);
+  const { buttonClass, oppositeColor , mainColor} = getSectionClasses(section);
   useEffect(() => {
     if (isActive) setIsActive(false);
   }, [router.pathname]);
@@ -47,21 +44,23 @@ const Navbar = ({ controls}) => {
       burgerLineColor
     );
   }, [burgerLineColor]);
- 
+
   const navLinks = [
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/projects", label: "Projects" },
   ];
-   // Filter out the current route from the list
-   const filteredNavLinks = navLinks.filter((link) => link.href !== router.pathname);
+  // Filter out the current route from the list
+  const filteredNavLinks = navLinks.filter(
+    (link) => link.href !== router.pathname
+  );
   return (
     <motion.div
-      className={`fixed top-0 z-[1000]  py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
+      className={`fixed top-0 z-[1000] ${mainColor} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
       animate={controls}
     >
       <div>
-        <p className="text-2xl font-extrabold">
+        <p className="text-2xl font-extrabold z-[10000]">
           <Link href="/" scroll={false}>
             CMI
           </Link>
@@ -87,8 +86,8 @@ const Navbar = ({ controls}) => {
         </div>
 
         <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
-       
-          <ul className="hidden sm:flex gap-10 items-center justify-between">
+
+        <ul className="hidden sm:flex gap-10 items-center justify-between z-[100000] ">
           {filteredNavLinks.map((link) => (
             <li key={link.href} className="group flex items-center space-x-2">
               <Link href={link.href} scroll={false} className="relative">
@@ -100,15 +99,15 @@ const Navbar = ({ controls}) => {
             </li>
           ))}
 
-          <li>
-            <button
-              className={`rounded-lg border py-1 px-2 ${buttonClass}`}
-            >
-              <Link href="/contact" scroll={false}>
-                Contact me
-              </Link>
-            </button>
-          </li>
+          {router.pathname !== "/contact" && (
+            <li>
+              <button className={`rounded-lg border py-1 px-2 ${buttonClass}`}>
+                <Link href="/contact" scroll={false}>
+                  Contact me
+                </Link>
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </motion.div>

@@ -117,9 +117,9 @@ const Home = () => {
         <Description />
         <About />
         <Services />
-        <Projects />
+        <Projects limit={3}/>
         <Testimonial />
-        <ContactMe/>
+        <ContactMe className="py-[10%]"/>
         <Footer />
         <motion.button
           onClick={scrollToTop}

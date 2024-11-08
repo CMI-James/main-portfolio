@@ -4,8 +4,11 @@ export const getSectionClasses = (section) => {
   return {
     transitionColor: isEvenSection ? "bg-brown-1000" : "bg-beige",
     mainColor: isEvenSection
-      ? "text-brown-1000 selection:bg-brown-1000 selection:text-beige"
-      : "text-beige selection:bg-beige selection:text-brown-1000",
+      ? "text-brown-1000 selection:bg-brown-1000 selection:text-beige bg-beige"
+      : "text-beige selection:bg-beige selection:text-brown-1000 bg-brown-100",
+    oppositeColor: isEvenSection
+      ? "text-beige selection:bg-beige selection:text-brown-1000"
+      : "text-brown-1000 selection:bg-brown-1000 selection:text-beige",
     backgroundColor: isEvenSection ? "#f5f5dc" : "#0f0500",
     color: isEvenSection ? "#0f0500" : "#f5f5dc",
     buttonClass: isEvenSection
