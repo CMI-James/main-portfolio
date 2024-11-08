@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 
 import Card from "@/pages/projects/components/projectsCard";
-import { projects } from "@/pages/projects/data";
+import { projects } from "@/data/project";
 const Projects = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({

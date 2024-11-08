@@ -5,7 +5,7 @@ import Card from "./projects/components/projectsCard";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
-import { projects } from "./projects/data";
+import { projects } from "../data/project";
 const Projects = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
