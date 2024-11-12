@@ -1,5 +1,4 @@
 "use client";
-import Transition from "@/components/ui/Transition";
 import React from "react";
 
 import { useScroll, useTransform, motion } from "framer-motion";
@@ -33,37 +32,30 @@ const Projects = ({ limit }) => {
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <Transition
-      ref={container}
-      className="relative py-10 mb-10 px-4 md:px-8 xl:px-12"
+    <div ref={container} className="relative py-10 px-4 md:px-8 xl:px-12">
+    <motion.p
+      className="z-[10000] sticky top-0  mx-auto w-fit"
+      style={{ fontSize }} // Use the dynamic font size
     >
-      <motion.p
-        className="z-[10000] sticky top-0  mx-auto w-fit"
-        style={{ fontSize }} // Use the dynamic font size
-      >
-        Projects
-      </motion.p>
+      Projects
+    </motion.p>
 
-      <div className="">
-        {displayedProjects.map((project, i) => {
-          const targetScale = 1 - (projects.length - i) * 0.05;
-          return (
-            <Card
-              key={`p_${i}`}
-              i={i}
-              {...project}
-              progress={scrollYProgress}
-              range={[i * 0.25, 1]}
-              targetScale={targetScale}
-            />
-          );
-        })}
-        {/* <div className="w-full h-[40vh] bg-opacity-95 rounded-3xl bg-brown-1000 bottom-0 sticky flex justify-end items-end p-4 text-beige text-heading-3">
-          {" "}
-          See more
-        </div> */}
-      </div>
-    </Transition>
+    <div className="">
+      {displayedProjects.map((project, i) => {
+        const targetScale = 1 - (projects.length - i) * 0.05;
+        return (
+          <Card
+            key={`p_${i}`}
+            i={i}
+            {...project}
+            progress={scrollYProgress}
+            range={[i * 0.25, 1]}
+            targetScale={targetScale}
+          />
+        );
+      })}
+    </div>
+  </div>
   );
 };
 

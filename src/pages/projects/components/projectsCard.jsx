@@ -13,6 +13,7 @@ const Card = ({
   progress,
   range,
   targetScale,
+  
 }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
