@@ -1,15 +1,17 @@
-// src/components/About.js
 import React from "react";
-import Heading from "./ui/Heading";
+import Section from "./ui/Section";
+import SectionHeader from "./ui/SectionHeader";
+import SectionBody from "./ui/SectionBody";
+const About = () => {
 
-
-const About = () => (
-  <section
-    className="h-screen py-[10%] z-10 flex items-start justify-center  "
-    aria-label="about"
-  >
-    <Heading title="About" />
-  </section>
-);
+  return (
+    <Section>
+      <SectionHeader title="About" />
+      <SectionBody>
+        <div className="h-[200vh]">this year na my year, i can be the man of the year</div>
+      </SectionBody>
+    </Section>
+  );
+};
 
 export default About;

@@ -5,7 +5,7 @@ const Services = () => {
   return (
     <Transition>
       <div className="flex justify-center flex-col items-center h-screen w-full">
-        <p className="text-title">Services</p>
+        <p className="text-title">Skills</p>
       </div>
       </Transition>
   );

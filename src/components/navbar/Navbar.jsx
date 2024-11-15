@@ -47,7 +47,7 @@ const Navbar = ({ controls }) => {
 
   const navLinks = [
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
+    { href: "/skills", label: "Skills" },
     { href: "/projects", label: "Projects" },
   ];
   // Filter out the current route from the list
@@ -56,7 +56,7 @@ const Navbar = ({ controls }) => {
   );
   return (
     <motion.div
-      className={`fixed top-0 z-[1000] ${mainColor} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
+      className={`fixed top-0 z-[1000] ${mainColor}  py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
       animate={controls}
     >
       <div>

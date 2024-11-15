@@ -37,9 +37,9 @@ const Memory = () => {
     onLoopDone: () => {
       console.log(`loop completed.`);
       setIsNavigatingToNothing(true);
-      setTimeout(() => {
-        router.push("/nothing"); // Navigate to /nothing after 2 seconds
-      }, 2000);
+      // setTimeout(() => {
+      //   router.push("/nothing"); // Navigate to /nothing after 2 seconds
+      // }, 2000);
     },
   });
 

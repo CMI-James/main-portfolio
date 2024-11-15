@@ -7,12 +7,12 @@ import Navbar from "./navbar/Navbar";
 export default function Layout({ children }) {
   const router = useRouter();
   const section = useScrollSection();
-  const { mainColor } = getSectionClasses(section);
+  const { mainColor, selectionColor } = getSectionClasses(section);
   console.log("mainColor", mainColor);
 
   return (
     <AnimatePresence mode="wait">
-      <div key={router.pathname} className={`${mainColor}`}>
+      <div key={router.pathname} className={`${selectionColor} ${mainColor} `}>
         <Navbar />
         {children}
       </div>
