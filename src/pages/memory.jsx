@@ -42,6 +42,7 @@ const Memory = () => {
       // }, 2000);
     },
   });
+  
 
   return (
     <Transition>
