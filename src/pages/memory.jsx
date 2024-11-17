@@ -1,11 +1,12 @@
 import Transition from "@/components/ui/Transition";
+import { useMemory } from "@/context/MemoryContext";
 import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 const Memory = () => {
   const router = useRouter();
-  const { name } = router.query;
+  const { name } = useMemory();
   const audioRef = useRef(null);
   const [isNavigatingToNothing, setIsNavigatingToNothing] = useState(false);
 
@@ -16,12 +17,12 @@ const Memory = () => {
       });
     }
   }, []);
-
   useEffect(() => {
-    if (name === undefined && !isNavigatingToNothing) {
+    if (!name && !isNavigatingToNothing) {
       router.replace("/memory-login");
     }
   }, [name, router, isNavigatingToNothing]);
+
 
   const [welcomeText] = useTypewriter({
     words: [` Hey ${name}, Welcome!`],

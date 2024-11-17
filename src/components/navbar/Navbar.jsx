@@ -10,9 +10,11 @@ import { getSectionClasses } from "@/utils/sectionUtils";
 const Navbar = ({ controls }) => {
   const [isActive, setIsActive] = useState(true);
   const [isReversed, setIsReversed] = useState(false);
+  const [filteredLinks, setFilteredLinks] = useState([]);
+  const [showContact, setShowContact] = useState(true);
   const router = useRouter();
   const section = useScrollSection();
-  const { buttonClass, oppositeColor , mainColor} = getSectionClasses(section);
+  const { buttonClass, oppositeColor, mainColor } = getSectionClasses(section);
   useEffect(() => {
     if (isActive) setIsActive(false);
   }, [router.pathname]);
@@ -50,10 +52,18 @@ const Navbar = ({ controls }) => {
     { href: "/skills", label: "Skills" },
     { href: "/projects", label: "Projects" },
   ];
-  // Filter out the current route from the list
-  const filteredNavLinks = navLinks.filter(
-    (link) => link.href !== router.pathname
-  );
+  // Debounce filter logic
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const newFilteredLinks = navLinks.filter(
+        (link) => link.href !== router.pathname
+      );
+      setFilteredLinks(newFilteredLinks);
+      setShowContact(router.pathname !== "/contact");
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [router.pathname]);
   return (
     <motion.div
       className={`fixed top-0 z-[1000] ${mainColor}  py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
@@ -85,10 +95,13 @@ const Navbar = ({ controls }) => {
           </div>
         </div>
 
-        <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+        <div className="flex sm:hidden">
+          {" "}
+          <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+        </div>
 
         <ul className="hidden sm:flex gap-10 items-center justify-between z-[100000] ">
-          {filteredNavLinks.map((link) => (
+          {filteredLinks.map((link) => (
             <li key={link.href} className="group flex items-center space-x-2">
               <Link href={link.href} scroll={false} className="relative">
                 <span>{link.label}</span>
@@ -99,7 +112,7 @@ const Navbar = ({ controls }) => {
             </li>
           ))}
 
-          {router.pathname !== "/contact" && (
+          {showContact && (
             <li>
               <button className={`rounded-lg border py-1 px-2 ${buttonClass}`}>
                 <Link href="/contact" scroll={false}>
