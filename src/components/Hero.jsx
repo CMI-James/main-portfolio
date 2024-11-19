@@ -1,6 +1,6 @@
 import React from "react";
 export default function Hero() {
-  const textArray = ["HEY I'M JAMES", "HEY I'M JAMES", "HEY I'M JAMES"];
+  const textArray = ["HEY, I'M JAMES", "HEY, I'M JAMES", "HEY, I'M JAMES"];
   return (
     <section className="relative h-[90vh] hero-clip">
       <div className="fixed top-0 h-[90vh] w-full">

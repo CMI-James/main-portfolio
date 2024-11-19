@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
           </Head>
           <Component {...pageProps} />
         </Layout>
+        
       </MemoryProvider>
     </SmoothScrollWrapper>
   );

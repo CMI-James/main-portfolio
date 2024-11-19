@@ -23,87 +23,72 @@ const Home = () => {
   const buttonControls = useAnimation();
   const ref = useRef(null);
 
-  const [currentColors, setCurrentColors] = useState({
-    backgroundColor: "#f5f5dc",
-    color: "#0f0500",
-  });
-  const [isScrolling, setIsScrolling] = useState(false);
-  const [timer, setTimer] = useState(null);
+  // const [currentColors, setCurrentColors] = useState({
+  //   backgroundColor: "#f5f5dc",
+  //   color: "#0f0500",
+  // });
+  // const [isScrolling, setIsScrolling] = useState(false);
+  
+  // useEffect(() => {
+  //   const root = document.documentElement;
+  //   const { backgroundColor, color } = getSectionClasses(section);
 
-  const handleMouseDown = () => {
-    const newTimer = setTimeout(() => {
-      router.push("/memory-login");
-    }, 2000);
-    setTimer(newTimer);
-  };
+  //   setCurrentColors({ backgroundColor, color });
 
-  const handleMouseUp = () => {
-    if (timer) {
-      clearTimeout(timer);
-      setTimer(null);
-    }
-  };
+  //   controls.start({
+  //     backgroundColor: backgroundColor,
+  //     color: color,
+  //     transition: { duration: 0.5 },
+  //   });
+  //   navControls.start({
+  //     backgroundColor: backgroundColor,
+  //     transition: { duration: 0.5 },
+  //     color: color,
+  //   });
 
-  useEffect(() => {
-    const root = document.documentElement;
-    const { backgroundColor, color } = getSectionClasses(section);
+  //   root.style.setProperty("--scrollbar-track-color", backgroundColor);
+  //   root.style.setProperty("--scrollbar-thumb-color", color);
+  // }, [section, controls, navControls]);
 
-    setCurrentColors({ backgroundColor, color });
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolling(true);
+  //     clearTimeout(window.scrollTimeout);
 
-    controls.start({
-      backgroundColor: backgroundColor,
-      color: color,
-      transition: { duration: 0.5 },
-    });
-    navControls.start({
-      backgroundColor: backgroundColor,
-      transition: { duration: 0.5 },
-      color: color,
-    });
+  //     window.scrollTimeout = setTimeout(() => {
+  //       setIsScrolling(false);
+  //     }, 200); // reduced debounce time for faster responsiveness
+  //   };
 
-    root.style.setProperty("--scrollbar-track-color", backgroundColor);
-    root.style.setProperty("--scrollbar-thumb-color", color);
-  }, [section, controls, navControls]);
+  //   window.addEventListener("scroll", handleScroll);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolling(true);
-      clearTimeout(window.scrollTimeout);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-      window.scrollTimeout = setTimeout(() => {
-        setIsScrolling(false);
-      }, 200); // reduced debounce time for faster responsiveness
-    };
+  // useEffect(() => {
+  //   // Update button animation based on isScrolling and section
+  //   buttonControls.start({
+  //     opacity: isScrolling ? 0.6 : 0.1,
+  //     scale: section > 0 ? 1 : 0,
+  //     transition: { duration: 1 }, // Smooth transition between states
+  //   });
+  // }, [isScrolling, section, buttonControls]);
 
-    window.addEventListener("scroll", handleScroll);
+  // const { backgroundColor, color } = currentColors;
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Update button animation based on isScrolling and section
-    buttonControls.start({
-      opacity: isScrolling ? 0.6 : 0.1,
-      scale: section > 0 ? 1 : 0,
-      transition: { duration: 1 }, // Smooth transition between states
-    });
-  }, [isScrolling, section, buttonControls]);
-
-  const { backgroundColor, color } = currentColors;
-
-  const scrollToTop = () => {
-    if (typeof window !== "undefined") {
-      const SmoothScroll = require("smooth-scroll");
-      const scroll = new SmoothScroll();
-      let scrollSpeed = 4000;
-      scroll.animateScroll(0, null, {
-        speed: scrollSpeed,
-        speedAsDuration: true,
-      });
-    }
-  };
+  // const scrollToTop = () => {
+  //   if (typeof window !== "undefined") {
+  //     const SmoothScroll = require("smooth-scroll");
+  //     const scroll = new SmoothScroll();
+  //     let scrollSpeed = 4000;
+  //     scroll.animateScroll(0, null, {
+  //       speed: scrollSpeed,
+  //       speedAsDuration: true,
+  //     });
+  //   }
+  // };
 
   return (
     <Transition>
@@ -121,20 +106,7 @@ const Home = () => {
         {/* <Testimonial /> */}
         <ContactMe className="py-[10%]"/>
         <Footer />
-        <motion.button
-          onClick={scrollToTop}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
-          style={{
-            backgroundColor: color,
-            color: backgroundColor,
-          }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={buttonControls}
-        >
-          <FaArrowUp className="text-2xl" />
-        </motion.button>
+       
       </motion.div>
     </Transition>
   );
