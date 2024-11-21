@@ -22,6 +22,7 @@ export default function Layout({ children }) {
     handleMouseUp,
   } = useDynamicPageEffects(section);
 
+  
   const { backgroundColor, color } = currentColors;
   return (
     <AnimatePresence mode="wait">
