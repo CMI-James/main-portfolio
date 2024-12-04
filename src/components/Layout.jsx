@@ -4,15 +4,23 @@ import useScrollSection from "@/hooks/useScrollSection";
 import { getSectionClasses } from "@/utils/sectionUtils";
 import Navbar from "./navbar/Navbar";
 import useDynamicPageEffects from "@/hooks/useDynamicPageEffects";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import LoadingScreen from "./ui/LoadingScreen";
 
 export default function Layout({ children }) {
   const router = useRouter();
   const section = useScrollSection();
   const { mainColor, selectionColor } = getSectionClasses(section);
   console.log("mainColor", mainColor);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 6000); // Adjust to match your loading duration
+    return () => clearTimeout(timer);
+  }, []);
   const {
     controls,
     buttonControls,
@@ -22,15 +30,25 @@ export default function Layout({ children }) {
     handleMouseUp,
   } = useDynamicPageEffects(section);
 
-  
   const { backgroundColor, color } = currentColors;
   return (
-    <AnimatePresence mode="wait">
-      <div key={router.pathname} className={`${selectionColor} ${mainColor} `}>
-        <Navbar />
-        {children}
-      </div>
-      {/* Scroll to top button */}
+    <div>
+      <AnimatePresence mode="wait">
+        <div
+          key={router.pathname}
+          className={`${selectionColor} ${mainColor} `}
+        >
+          {isLoading ? (
+            <LoadingScreen />
+          ) : (
+            <>
+              <Navbar />
+              {children}
+            </>
+          )}
+        </div>
+       
+      </AnimatePresence>
       <motion.button
         onClick={scrollToTop}
         onMouseDown={handleMouseDown}
@@ -45,6 +63,6 @@ export default function Layout({ children }) {
       >
         <FaArrowUp className="text-2xl" />
       </motion.button>
-    </AnimatePresence>
+    </div>
   );
 }
