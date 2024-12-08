@@ -38,17 +38,9 @@ export default function Layout({ children }) {
           key={router.pathname}
           className={`${selectionColor} ${mainColor} `}
         >
-          {isLoading ? (
-            <LoadingScreen />
-          ) : (
-            <>
-              <Navbar />
-              {children}
-            </>
-          )}
+          <Navbar />
+          {children}
         </div>
-       
-       
       </AnimatePresence>
       <motion.button
         onClick={scrollToTop}

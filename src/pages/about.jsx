@@ -3,8 +3,6 @@ import SectionBody from "@/components/ui/SectionBody";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Transition from "@/components/ui/Transition";
 import React from "react";
-import ImageScroll from "./memory/components/imageScroll";
-import ImageScroll2 from "./memory/components/imageScroll2";
 
 const About = () => {
   return (
@@ -16,7 +14,6 @@ const About = () => {
       <Section>
         <SectionHeader title="About" />
         <SectionBody><div className="h-[200vh]"></div></SectionBody>
-    <ImageScroll/>
       </Section>
     </Transition>
   );
