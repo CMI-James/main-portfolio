@@ -3,23 +3,21 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Main';
-  src: url('/PPPangaia-Bold.otf') format('opentype');
+  font-family: "Main";
+  src: url("/PPPangaia-Bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
- 
-.transparent-text{
-    -webkit-text-stroke: 2px #0f0500;
-    color: transparent;
-   
+.transparent-text {
+  -webkit-text-stroke: 2px #0f0500;
+  color: transparent;
 }
-body{
-  font-family: 'Main';
-  
+body {
+  font-family: "Main";
 }
 
 .hero-clip {
   clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 }
+

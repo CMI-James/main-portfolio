@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import "@/styles/navbar.css";
 import "@/styles/scrollbar.css";
 import "@/styles/project.css";
+import "@/styles/imageScroll.css";
 import { MemoryProvider } from "@/context/MemoryContext";
 
 function MyApp({ Component, pageProps }) {

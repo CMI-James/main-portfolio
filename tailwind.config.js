@@ -51,5 +51,14 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      // Adding custom nth-of-type variants
+      addVariant('nth-1', '&:nth-of-type(1)');
+      addVariant('nth-2', '&:nth-of-type(2)');
+      addVariant('nth-3', '&:nth-of-type(3)');
+      addVariant('nth-4', '&:nth-of-type(4)');
+      // Add more if needed
+    },
+  ],
 };
