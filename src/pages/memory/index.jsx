@@ -69,32 +69,36 @@ const Memory = () => {
       console.log(`loop completed.`);
       setTimeout(() => {
         setIsNavigatingToNothing(true);
-        // router.push("/nothing"); // Navigate to /nothing after scrolling
+        router.push("/nothing"); // Navigate to /nothing after scrolling
       }, 11000);
     },
   });
 
   return (
-    <Transition > 
-      {/* Section 1 */}
-      <div className="relative px-5 md:px-10 xl:px-20 2xl:px-28 text-center flex flex-col justify-center items-center h-screen w-full">
-        {/* <audio ref={audioRef} src="/music/rain.mp3" autoPlay loop /> */}
-        <p className="text-heading lg:text-special">
-          {welcomeText} <Cursor />
-        </p>
-      </div>
+    <div>
+      {name && (
+        <Transition>
+          {/* Section 1 */}
+          <div className="relative px-5 md:px-10 xl:px-20 2xl:px-28 text-center flex flex-col justify-center items-center h-screen w-full">
+            {/* <audio ref={audioRef} src="/music/rain.mp3" autoPlay loop /> */}
+            <p className="text-heading lg:text-special">
+              {welcomeText} <Cursor />
+            </p>
+          </div>
 
-      {/* ImageScroll Section */}
-      <ImageScroll />
+          {/* ImageScroll Section */}
+          <ImageScroll />
 
-      {/* Section 2 */}
-      <div className="relative px-5 md:px-10 xl:px-20 2xl:px-28 text-center flex flex-col justify-center items-center h-screen w-full">
-        <p className="text-2xl">
-          {followText}
-          <Cursor />
-        </p>
-      </div>
-    </Transition>
+          {/* Section 2 */}
+          <div className="relative px-5 md:px-10 xl:px-20 2xl:px-28 text-center flex flex-col justify-center items-center h-screen w-full">
+            <p className="text-2xl">
+              {followText}
+              <Cursor />
+            </p>
+          </div>
+        </Transition>
+      )}
+    </div>
   );
 };
 

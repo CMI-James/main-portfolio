@@ -18,7 +18,7 @@ const useDynamicPageEffects = (section) => {
 
   const handleMouseDown = () => {
     const newTimer = setTimeout(() => {
-      router.push("/memory-login");
+      router.push("/memory/login");
     }, 2000);
     setTimer(newTimer);
   };

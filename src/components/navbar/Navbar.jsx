@@ -47,27 +47,35 @@ const Navbar = ({ controls }) => {
     );
   }, [burgerLineColor]);
 
-  const navLinks = [
-    { href: "/about", label: "About" },
-    { href: "/skills", label: "Skills" },
-    { href: "/projects", label: "Projects" },
-  ];
-  // Debounce filter logic
   useEffect(() => {
     const timer = setTimeout(() => {
-      const newFilteredLinks = navLinks.filter(
-        (link) => link.href !== router.pathname
-      );
-      setFilteredLinks(newFilteredLinks);
+      const navLinks = [
+        { href: "/about", label: "About" },
+        { href: "/skills", label: "Skills" },
+        { href: "/projects", label: "Projects" },
+      ];
+      setFilteredLinks(navLinks.filter((link) => link.href !== router.pathname));
       setShowContact(router.pathname !== "/contact");
     }, 100);
 
     return () => clearTimeout(timer);
   }, [router.pathname]);
+  const navbarVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
+  const menuVariants = {
+    hidden: { opacity: 0, x: "100%" },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeInOut" } },
+    exit: { opacity: 0, x: "100%", transition: { duration: 0.5, ease: "easeInOut" } },
+  };
   return (
     <motion.div
       className={`fixed top-0 z-[1000] ${mainColor}  py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
-      animate={controls}
+      variants={navbarVariants}
+      initial="hidden"
+      animate="visible"
     >
       <div>
         <p className="text-2xl font-extrabold z-[10000]">
