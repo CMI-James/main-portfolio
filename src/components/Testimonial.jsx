@@ -2,7 +2,7 @@
 import React from "react";
 import Heading from "./ui/Heading";
 
-const Testimonial = () => (
+export const Testimonial = () => (
   <section
     className="h-screen py-[10%] z-10 flex items-start justify-center  "
     aria-label="testimonial"
@@ -11,4 +11,3 @@ const Testimonial = () => (
   </section>
 );
 
-export default Testimonial;
