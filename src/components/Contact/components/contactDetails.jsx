@@ -1,8 +1,28 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import { H4, SocialLink } from "./ui/reusable";
 
 
-const ContactDetails = ({ time }) => {
+const ContactDetails = () => {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      });
+      setTime(formattedTime);
+    };
+
+    updateTime(); // Update immediately on mount
+    const interval = setInterval(updateTime, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
   const socialLinks = [
     { href: 'https://github.com/ChibuikemMichaelIlonze', platform: 'Github' },
     { href: 'https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/', platform: 'LinkedIn' },

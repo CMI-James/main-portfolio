@@ -80,7 +80,7 @@ const Memory = () => {
         <Transition>
           {/* Section 1 */}
           <div className="relative px-5 md:px-10 xl:px-20 2xl:px-28 text-center flex flex-col justify-center items-center h-screen w-full">
-            {/* <audio ref={audioRef} src="/music/rain.mp3" autoPlay loop /> */}
+            <audio ref={audioRef} src="/music/rain.mp3" autoPlay loop />
             <p className="text-heading lg:text-special">
               {welcomeText} <Cursor />
             </p>

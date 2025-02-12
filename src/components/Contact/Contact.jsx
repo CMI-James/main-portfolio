@@ -4,16 +4,7 @@ import ContactForm from "./components/contactForm";
 import ContactDetails from "./components/contactDetails";
 
 export default function ContactMe({ className = "" }) {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 1000);
-
-    // Cleanup the interval on component unmount okay
-    return () => clearInterval(intervalId);
-  }, []);
+ 
 
   return (
     <section
@@ -32,7 +23,7 @@ export default function ContactMe({ className = "" }) {
           </p>
           <ContactForm />
         </div>
-        <ContactDetails  time={time}/>
+        <ContactDetails  />
       </div>
     </section>
   );
