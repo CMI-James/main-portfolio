@@ -7,22 +7,24 @@ import "@/styles/scrollbar.css";
 import "@/styles/project.css";
 import "@/styles/imageScroll.css";
 import { MemoryProvider } from "@/context/MemoryContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <SmoothScrollWrapper>
       <MemoryProvider>
-        <Layout>
-          <Head>
-            <title>James</title>
-            <meta
-              name="description"
-              content="Default description for my website."
-            />
-          </Head>
-          <Component {...pageProps} />
-        </Layout>
-        
+        <ThemeProvider>
+          <Layout>
+            <Head>
+              <title>James</title>
+              <meta
+                name="description"
+                content="Default description for my website."
+              />
+            </Head>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
       </MemoryProvider>
     </SmoothScrollWrapper>
   );

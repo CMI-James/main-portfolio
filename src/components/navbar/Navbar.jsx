@@ -72,7 +72,7 @@ const Navbar = ({ controls }) => {
   };
   return (
     <motion.div
-      className={`fixed top-0 z-[1000] ${mainColor}  py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
+      className={`fixed top-0 z-[1000] theme-dark-light py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
       variants={navbarVariants}
       initial="hidden"
       animate="visible"

@@ -21,3 +21,9 @@ body {
   clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 }
 
+.theme-dark-light {
+  @apply text-brown-1000 dark:text-beige 
+         bg-beige dark:bg-brown-1000 
+         selection:bg-brown-1000 dark:selection:bg-beige 
+         selection:text-beige dark:selection:text-brown-1000;
+}
