@@ -31,14 +31,14 @@ export default function Hero() {
 
   return (
     <motion.section
-      className="relative h-[90vh] hero-clip"
+      className="relative h-[90vh] hero-clip "
       initial="hidden"
       animate="show"
       variants={containerVariants}
     >
-      <div className="fixed top-0 h-[90vh] w-full">
+      <div className="fixed top-0 h-[90vh] w-full theme-dark-light">
         <motion.div
-          className="sticky text-center font-main top-0 h-[80vh] pt-[6rem] flex flex-col items-center justify-center text-4xl text-brown-1000 dark:text-beige bg-black"
+          className="sticky text-center theme-dark-light font-main top-0 h-[80vh] pt-[6rem] flex flex-col items-center justify-center text-4xl text-brown-1000 dark:text-beige bg-black"
         >
           {textArray.map((text, index) => (
             <motion.p
