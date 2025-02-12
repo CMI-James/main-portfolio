@@ -24,10 +24,10 @@ const ContactDetails = () => {
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
   const socialLinks = [
-    { href: 'https://github.com/ChibuikemMichaelIlonze', platform: 'Github' },
+    { href: 'https://github.com/CMI-James', platform: 'Github' },
     { href: 'https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/', platform: 'LinkedIn' },
     { href: 'https://web.facebook.com/chibuike.ilonze.1', platform: 'Facebook' },
-    { href: 'https://twitter.com/BikeManJames', platform: 'X (Twitter)' }
+    { href: 'https://twitter.com/CMIJames', platform: 'X (Twitter)' }
   ];
 
   return (
