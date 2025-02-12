@@ -30,14 +30,10 @@ export default function Layout({ children }) {
     handleMouseUp,
   } = useDynamicPageEffects(section);
 
-  const { backgroundColor, color } = currentColors;
   return (
     <div>
       <AnimatePresence mode="wait">
-        <div
-          key={router.pathname}
-          className={`${selectionColor} ${mainColor} `}
-        >
+        <div key={router.pathname} >
           <Navbar />
           {children}
         </div>
@@ -47,10 +43,6 @@ export default function Layout({ children }) {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
-        style={{
-          backgroundColor: color,
-          color: backgroundColor,
-        }}
         initial={{ opacity: 0, scale: 0 }}
         animate={buttonControls}
       >

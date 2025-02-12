@@ -54,7 +54,9 @@ const Navbar = ({ controls }) => {
         { href: "/skills", label: "Skills" },
         { href: "/projects", label: "Projects" },
       ];
-      setFilteredLinks(navLinks.filter((link) => link.href !== router.pathname));
+      setFilteredLinks(
+        navLinks.filter((link) => link.href !== router.pathname)
+      );
       setShowContact(router.pathname !== "/contact");
     }, 100);
 
@@ -67,8 +69,16 @@ const Navbar = ({ controls }) => {
 
   const menuVariants = {
     hidden: { opacity: 0, x: "100%" },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeInOut" } },
-    exit: { opacity: 0, x: "100%", transition: { duration: 1, ease: "easeInOut" } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+    exit: {
+      opacity: 0,
+      x: "100%",
+      transition: { duration: 1, ease: "easeInOut" },
+    },
   };
   return (
     <motion.div
@@ -92,12 +102,10 @@ const Navbar = ({ controls }) => {
                 setIsActive(!isActive);
                 setIsReversed(!isReversed);
               }}
-              className={`z-50 w-8 h-8 rounded-[50%] cursor-pointer flex items-center justify-center ${harmburgerClass}`}
+              className={`z-50 w-8 h-8 rounded-[50%] cursor-pointer flex items-center justify-center `}
             >
               <div
-                className={`burger justify-center items-center relative flex ${
-                  isActive ? "burgerActive" : ""
-                }`}
+                className={`burger justify-center items-center relative flex`}
               ></div>
             </div>
           </div>
@@ -114,7 +122,7 @@ const Navbar = ({ controls }) => {
               <Link href={link.href} scroll={false} className="relative">
                 <span>{link.label}</span>
                 <span
-                  className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full ${underlineClass} duration-300 ease-in-out group-hover:w-full`}
+                  className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-300 ease-in-out group-hover:w-full`}
                 ></span>
               </Link>
             </li>
@@ -122,7 +130,9 @@ const Navbar = ({ controls }) => {
 
           {showContact && (
             <li>
-              <button className={`rounded-lg border py-1 px-2 ${buttonClass}`}>
+              <button
+                className={`rounded-lg border py-1 px-2 border-brown-1000 dark:border-brown-1000 bg-brown-1000 dark:bg-beige text-beige dark:text-brown-1000  hover:bg-beige dark:hover:bg-brown-1000  hover:text-brown-1000 dark:hover:text-beige hover:border-brown-1000 dark:hover:border-beige  transition-colors duration-300`}
+              >
                 <Link href="/contact" scroll={false}>
                   Contact me
                 </Link>

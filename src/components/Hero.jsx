@@ -38,13 +38,13 @@ export default function Hero() {
     >
       <div className="fixed top-0 h-[90vh] w-full">
         <motion.div
-          className="sticky text-center font-main top-0 h-[80vh] pt-[6rem] flex flex-col items-center justify-center text-4xl"
+          className="sticky text-center font-main top-0 h-[80vh] pt-[6rem] flex flex-col items-center justify-center text-4xl text-brown-1000 dark:text-beige bg-black"
         >
           {textArray.map((text, index) => (
             <motion.p
               key={index}
               variants={textVariants}
-              className={`z-10 leading-[5rem] text-title sm:leading-[6rem] lg:leading-[10rem] font-extrabold text-brown-1000 ${
+              className={`z-10 leading-[5rem] text-title sm:leading-[6rem] lg:leading-[10rem] font-extrabold  ${
                 index === 1 ? "transparent-text" : ""
               }`}
             >
