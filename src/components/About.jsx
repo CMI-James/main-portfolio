@@ -5,7 +5,7 @@ import SectionBody from "./ui/SectionBody";
 const About = () => {
 
   return (
-    <Section>
+    <Section className="theme-dark-light">
       <SectionHeader title="About Me" />
       <SectionBody>
         <div className="h-[200vh]">this year na my year, i can be the man of the year</div>

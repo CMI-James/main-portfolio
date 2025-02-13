@@ -111,6 +111,7 @@ const Navbar = ({ controls }) => {
           </div>
         </div>
 
+
         <div className="flex sm:hidden">
           {" "}
           <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
