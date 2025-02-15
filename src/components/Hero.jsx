@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import AnimatedThemeIcon from "./AnimatedThemeIcon";
 
 export default function Hero() {
   const textArray = ["HEY, I'M JAMES", "HEY, I'M JAMES", "HEY, I'M JAMES"];
@@ -37,6 +38,7 @@ export default function Hero() {
       variants={containerVariants}
     >
       <div className="fixed top-0 h-[90vh] w-full theme-dark-light">
+      <AnimatedThemeIcon />
         <motion.div
           className="sticky text-center theme-dark-light font-main top-0 h-[80vh] pt-[6rem] flex flex-col items-center justify-center text-4xl text-brown-1000 dark:text-beige bg-black"
         >

@@ -7,6 +7,7 @@ import useDynamicPageEffects from "@/hooks/useDynamicPageEffects";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import LoadingScreen from "./ui/LoadingScreen";
+import AnimatedThemeIcon from "./AnimatedThemeIcon";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -33,11 +34,15 @@ export default function Layout({ children }) {
   return (
     <div>
       <AnimatePresence mode="wait">
-        <div key={router.pathname} >
+        <div key={router.pathname}>
           <Navbar />
           {children}
         </div>
       </AnimatePresence>
+      <div className={`fixed bottom-2 left-2 z-[10000] p-2 rounded-full`}>
+      <AnimatedThemeIcon />
+
+      </div>
       <motion.button
         onClick={scrollToTop}
         onMouseDown={handleMouseDown}
@@ -48,6 +53,7 @@ export default function Layout({ children }) {
       >
         <FaArrowUp className="text-2xl" />
       </motion.button>
+      
     </div>
   );
 }
