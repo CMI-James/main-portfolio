@@ -32,3 +32,9 @@ body {
          selection:bg-brown-1000 dark:selection:bg-beige 
          selection:text-beige dark:selection:text-brown-1000;
 }
+.theme-light-dark {
+  @apply text-beige dark:text-brown-1000 transition-colors duration-300
+         bg-brown-1000 dark:bg-beige
+         selection:bg-beige dark:selection:bg-brown-1000
+         selection:text-brown-1000 dark:selection:text-beige;
+}

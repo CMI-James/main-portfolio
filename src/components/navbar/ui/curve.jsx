@@ -45,7 +45,7 @@ export default function Curve() {
   // Render only if both paths are set
   return (
     <svg
-      className={`absolute top-0 -left-[6.2rem] w-[6.2rem] h-screen stroke-none ${curveColor}`}
+      className={`absolute top-0 -left-[6.2rem] w-[6.2rem] h-screen stroke-none fill-brown-1000 dark:fill-beige`}
     >
       {paths.targetPath && (
         <motion.path

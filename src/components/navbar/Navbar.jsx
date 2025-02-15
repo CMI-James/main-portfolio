@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Nav from "./ui/nav";
 import useScrollSection from "@/hooks/useScrollSection";
 import { getSectionClasses } from "@/utils/sectionUtils";
+import MenuBar from "./ui/menubar";
 
 const Navbar = ({ controls }) => {
   const [isActive, setIsActive] = useState(true);
@@ -102,15 +103,11 @@ const Navbar = ({ controls }) => {
                 setIsActive(!isActive);
                 setIsReversed(!isReversed);
               }}
-              className={`z-50 w-8 h-8 rounded-[50%] cursor-pointer flex items-center justify-center `}
             >
-              <div
-                className={`burger justify-center items-center relative flex`}
-              ></div>
+              <MenuBar />
             </div>
           </div>
         </div>
-
 
         <div className="flex sm:hidden">
           {" "}

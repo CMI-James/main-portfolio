@@ -1,7 +1,11 @@
 /* Navbar.css */
 :root {
-    --burger-line-color: #f5f5dc; /* Default color */
-  }
+  --burger-line-color: #f5f5dc; /* Default color (light mode) */
+}
+
+[data-theme="dark"] {
+  --burger-line-color: #0f0500; /* Dark mode color */
+}
   
   .burger {
     width: 100%;
