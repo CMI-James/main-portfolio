@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { getSectionClasses } from "@/utils/sectionUtils";
-import useScrollSection from "@/hooks/useScrollSection";
 
 export default function Curve() {
-  const section = useScrollSection();
-  const { curveColor } = getSectionClasses(section);
 
   // State to hold the path strings after component mounts
   const [paths, setPaths] = useState({

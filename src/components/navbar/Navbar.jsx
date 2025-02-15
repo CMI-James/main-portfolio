@@ -4,8 +4,6 @@ import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Nav from "./ui/nav";
-import useScrollSection from "@/hooks/useScrollSection";
-import { getSectionClasses } from "@/utils/sectionUtils";
 import MenuBar from "./ui/menubar";
 
 const Navbar = ({ controls }) => {
@@ -14,39 +12,11 @@ const Navbar = ({ controls }) => {
   const [filteredLinks, setFilteredLinks] = useState([]);
   const [showContact, setShowContact] = useState(true);
   const router = useRouter();
-  const section = useScrollSection();
-  const { buttonClass, oppositeColor, mainColor } = getSectionClasses(section);
+
   useEffect(() => {
     if (isActive) setIsActive(false);
   }, [router.pathname]);
 
-  const navbarClass = section % 2 == 0 ? "bg-beige" : "bg-brown-1000";
-  const underlineClass = section % 2 == 0 ? "bg-brown-1000" : "bg-beige";
-  console.log("testers", navbarClass, underlineClass);
-  const harmburgerClass =
-    section % 2 === 0
-      ? isReversed
-        ? "bg-beige"
-        : "bg-brown-1000"
-      : isReversed
-      ? "bg-brown-1000"
-      : "bg-beige";
-
-  const burgerLineColor =
-    section % 2 === 0
-      ? isReversed
-        ? "#0f0500"
-        : "#f5f5dc"
-      : isReversed
-      ? "#f5f5dc"
-      : "#0f0500";
-
-  useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--burger-line-color",
-      burgerLineColor
-    );
-  }, [burgerLineColor]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

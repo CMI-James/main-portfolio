@@ -5,9 +5,6 @@ import { menuSlide } from "./anim";
 import NavLink from "./link";
 import Curve from "./curve";
 import NavFooter from "./footer";
-import useScrollSection from "@/hooks/useScrollSection";
-import { getSectionClasses } from "@/utils/sectionUtils";
-
 
 
 const navItems = [
@@ -20,8 +17,6 @@ const navItems = [
 
 export default function Nav() {
   const router = useRouter(); // Using useRouter for routing
-  const section = useScrollSection();
-  const { navColor } = getSectionClasses(section);
   const [selectedIndicator, setSelectedIndicator] = useState(router.pathname);
 
   useEffect(() => {
