@@ -16,7 +16,7 @@ const Projects = ({ limit }) => {
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <Section>
+    <Section className="theme-dark-light">
       <SectionHeader title="Projects" />
       <SectionBody>
         <div className="projects-grid">
