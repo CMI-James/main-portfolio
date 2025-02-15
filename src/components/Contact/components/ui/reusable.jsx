@@ -25,7 +25,7 @@ const H4 = ({ children, level = "h4", className = "" }) => {
 
   return (
     <Tag
-      className={`text-body-1 2xl:text-4xl font-semibold text-brown-1000 ${className}`}
+      className={`text-body-1 2xl:text-4xl font-semibold text-brown-1000 dark:text-beige ${className}`}
     >
       {children}
     </Tag>

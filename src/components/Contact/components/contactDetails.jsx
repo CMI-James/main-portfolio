@@ -31,7 +31,7 @@ const ContactDetails = () => {
   ];
 
   return (
-    <div className="col-span-2 grid grid-cols-1 gap-x-4 gap-y-8 text-brown-700 dark: sm:grid-cols-2 sm:gap-y-0 md:grid-cols-1">
+    <div className="col-span-2 grid grid-cols-1 gap-x-4 gap-y-8 text-brown-700 dark:text-beige/70 sm:grid-cols-2 sm:gap-y-0 md:grid-cols-1">
       {/* Contact Details */}
       <div className="space-y-3">
         <H4>Contact Details</H4>
