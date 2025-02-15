@@ -12,7 +12,7 @@ const SocialLink = ({ href, platform, bgColor }) => {
       <div className="relative">
         <span>{platform}</span>
         <span
-          className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 duration-300 ease-in-out group-hover:w-full`}
+          className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-300 ease-in-out group-hover:w-full`}
         ></span>
       </div>
     </a>

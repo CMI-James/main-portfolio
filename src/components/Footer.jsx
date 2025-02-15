@@ -26,7 +26,7 @@ export default function Footer() {
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 h-[30vh] w-full">
-        <div className="bg-brown-1000 text-beige dark:text-brown-1000 dark:bg-beige  px-12 h-full w-full flex flex-col justify-between">
+        <div className="bg-brown-1000 text-beige dark:text-brown-1000 dark:bg-beige  md:px-12 h-full w-full flex flex-col justify-between">
           <div className="flex shrink-0 gap-20">
             {/* Add any additional elements here if necessary */}
           </div>
