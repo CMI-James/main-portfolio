@@ -7,7 +7,7 @@ import SectionBody from "./ui/SectionBody";
 
 
 const Skills = () => (
-  <Section>
+  <Section className="theme-dark-light">
   <SectionHeader title="Skills" />
   <SectionBody>
     <div className="h-[200vh]">this year na my year, i can be the man of the year</div>
