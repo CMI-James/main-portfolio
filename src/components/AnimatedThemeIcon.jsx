@@ -6,17 +6,22 @@ import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 const AnimatedThemeIcon = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") === "dark";
+    }
+    return false;
+  });
 
   useEffect(() => {
-    // Check if dark mode is already set
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
-  }, []);
+    if (typeof window !== "undefined") {
+      document.documentElement.classList.toggle("dark", isDark);
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    }
+  }, [isDark]);
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark");
+    setIsDark((prev) => !prev);
   };
 
   return (

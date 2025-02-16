@@ -8,18 +8,20 @@ const ThemeContext = createContext({
 });
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
-    }
-    return "light";
-  });
+  const [theme, setTheme] = useState("light"); // Default to light
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", theme);
-      document.documentElement.classList.toggle("dark", theme === "dark");
+    // Retrieve theme from localStorage on mount
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+      document.documentElement.classList.toggle("dark", storedTheme === "dark");
     }
+  }, []); // Run only on mount
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
   const toggleTheme = () => {
