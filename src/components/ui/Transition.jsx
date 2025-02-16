@@ -16,13 +16,13 @@ export default function Transition({ children, backgroundColor, className }) {
   };
 
   const nbOfColumns = 5;
-  const section = useScrollSection();
-  const { transitionColor, dotColor } = getSectionClasses(section);
+
+
   return (
-    <div className={`page stairs  ${dotColor} ${className}`} style={{ backgroundColor }}>
+    <div className={`page stairs  bg-beige dark:bg-brown-1000 ${className}`} style={{ backgroundColor }}>
       <motion.div
         {...anim(opacity)}
-        className={`fixed w-full h-screen  z-[100000] pointer-events-none top-0 left-0 ${transitionColor}`}
+        className={`fixed w-full h-screen  z-[100000] pointer-events-none top-0 left-0 bg-brown-1000 dark:bg-beige`}
       />
       <div className="fixed w-screen h-screen flex left-0 top-0 pointer-events-none z-[200000]">
         {[...Array(nbOfColumns)].map((_, i) => {
@@ -30,7 +30,7 @@ export default function Transition({ children, backgroundColor, className }) {
             <motion.div
               key={i}
               {...anim(expand, nbOfColumns - i)}
-              className={`relative h-full w-full ${transitionColor}`}
+              className={`relative h-full w-full bg-brown-1000 dark:bg-beige`}
             />
           );
         })}

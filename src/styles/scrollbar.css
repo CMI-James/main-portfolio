@@ -2,6 +2,11 @@
   --scrollbar-track-color: #f5f5dc;
   --scrollbar-thumb-color: #0f0500;
 }
+.dark :root {
+  --scrollbar-track-color: #0f0500;
+  --scrollbar-thumb-color: #f5f5dc;
+}
+
 
 body::-webkit-scrollbar {
   width: 0.3em;

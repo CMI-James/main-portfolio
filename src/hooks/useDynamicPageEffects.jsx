@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import { useRouter } from "next/router";
 import { getSectionClasses } from "@/utils/sectionUtils";
+import { useTheme } from "@/context/ThemeContext";
 
 const useDynamicPageEffects = (section) => {
+  const { theme } = useTheme();
   const router = useRouter();
   const controls = useAnimation();
   const navControls = useAnimation();
@@ -22,7 +24,7 @@ const useDynamicPageEffects = (section) => {
     }, 2000);
     setTimer(newTimer);
   };
-
+console.log(theme)
   const handleMouseUp = () => {
     if (timer) {
       clearTimeout(timer);
@@ -30,28 +32,21 @@ const useDynamicPageEffects = (section) => {
     }
   };
 
-  // Change background and text color based on the current section
   useEffect(() => {
+    if (!theme) return; // Prevent running if theme isn't set yet
+  
+    console.log("Theme in useDynamicPageEffects:", theme);
+  
     const root = document.documentElement;
-    const { backgroundColor, color } = getSectionClasses(section);
-
-    setCurrentColors({ backgroundColor, color });
-
-    controls.start({
-      backgroundColor: backgroundColor,
-      color: color,
-      transition: { duration: 0.5 },
-    });
-    navControls.start({
-      backgroundColor: backgroundColor,
-      color: color,
-      transition: { duration: 0.5 },
-    });
-
-    // Update custom scrollbar colors
-    root.style.setProperty("--scrollbar-track-color", backgroundColor);
-    root.style.setProperty("--scrollbar-thumb-color", color);
-  }, [section, controls, navControls]);
+    if (theme === "dark") {
+      root.style.setProperty("--scrollbar-track-color", "#0f0500"); // Brown-1000
+      root.style.setProperty("--scrollbar-thumb-color", "#f5f5dc"); // Beige
+    } else {
+      root.style.setProperty("--scrollbar-track-color", "#f5f5dc"); // Beige
+      root.style.setProperty("--scrollbar-thumb-color", "#0f0500"); // Brown-1000
+    }
+  }, [theme]);
+  
 
   // Scroll detection logic
   useEffect(() => {
