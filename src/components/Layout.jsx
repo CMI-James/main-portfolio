@@ -32,7 +32,7 @@ export default function Layout({ children }) {
   } = useDynamicPageEffects(section);
 
   return (
-    <div>
+    <div className="scrollbar scrollbar-thumb-gray-900  scrollbar-track-gray-100">
       <AnimatePresence mode="wait">
         <div key={router.pathname}>
           <Navbar />

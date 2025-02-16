@@ -2,11 +2,6 @@
   --scrollbar-track-color: #f5f5dc;
   --scrollbar-thumb-color: #0f0500;
 }
-.dark :root {
-  --scrollbar-track-color: #0f0500;
-  --scrollbar-thumb-color: #f5f5dc;
-}
-
 
 body::-webkit-scrollbar {
   width: 0.3em;
@@ -19,4 +14,10 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb-color);
   outline: 0px solid slategrey;
+}
+
+/* Dark mode - Reverse the colors */
+.dark {
+  --scrollbar-track-color: #0f0500;
+  --scrollbar-thumb-color: #f5f5dc;
 }
