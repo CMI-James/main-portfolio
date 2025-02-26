@@ -9,8 +9,7 @@ import { useRouter } from "next/router";
 import Transition from "@/components/ui/Transition";
 import Description from "@/components/Description";
 import Footer from "@/components/Footer";
-import Contact from "@/components/contact/Contact";
-
+import ContactMe from "@/components/contact/Contact";
 
 const Home = () => {
   const router = useRouter();
@@ -98,7 +97,7 @@ const Home = () => {
         <Services />
         <Projects limit={3}/>
         {/* <Testimonial /> */}
-        <Contact className="py-[10%]"/>
+        <ContactMe className="py-[10%]"/>
         <Footer />
        
       </motion.div>
