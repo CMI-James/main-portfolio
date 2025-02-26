@@ -49,7 +49,7 @@ const useDynamicPageEffects = (section) => {
   // Animate button based on scroll state and section
   useEffect(() => {
     buttonControls.start({
-      opacity: isScrolling ? 0.6 : 0.1,
+      opacity: isScrolling ? 1 : 1,
       scale: section > 0 ? 1 : 0,
       transition: { duration: 1 },
     });

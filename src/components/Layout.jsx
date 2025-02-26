@@ -32,14 +32,14 @@ export default function Layout({ children }) {
   } = useDynamicPageEffects(section);
 
   return (
-    <div className="scrollbar scrollbar-thumb-gray-900  scrollbar-track-gray-100">
+    <div className="">
       <AnimatePresence mode="wait">
         <div key={router.pathname}>
           <Navbar />
           {children}
         </div>
       </AnimatePresence>
-      <div className={`fixed bottom-2 left-2 z-[10000] p-2 rounded-full`}>
+      <div className={`fixed bottom-14 right-2 z-[10000] p-2 rounded-full`}>
       <AnimatedThemeIcon />
 
       </div>
@@ -50,8 +50,10 @@ export default function Layout({ children }) {
         className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
         initial={{ opacity: 0, scale: 0 }}
         animate={buttonControls}
-      >
-        <FaArrowUp className="text-2xl" />
+      ><div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
+
+        <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
+      </div>
       </motion.button>
       
     </div>
