@@ -4,15 +4,15 @@ import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 
 const Card = ({
-  i,
-  title,
-  description,
-  src,
-  url,
-  color,
-  progress,
-  range,
-  targetScale,
+  i = 0,
+  title = "",
+  description = "",
+  src = "placeholder.jpg",
+  url = "#",
+  color = "#ffffff",
+  progress = { get: () => 0 }, // Mocked for safety
+  range = [0, 1],
+  targetScale = 1,
 }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -76,7 +76,6 @@ const Card = ({
           </div>
         </div>
       </motion.div>
- 
     </div>
   );
 };
