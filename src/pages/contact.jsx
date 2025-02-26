@@ -7,6 +7,7 @@ import Transition from "@/components/ui/Transition";
 import React from "react";
 
 const ContactPage = () => {
+  
   return (
     <Transition>
       <Section>
