@@ -1,4 +1,4 @@
-import ContactMe from "@/components/contact/Contact";
+import ContactMe from "../components/contact/Contact";
 import Footer from "@/components/Footer";
 import Section from "@/components/ui/Section";
 import SectionBody from "@/components/ui/SectionBody";

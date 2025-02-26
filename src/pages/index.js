@@ -1,19 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { FaArrowUp } from "react-icons/fa";
-import { getSectionClasses } from "@/utils/sectionUtils";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Testimonial from "@/components/Testimonial";
 import useScrollSection from "@/hooks/useScrollSection";
 import { useRouter } from "next/router";
 import Transition from "@/components/ui/Transition";
-import Contact from "@/components/contact/Contact";
 import Description from "@/components/Description";
 import Footer from "@/components/Footer";
-import ContactMe from "@/components/contact/Contact";
+import ContactMe from "../components/contact/Contact";
 
 const Home = () => {
   const router = useRouter();
