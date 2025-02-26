@@ -1,7 +1,7 @@
 import ContactForm from "./components/contactForm";
 import ContactDetails from "./components/contactDetails";
 
-export default function ContactMe({ className = "" }) {
+export default function Contact({ className = "" }) {
   return (
     <section
       className={`px-5 md:px-10 xl:px-20 2xl:px-28 relative theme-dark-light ${className}`}
