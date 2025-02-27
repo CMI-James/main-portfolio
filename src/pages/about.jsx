@@ -9,7 +9,9 @@ const About = () => {
     <Transition>
       <Section>
         <SectionHeader title="About" />
-        <SectionBody><div className="h-[200vh]"></div></SectionBody>
+        <SectionBody>
+          <div className="h-[200vh]"></div>
+        </SectionBody>
       </Section>
     </Transition>
   );
