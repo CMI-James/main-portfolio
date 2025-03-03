@@ -4,7 +4,7 @@ import ContactDetails from "./components/contactDetails";
 export default function ContactMe({ className = "" }) {
   return (
     <section
-      className={`px-5 md:px-10 xl:px-20 2xl:px-28 relative theme-dark-light pb-24s ${className}`}
+      className={`px-5 md:px-10 xl:px-20 2xl:px-28 relative theme-dark-light pb-24 ${className}`}
       aria-label="contact me"
     >
       {/* <Heading title="Contact" /> */}
