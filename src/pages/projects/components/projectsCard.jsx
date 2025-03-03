@@ -8,7 +8,7 @@ const Card = ({
   title = "",
   description = "",
   src = "placeholder.jpg",
-  url = "#",
+  link = "#",
   color = "#ffffff",
   progress = { get: () => 0 }, // Mocked for safety
   range = [0, 1],
@@ -45,7 +45,7 @@ const Card = ({
             <span className="flex items-center gap-1">
               <a
                 className="text-xs underline cursor-pointer"
-                href={url}
+                href={link}
                 target="_blank"
               >
                 See more
@@ -68,7 +68,7 @@ const Card = ({
             <motion.div className="w-full h-full" style={{ scale: imageScale }}>
               <Image
                 fill
-                src={`/images/${src}`}
+                src={`/images/projects/${src}`}
                 alt="image"
                 className="object-cover"
               />

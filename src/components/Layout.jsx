@@ -39,23 +39,21 @@ export default function Layout({ children }) {
           {children}
         </div>
       </AnimatePresence>
-      <div className={`fixed bottom-14 right-2 z-[10000] p-2 rounded-full`}>
-      <AnimatedThemeIcon />
-
-      </div>
       <motion.button
         onClick={scrollToTop}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}
+        className={`fixed bottom-14 right-2 z-[10000] p-2 rounded-full`}
         initial={{ opacity: 0, scale: 0 }}
         animate={buttonControls}
-      ><div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
-
-        <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
-      </div>
+      >
+        <div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
+          <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
+        </div>
       </motion.button>
-      
+      <div className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}>
+        <AnimatedThemeIcon />
+      </div>
     </div>
   );
 }

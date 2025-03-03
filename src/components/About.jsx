@@ -46,35 +46,7 @@ const About = () => {
               libero ipsum impedit. Voluptatibus, maiores! Incidunt ut accusamus
               nemo molestiae exercitationem. Veniam illum sapiente eius
               reiciendis minus. Fugit maiores tenetur porro commodi distinctio
-              ipsum magnam explicabo aliquam labore, sunt quas esse sed nesciunt
-              aliquid soluta voluptate ducimus obcaecati voluptatibus beatae ab
-              est odit! Voluptatem, dolor! Iusto adipisci exercitationem dolorum
-              vero, voluptas nisi corporis harum itaque. At, ipsam accusantium?
-              Ut, ipsum sit! Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Dolor eius magnam similique harum voluptate doloribus magni
-              laboriosam hic animi nostrum quod consequuntur molestiae neque qui
-              sit explicabo nisi illo molestias nesciunt dignissimos reiciendis
-              ea temporibus, repudiandae perferendis. Praesentium quae enim
-              fugit labore porro ullam obcaecati laborum itaque veniam nostrum
-              rerum soluta accusantium vero iste at officiis impedit error,
-              dignissimos beatae sint quos cupiditate maiores a assumenda?
-              Incidunt iure quaerat doloribus, sed facilis corporis? Commodi
-              officiis quos eveniet mollitia? Quam eaque adipisci ea maiores
-              placeat ipsum, fugiat voluptatem consequatur facilis velit porro.
-              Corrupti repellendus illo, veniam voluptate et dignissimos hic
-              aspernatur! Quas ad ullam sint tenetur esse fuga pariatur! Impedit
-              sequi nobis aperiam delectus deleniti modi tempore quaerat quo
-              magnam ipsum illo fugit, corrupti repudiandae, dignissimos
-              reiciendis neque aspernatur est. Amet voluptatem iusto quae
-              expedita consequatur at suscipit similique est odio, delectus
-              quidem corrupti doloribus corporis debitis eos modi ullam nisi rem
-              neque explicabo velit quia illum! Dicta, ut quidem sequi
-              dignissimos corrupti quisquam esse fugit ex enim fuga voluptatem
-              laboriosam quos cupiditate quibusdam voluptatum maiores
-              consequatur possimus ipsam cum dolorum magni odio? Quia, sunt
-              necessitatibus! Tempora libero ducimus error doloremque minus
-              totam? Eaque, inventore corporis voluptatem magni ab incidunt
-              recusandae.
+              ipsum magnam explicabo aliquam labore,
             </p>
           </div>
         </div>

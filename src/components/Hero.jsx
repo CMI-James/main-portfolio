@@ -38,16 +38,14 @@ export default function Hero() {
       variants={containerVariants}
     >
       <div className="fixed top-0 h-[90vh] w-full theme-dark-light">
-      <AnimatedThemeIcon />
-        <motion.div
-          className="sticky text-center theme-dark-light font-main top-0 h-[80vh] pt-[6rem] flex flex-col items-center justify-center text-4xl text-brown-1000 dark:text-beige bg-black"
-        >
+        <AnimatedThemeIcon />
+        <motion.div className="sticky text-center theme-dark-light font-main top-0 h-[80vh] pt-[6rem] flex flex-col items-center justify-center text-4xl  bg-black">
           {textArray.map((text, index) => (
             <motion.p
               key={index}
               variants={textVariants}
               className={`z-10 leading-[5rem] text-title sm:leading-[6rem] lg:leading-[10rem] font-extrabold  ${
-                index === 1 ? "transparent-text" : ""
+                index === 1 ? "transparent-text transition-colors duration-700" : ""
               }`}
             >
               {text}

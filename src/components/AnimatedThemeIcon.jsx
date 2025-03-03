@@ -27,19 +27,19 @@ const AnimatedThemeIcon = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-beige dark:ring-yellow-300 dark:focus:ring-yellow-400 bg-gray-800 dark:bg-brown-1000 transition-colors duration-300"
+      className="w-10 h-10 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-gray-800 dark:ring-yellow-300 dark:focus:ring-yellow-400 bg-gray-800 dark:bg-brown-1000 transition-colors duration-700"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <motion.div
         initial={false}
         animate={{ rotate: isDark ? 0 : 360 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 0.75, ease: "easeInOut" }}
         className="relative w-6 h-6"
       >
         <motion.div
           initial={false}
           animate={{ opacity: isDark ? 1 : 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.375 }}
           className="absolute inset-0"
         >
           <Sun className="w-6 h-6 text-yellow-400" />
@@ -47,7 +47,7 @@ const AnimatedThemeIcon = () => {
         <motion.div
           initial={false}
           animate={{ opacity: isDark ? 0 : 1 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.375 }}
           className="absolute inset-0"
         >
           <Moon className="w-6 h-6 text-beige" />

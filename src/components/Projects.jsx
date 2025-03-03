@@ -14,7 +14,7 @@ const Projects = ({ limit }) => {
   const { scrollYProgress } = useScroll();
 
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
-
+console.log(displayedProjects)
   return (
     <Section className="theme-dark-light">
       <SectionHeader title="Projects" />

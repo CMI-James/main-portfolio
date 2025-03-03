@@ -12,10 +12,18 @@
 .transparent-text {
   -webkit-text-stroke: 2px #0f0500; /* Default stroke color (light mode) */
   color: transparent;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 700ms;
 }
 
 .dark .transparent-text {
   -webkit-text-stroke: 2px #f5f5dc;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 700ms;
 }
 
 body {
@@ -27,13 +35,13 @@ body {
 }
 
 .theme-dark-light {
-  @apply text-brown-1000 dark:text-beige transition-colors duration-300
+  @apply text-brown-1000 dark:text-beige transition-colors duration-700
          bg-beige dark:bg-brown-1000 
          selection:bg-brown-1000 dark:selection:bg-beige 
          selection:text-beige dark:selection:text-brown-1000;
 }
 .theme-light-dark {
-  @apply text-beige dark:text-brown-1000 transition-colors duration-300
+  @apply text-beige dark:text-brown-1000 transition-colors duration-700
          bg-brown-1000 dark:bg-beige
          selection:bg-beige dark:selection:bg-brown-1000
          selection:text-brown-1000 dark:selection:text-beige;
