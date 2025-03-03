@@ -6,7 +6,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <Transition>
+    <Transition className="theme-dark-light">
       <Section>
         <SectionHeader title="About" />
         <SectionBody>

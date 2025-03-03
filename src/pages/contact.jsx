@@ -7,10 +7,9 @@ import Transition from "@/components/ui/Transition";
 import React from "react";
 
 const ContactPage = () => {
-  
   return (
-    <Transition>
-      <Section>
+    <Transition className="theme-dark-light">
+      <Section extraPadding=" " >
         <SectionHeader title="Contact" />
         <SectionBody>
           <ContactMe />
