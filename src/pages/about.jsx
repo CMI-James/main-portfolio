@@ -1,3 +1,4 @@
+import AboutMe from "@/components/About";
 import Section from "@/components/ui/Section";
 import SectionBody from "@/components/ui/SectionBody";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -10,7 +11,7 @@ const About = () => {
       <Section>
         <SectionHeader title="About" />
         <SectionBody>
-          <div className="h-[200vh]"></div>
+          <AboutMe />
         </SectionBody>
       </Section>
     </Transition>

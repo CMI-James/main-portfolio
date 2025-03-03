@@ -1,2 +1,2 @@
-import AboutMe from "./about-me.jpeg"
-export {AboutMe}
+import AboutDp from "./about-me.jpeg"
+export {AboutDp}

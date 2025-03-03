@@ -3,24 +3,19 @@ import Section from "./ui/Section";
 import SectionHeader from "./ui/SectionHeader";
 import SectionBody from "./ui/SectionBody";
 import Image from "next/image";
-import { AboutMe } from "public/images";
-const About = () => {
+import { AboutDp } from "public/images";
+const AboutMe = () => {
   return (
     <Section className="theme-dark-light relative">
       <SectionHeader title="About Me" />
       <SectionBody>
         <div className="min-h-screen mt-20 flex flex-col md:flex-row gap-x-10 relative ">
           <div className="flex-1 sticky top-0 h-fit ">
-            <Image
-              src={AboutMe}
-              width={0}
-              height={0}
-              className="w-full "
-            />
+            <Image src={AboutDp} width={0} height={0} className="w-full " />
           </div>
           <div className="flex-1">
             <h1 className="text-5xl">A brief intro, who am I ?</h1>
-            <p className="text-2xl">
+            <p className="text-2xl leading-10">
               I am Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Incidunt odit voluptates perspiciatis saepe, esse rerum
               perferendis harum autem odio eaque adipisci numquam labore
@@ -55,4 +50,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutMe;

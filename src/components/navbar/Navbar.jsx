@@ -89,7 +89,7 @@ const Navbar = ({ controls }) => {
               <Link href={link.href} scroll={false} className="relative">
                 <span>{link.label}</span>
                 <span
-                  className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-300 ease-in-out group-hover:w-full`}
+                  className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-700 ease-in-out group-hover:w-full`}
                 ></span>
               </Link>
             </li>
