@@ -98,7 +98,7 @@ const Navbar = ({ controls }) => {
           {showContact && (
             <li>
               <button
-                className={`rounded-lg border py-1 px-2 border-brown-1000 dark:border-brown-1000 bg-brown-1000 dark:bg-beige text-beige dark:text-brown-1000  hover:bg-beige dark:hover:bg-brown-1000  hover:text-brown-1000 dark:hover:text-beige hover:border-brown-1000 dark:hover:border-beige  transition-colors duration-700`}
+                className={`rounded-lg border py-1 px-2 theme-light-dark-button`}
               >
                 <Link href="/contact" scroll={false}>
                   Contact me

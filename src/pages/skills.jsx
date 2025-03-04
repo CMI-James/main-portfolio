@@ -5,8 +5,8 @@ import React from "react";
 const Services = () => {
   return (
     <Transition>
-    <Skills/>
-      </Transition>
+      <Skills />
+    </Transition>
   );
 };
 

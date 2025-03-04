@@ -57,20 +57,20 @@ const MemoryLogin = () => {
       router.push("/memory"); // Navigate without query parameters
     } else {
       setError("Who are you dawg?");
-      setShakeKey(prev => prev + 1); // Change key to re-trigger animation
+      setShakeKey((prev) => prev + 1); // Change key to re-trigger animation
     }
   };
   return (
-    <Transition className="flex h-screen w-full items-center justify-center">
+    <Transition className="flex h-screen theme-dark-light w-full items-center justify-center">
       <div className="flex flex-col h-fit relative justify-center items-center gap-5  w-full">
         <p className="text-2xl text-center">
           Wonna View Memory? <br /> Enter your name
         </p>
         {/* Shake the form when there's an error */}
         <motion.form
-         key={shakeKey}
+          key={shakeKey}
           onSubmit={handleSubmit}
-          className="bg-brown-1000 text-beige p-6 rounded shadow-md"
+          className="theme-light-dark p-6 rounded shadow-md"
           animate={error ? "shake" : ""}
           variants={shakeAnimation}
         >
@@ -79,11 +79,11 @@ const MemoryLogin = () => {
             type="text"
             value={inputName}
             onChange={(e) => setInputName(e.target.value)}
-            className="border p-2 mb-4 w-full bg-beige text-brown-1000 outline-none rounded"
+            className="border border-beige dark:border-brown-1000 transition-colors duration-700 p-2 mb-4 w-full bg-beige text-brown-1000  outline-none rounded"
           />
           <button
             type="submit"
-            className="px-4 py-2 bg-beige text-brown-1000 rounded hover:bg-brown-1000 hover:text-beige border-beige border transition-all ease-in-out duration-700"
+            className="px-3 py-1.5 border theme-dark-light-button rounded "
           >
             Submit
           </button>

@@ -46,3 +46,10 @@ body {
          selection:bg-beige dark:selection:bg-brown-1000
          selection:text-brown-1000 dark:selection:text-beige;
 }
+
+.theme-light-dark-button {
+  @apply border-brown-1000  dark:border-beige bg-brown-1000 dark:bg-beige text-beige dark:text-brown-1000  hover:bg-beige dark:hover:bg-brown-1000  hover:text-brown-1000 dark:hover:text-beige hover:border-brown-1000 dark:hover:border-beige  transition-colors duration-700;
+}
+.theme-dark-light-button {
+  @apply border-beige dark:border-brown-1000 dark:bg-brown-1000 bg-beige dark:text-beige text-brown-1000  dark:hover:bg-beige hover:bg-brown-1000   dark:hover:text-brown-1000 hover:text-beige dark:hover:border-brown-1000 hover:border-brown-1000  transition-colors duration-700;
+}
