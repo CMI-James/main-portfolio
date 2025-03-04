@@ -75,7 +75,7 @@ const Memory = () => {
   });
 
   return (
-    <div className="theme-dark-light">
+    <div className="theme-dark-light relative">
       {name && (
         <Transition>
           {/* Section 1 */}

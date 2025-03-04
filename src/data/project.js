@@ -5,7 +5,7 @@ export const projects = [
       "Originally hailing from Austria, Berlin-based photographer Matthias Leindinger is a young creative brimming with talent and ideas.",
     src: "zuriportfolio.png",
     link: "https://zuriportfolio.vercel.app/",
-    color: "#BBACAF",
+    color: "#c4625d",
   },
   {
     title: "BlogPost",
@@ -13,7 +13,7 @@ export const projects = [
       "This is a story on the border between reality and imaginary, about the contradictory feelings that the insularity of a rocky, arid, and wild territory provokes”—so French photographer Clément Chapillon describes his latest highly captivating project Les rochers fauves (French for ‘The tawny rocks’).",
     src: "blogpost.png",
     link: "https://blogpost-rzdv.onrender.com/",
-    color: "#977F6D",
+    color: "#d88c53",
   },
   {
     title: "Zissou",
@@ -21,7 +21,7 @@ export const projects = [
       "Though he views photography as a medium for storytelling, Zissou’s images don’t insist on a narrative. Both crisp and ethereal, they’re encoded with an ambiguity—a certain tension—that lets the viewer find their own story within them.",
     src: "water.jpg",
     link: "https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/",
-    color: "#C2491D",
+    color: "#6d8b74",
   },
   {
     title: "Mathias Svold and Ulrik Hasemann",
@@ -29,7 +29,7 @@ export const projects = [
       "The coastlines of Denmark are documented in tonal colors in a pensive new series by Danish photographers Ulrik Hasemann and Mathias Svold; an ongoing project investigating how humans interact with and disrupt the Danish coast.",
     src: "house.jpg",
     link: "https://www.ignant.com/2019/03/13/a-photographic-series-depicting-the-uncertain-future-of-denmarks-treasured-coastlines/",
-    color: "#B62429",
+    color: "#6a86b7",
   },
   {
     title: "Mark Rammers",
@@ -37,7 +37,7 @@ export const projects = [
       "Dutch photographer Mark Rammers has shared with IGNANT the first chapter of his latest photographic project, ‘all over again’—captured while in residency at Hektor, an old farm in Los Valles, Lanzarote. Titled ‘Beginnings’, the mesmerizing collection of images is a visual and meditative journey into the origins of regrets and the uncertainty of stepping into new unknowns.",
     src: "cactus.jpg",
     link: "https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/",
-    color: "#88A28D",
+    color: "#9a678f",
   },
   
 ];

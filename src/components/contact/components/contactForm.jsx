@@ -25,7 +25,7 @@ const ContactForm = () => {
         className="button group pt-10 duration-200 hover:bg-transparent"
       >
         <span className="relative">
-          <span className="hover:text-brown-1000 dark:hover:text-beige hover:bg-beige dark:hover:bg-brown-1000 border border-brown-1000 dark:border-beige transition-colors duration-500 bg-brown-1000 dark:bg-beige text-beige dark:text-brown-1000 rounded-xl p-2">
+          <span className=" border theme-light-dark-button rounded-xl p-2">
             Send Message
           </span>
         </span>

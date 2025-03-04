@@ -9,13 +9,7 @@ import React from "react";
 const ContactPage = () => {
   return (
     <Transition className="theme-dark-light">
-      <Section extraPadding=" " >
-        <SectionHeader title="Contact" />
-        <SectionBody>
-          <ContactMe />
-          <Footer />
-        </SectionBody>
-      </Section>
+      
     </Transition>
   );
 };

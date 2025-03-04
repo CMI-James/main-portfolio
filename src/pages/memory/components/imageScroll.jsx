@@ -58,7 +58,7 @@ export default function ImageScroll() {
       <div className="h-[20vh]"></div>
       <div
         ref={gallery}
-        className="h-[175vh] relative bg-gray-800 flex gap-[2vw] p-[2vw] box-border overflow-hidden"
+        className="h-[175vh] relative theme-light-dark flex gap-[2vw] p-[2vw] box-border overflow-hidden"
       >
         <Column images={[shuffledImages[0], shuffledImages[1], shuffledImages[2]]} y={y} />
         <Column images={[shuffledImages[3], shuffledImages[4], shuffledImages[5]]} y={y2} />

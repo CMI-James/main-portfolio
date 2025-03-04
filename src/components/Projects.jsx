@@ -18,8 +18,8 @@ console.log(displayedProjects)
   return (
     <Section className="theme-dark-light">
       <SectionHeader title="Projects" />
-      <SectionBody>
-        <div className="projects-grid">
+      <SectionBody >
+        <div className="projects-grid ">
           {displayedProjects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;
             return (

@@ -34,11 +34,25 @@ const Card = ({
           scale,
           top: `calc(${i * 10}px)`,
         }}
-        className="flex flex-col relative  h-[75%] w-full rounded-3xl p-12 origin-top"
+        className="flex flex-col relative  h-[85%] w-full rounded-3xl p-8 origin-top mt-16"
       >
         <h2 className="text-center m-0 text-3xl">{title}</h2>
-        <div className="flex h-full mt-12 gap-12">
-          <div className="w-2/5 relative top-[10%]">
+        <div className="flex h-full mt-6 gap-8">
+          {" "}
+          <div className="relative w-[80%] h-full rounded-sm overflow-hidden">
+            <motion.div
+              className="w-full h-full rounded-3xl"
+              style={{ scale: imageScale }}
+            >
+              <Image
+                fill
+                src={`/images/projects/${src}`}
+                alt="image"
+                className="object-cover rounded-3xl"
+              />
+            </motion.div>
+          </div>
+          <div className="w-[20%] relative top-[10%]">
             <p className="text-base first-letter:text-3xl first-letter:font-serif">
               {description}
             </p>
@@ -63,16 +77,6 @@ const Card = ({
                 />
               </svg>
             </span>
-          </div>
-          <div className="relative w-[60%] h-full rounded-sm overflow-hidden">
-            <motion.div className="w-full h-full" style={{ scale: imageScale }}>
-              <Image
-                fill
-                src={`/images/projects/${src}`}
-                alt="image"
-                className="object-cover"
-              />
-            </motion.div>
           </div>
         </div>
       </motion.div>
