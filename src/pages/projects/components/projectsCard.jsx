@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useTransform, motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const Card = ({
   i = 0,
@@ -9,12 +9,13 @@ const Card = ({
   description = "",
   src = "placeholder.jpg",
   link = "#",
-  color = "#ffffff",
+  color = { light: "#ffffff", dark: "#000000" },
   progress = { get: () => 0 }, // Mocked for safety
   range = [0, 1],
   targetScale = 1,
 }) => {
   const container = useRef(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "start start"],
@@ -23,6 +24,32 @@ const Card = ({
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
+  // Check for dark mode on component mount and when theme changes
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+
+    // Initial check
+    checkDarkMode();
+
+    // Set up a MutationObserver to watch for class changes on the html element
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          checkDarkMode();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Get the appropriate color based on the current theme
+  const currentColor = isDarkMode ? color.dark : color.light;
+
   return (
     <div
       ref={container}
@@ -30,15 +57,21 @@ const Card = ({
     >
       <motion.div
         style={{
-          backgroundColor: color,
           scale,
           top: `calc(${i * 10}px)`,
         }}
-        className="flex flex-col relative  h-[85%] w-full rounded-3xl p-8 origin-top mt-16"
+        className="flex flex-col relative h-[85%] w-full rounded-3xl p-8 origin-top mt-16 transition-colors duration-700"
+        animate={{
+          backgroundColor: currentColor,
+        }}
+        transition={{
+          backgroundColor: { duration: 0.7 },
+        }}
       >
-        <h2 className="text-center m-0 text-3xl">{title}</h2>
+        <h2 className="text-center m-0 text-3xl text-brown-1000 dark:text-beige duration-700 transition-colors">
+          {title}
+        </h2>
         <div className="flex h-full mt-6 gap-8">
-          {" "}
           <div className="relative w-[80%] h-full rounded-sm overflow-hidden">
             <motion.div
               className="w-full h-full rounded-3xl"
@@ -47,12 +80,12 @@ const Card = ({
               <Image
                 fill
                 src={`/images/projects/${src}`}
-                alt="image"
+                alt={title}
                 className="object-cover rounded-3xl"
               />
             </motion.div>
           </div>
-          <div className="w-[20%] relative top-[10%]">
+          <div className="w-[20%] relative top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors">
             <p className="text-base first-letter:text-3xl first-letter:font-serif">
               {description}
             </p>
@@ -61,6 +94,7 @@ const Card = ({
                 className="text-xs underline cursor-pointer"
                 href={link}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 See more
               </a>
@@ -73,7 +107,7 @@ const Card = ({
               >
                 <path
                   d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
-                  fill="black"
+                  fill="currentColor"
                 />
               </svg>
             </span>
