@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Services from "@/components/Skills";
+import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import useScrollSection from "@/hooks/useScrollSection";
 import { useRouter } from "next/router";
