@@ -16,32 +16,30 @@ const Services = () => {
 
   const toolBoxItems = [
     "JavaScript",
-    "HTML",
-    "CSS",
+    // "HTML",
+    // "CSS",
     "Figma",
-    "Webflow",
+    "Framer Motion",
     "GSAP",
     "TailwindCSS",
     "ReactJS",
+    "NextJS",
   ];
   return (
-    <Section className="theme-dark-light relative">
+    <Section className="theme-dark-light ">
       <SectionHeader title="Services" />
       <SectionBody>
-        <div className="space-y-14">
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24">
-            <div className="space-y-6">
-              <div className="space-y-3 2xl:space-y-10">
-                <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight">
-                  my expertises.
-                </h3>
-                <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
-                  I focus on all things design and web related. With each of my
-                  services, my goal is to deliver an impactful and elevating
-                  digital experience for everyone.
-                </p>
-              </div>
-              <div className="h-1 w-full bg-accent-100 opacity-50 md:hidden"></div>
+        <div className="space-y-14 mt-20">
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 relative">
+            <div className="space-y-6 sticky top-0 h-full">
+              <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight">
+                my expertises.
+              </h3>
+              <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
+                I focus on all things design and web related. With each of my
+                services, my goal is to deliver an impactful and elevating
+                digital experience for everyone.
+              </p>
             </div>
             <div className="select-none leading-[2.3rem] text-secondary-500 md:leading-[2.5rem] lg:leading-[3.4rem]">
               {expertiseItems.map((item, index) => (
