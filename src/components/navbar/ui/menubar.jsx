@@ -4,9 +4,19 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-const MenuBar = () => {
+const MenuBar = ({ currentTheme = "theme-dark-light" }) => {
   const [isActive, setIsActive] = useState(false);
   const [isDelayedActive, setIsDelayedActive] = useState(false);
+
+  // Determine icon themes based on current navbar theme
+  const menuIconTheme =
+    currentTheme === "theme-dark-light"
+      ? "theme-dark-light"
+      : "theme-light-dark";
+  const closeIconTheme =
+    currentTheme === "theme-dark-light"
+      ? "theme-light-dark"
+      : "theme-dark-light";
 
   useEffect(() => {
     let timer;
@@ -57,13 +67,7 @@ const MenuBar = () => {
             exit="exit"
             transition={{ duration: 0.5 }}
           >
-            <Menu
-              className={`w-auto h-8 ${
-                isDelayedActive
-                  ? "text-beige dark:text-brown-1000"
-                  : "text-brown-1000 dark:text-beige"
-              }`}
-            />
+            <Menu className={`w-auto h-8 ${menuIconTheme}`} />
           </motion.div>
         ) : (
           <motion.div
@@ -74,13 +78,7 @@ const MenuBar = () => {
             exit="exit"
             transition={{ duration: 0.5 }}
           >
-            <X
-              className={`w-auto h-8 ${
-                isDelayedActive
-                  ? "text-beige dark:text-brown-1000"
-                  : "text-brown-1000 dark:text-beige"
-              }`}
-            />
+            <X className={`w-auto h-8 ${closeIconTheme}`} />
           </motion.div>
         )}
       </AnimatePresence>

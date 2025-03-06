@@ -124,14 +124,16 @@ const Navbar = ({ controls }) => {
                 setIsReversed(!isReversed);
               }}
             >
-              <MenuBar />
+              <MenuBar currentTheme={themeClass} />
             </div>
           </div>
         </div>
 
         <div className="flex sm:hidden">
           {" "}
-          <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+          <AnimatePresence mode="wait">
+            {isActive && <Nav currentTheme={themeClass} />}
+          </AnimatePresence>
         </div>
 
         <ul className="hidden sm:flex gap-10 items-center justify-between z-[100000] ">
@@ -140,7 +142,7 @@ const Navbar = ({ controls }) => {
               <Link href={link.href} scroll={false} className="relative">
                 <span>{link.label}</span>
                 <span
-                  className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-700 ease-in-out group-hover:w-full`}
+                  className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-700  group-hover:w-full`}
                 ></span>
               </Link>
             </li>
