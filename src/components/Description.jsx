@@ -4,7 +4,7 @@ export default function Description() {
   const paragraph =
     "I create captivating user interfaces that inspire and connect with people through development and design.";
   return (
-    <div className="relative z-20 h-screen hidden-scrollbar px-5  md:px-10 xl:px-20 2xl:px-28 theme-light-dark  flex w-full items-center justify-center space-x-20">
+    <div id="description-section" className="relative z-20 h-screen hidden-scrollbar px-5  md:px-10 xl:px-20 2xl:px-28 theme-light-dark  flex w-full items-center justify-center space-x-20">
       <Word paragraph={paragraph} />
       
     </div>

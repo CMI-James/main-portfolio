@@ -12,8 +12,6 @@ import AnimatedThemeIcon from "./AnimatedThemeIcon";
 export default function Layout({ children }) {
   const router = useRouter();
   const section = useScrollSection();
-  const { mainColor, selectionColor } = getSectionClasses(section);
-  console.log("mainColor", mainColor);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,9 +21,7 @@ export default function Layout({ children }) {
     return () => clearTimeout(timer);
   }, []);
   const {
-    controls,
     buttonControls,
-    currentColors,
     scrollToTop,
     handleMouseDown,
     handleMouseUp,
