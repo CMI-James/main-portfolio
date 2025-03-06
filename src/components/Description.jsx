@@ -6,6 +6,8 @@ export default function Description() {
   return (
     <div className="relative z-20 h-screen hidden-scrollbar px-5  md:px-10 xl:px-20 2xl:px-28 theme-light-dark  flex w-full items-center justify-center space-x-20">
       <Word paragraph={paragraph} />
+      
     </div>
+
   );
 }
