@@ -10,7 +10,7 @@ const AboutMe = () => {
       <SectionHeader title="About Me" />
       <SectionBody>
         <div className="min-h-screen mt-20 flex flex-col md:flex-row gap-x-10 relative ">
-          <div className="flex-1 sticky top-0 h-fit ">
+          <div className="flex-1 md:sticky top-0 h-fit ">
             <Image src={AboutDp} width={0} height={0} className="w-full " />
           </div>
           <div className="flex-1">

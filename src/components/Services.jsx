@@ -31,7 +31,7 @@ const Services = () => {
       <SectionBody>
         <div className="space-y-14 mt-20">
           <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 relative">
-            <div className="space-y-6 sticky top-0 h-full">
+            <div className="space-y-6   h-full">
               <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight">
                 my expertises.
               </h3>
@@ -41,6 +41,7 @@ const Services = () => {
                 digital experience for everyone.
               </p>
             </div>
+            <div className="h-1 w-full bg-accent-100 opacity-50 md:hidden"></div>
             <div className="select-none leading-[2.3rem] text-secondary-500 md:leading-[2.5rem] lg:leading-[3.4rem]">
               {expertiseItems.map((item, index) => (
                 <p
@@ -54,7 +55,7 @@ const Services = () => {
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 ">
-            <div className="space-y-6  sticky top-10">
+            <div className="space-y-6  ">
               <div className="space-y-3 2xl:space-y-10  ">
                 <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight ">
                   my digital tool box.
