@@ -9,12 +9,12 @@ export default function ContactMe({ className = "" }) {
   return (
     <Section
       extraPadding=" "
-     className="relative theme-dark-light"
+      className="theme-dark-light"
       aria-label="contact me"
     >
       <SectionHeader title="Contact" />
       <SectionBody>
-        <div className=" flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12 sticky top-0 pb-4">
+        <div className=" flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12  pb-4 ">
           <div className="col-span-4">
             <h3 className="max-w-lg 2xl:max-w-3xl text-heading-3 2xl:text-7xl font-semibold leading-tight ">
               Got a great idea? <br /> Let's make it happen!
@@ -27,7 +27,6 @@ export default function ContactMe({ className = "" }) {
           </div>
           <ContactDetails />
         </div>
-        <Footer />
       </SectionBody>
     </Section>
   );
