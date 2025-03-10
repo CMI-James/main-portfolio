@@ -2,30 +2,30 @@ import React, { useEffect, useState } from "react";
 import { useTransform, motion } from "framer-motion";
 
 const SectionHeader = ({ title, scrollYProgress }) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
-  // Detect screen size on mount and update on resize
   useEffect(() => {
     const handleResize = () => {
-      // Check if the screen width is less than 1024px (tablet and below)
       setIsMobile(window.innerWidth < 1024);
     };
-    
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize);
 
+    window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Font size transform based on screen size
-  const fontSize = isMobile
-    ? useTransform(scrollYProgress, [0, 0.1, 0.2], ["4rem", "3rem", "2rem"]) // Mobile/Tablet
-    : useTransform(scrollYProgress, [0, 0.1, 0.2], ["6rem", "4rem", "2rem"]); // iPad Pro and above
+  // Define font size ranges
+  const fontSizeValues = isMobile
+    ? ["4rem", "3rem", "2rem"] // Mobile/Tablet
+    : ["6rem", "4rem", "2rem"]; // Desktop
+
+  // Stabilized useTransform
+  const fontSize = useTransform(scrollYProgress, [0, 0.2, 0.4], fontSizeValues);
+
 
   return (
     <motion.p
       className="z-[10000] sticky top-0 mx-auto w-fit"
-      style={{ fontSize }}
+      style={{ fontSize, willChange: "transform" }} // Optimized for smoother animations
     >
       {title}
     </motion.p>
