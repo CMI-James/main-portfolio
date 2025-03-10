@@ -2,7 +2,7 @@
 import React from "react";
 import Heading from "./ui/Heading";
 import Section from "./ui/Section";
-import SectionHeader from "./ui/SectionHeader";
+import SectionHeader from "./ui/section-header";
 import SectionBody from "./ui/SectionBody";
 
 const MyServices = () => {

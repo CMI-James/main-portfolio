@@ -1,7 +1,7 @@
 import ContactForm from "./components/contactForm";
 import ContactDetails from "./components/contactDetails";
 import Section from "../ui/Section";
-import SectionHeader from "../ui/SectionHeader";
+import SectionHeader from "../ui/section-header";
 import SectionBody from "../ui/SectionBody";
 import Footer from "../Footer";
 

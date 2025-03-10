@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "./ui/Section";
-import SectionHeader from "./ui/SectionHeader";
+import SectionHeader from "./ui/section-header";
 import SectionBody from "./ui/SectionBody";
 import Image from "next/image";
 import { AboutDp } from "public/images";
