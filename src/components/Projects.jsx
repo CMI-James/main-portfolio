@@ -6,7 +6,7 @@ import { useScroll } from "framer-motion";
 
 import Card from "@/pages/projects/components/projectsCard";
 import { projects } from "@/data/project";
-import Section from "./ui/Section";
+import Section from "./ui/section";
 import SectionHeader from "./ui/section-header";
 import SectionBody from "./ui/section-body";
 
