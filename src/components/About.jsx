@@ -1,7 +1,7 @@
 import React from "react";
 import Section from "./ui/Section";
 import SectionHeader from "./ui/section-header";
-import SectionBody from "./ui/SectionBody";
+import SectionBody from "./ui/section-body";
 import Image from "next/image";
 import { AboutDp } from "public/images";
 const AboutMe = () => {
