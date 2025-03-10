@@ -9,7 +9,7 @@ export default function ContactMe({ className = "" }) {
   return (
     <Section
       extraPadding=" "
-      className="theme-dark-light"
+      className="theme-dark-light "
       aria-label="contact me"
     >
       <SectionHeader title="Contact" />

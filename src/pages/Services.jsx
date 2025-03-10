@@ -1,11 +1,13 @@
-import Skills from "@/components/Services";
+import Footer from "@/components/Footer";
+import MyServices from "@/components/Services";
 import Transition from "@/components/ui/Transition";
 import React from "react";
 
 const Services = () => {
   return (
     <Transition>
-      <Skills />
+      <MyServices />
+      <Footer />
     </Transition>
   );
 };

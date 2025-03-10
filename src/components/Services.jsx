@@ -5,7 +5,7 @@ import Section from "./ui/Section";
 import SectionHeader from "./ui/SectionHeader";
 import SectionBody from "./ui/SectionBody";
 
-const Services = () => {
+const MyServices = () => {
   const expertiseItems = [
     "Web Development",
     "Web Design",
@@ -84,4 +84,4 @@ const Services = () => {
     </Section>
   );
 };
-export default Services;
+export default MyServices;

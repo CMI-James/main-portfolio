@@ -25,7 +25,7 @@ const Navbar = ({ controls }) => {
     const timer = setTimeout(() => {
       const navLinks = [
         { href: "/about", label: "About" },
-        { href: "/skills", label: "Skills" },
+        { href: "/services", label: "Services" },
         { href: "/projects", label: "Projects" },
       ];
       setFilteredLinks(
