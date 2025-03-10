@@ -6,12 +6,20 @@ import SectionHeader from "./ui/section-header";
 import SectionBody from "./ui/section-body";
 
 const MyServices = () => {
+  // const expertiseItems = [
+  //   "Web Development",
+  //   "Web Design",
+  //   "Wireframing",
+  //   "UI/UX Design",
+  //   "Version Control (Git)"
+  // ];
   const expertiseItems = [
     "Web Development",
-    "Web Design",
-    "Wireframing",
-    "UI/UX Design",
-    "Branding",
+    "Responsive UI",
+    "UI Design",
+    "State Logic",
+    "API Integration",
+    "Animations",
   ];
 
   const toolBoxItems = [
