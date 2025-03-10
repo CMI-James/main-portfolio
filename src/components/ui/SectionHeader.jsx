@@ -19,7 +19,7 @@ const SectionHeader = ({ title, scrollYProgress }) => {
     : ["6rem", "4rem", "2rem"]; // Desktop
 
   // Stabilized useTransform
-  const fontSize = useTransform(scrollYProgress, [0, 0.2, 0.4], fontSizeValues);
+  const fontSize = useTransform(scrollYProgress, [0, 0.15, 0.3], fontSizeValues);
 
 
   return (
