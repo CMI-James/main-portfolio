@@ -8,7 +8,6 @@ import Footer from "../Footer";
 export default function ContactMe({ className = "" }) {
   return (
     <Section
-      extraPadding=" "
       className="theme-dark-light "
       aria-label="contact me"
     >

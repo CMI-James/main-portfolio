@@ -21,7 +21,7 @@ const Home = () => {
         <Description />
         <About />
         <Services />
-        <ContactMe className="py-[10%]" />
+        <ContactMe  />
         <Footer />
       </motion.div>
     </Transition>
