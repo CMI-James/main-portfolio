@@ -38,9 +38,9 @@ const MyServices = () => {
       <SectionHeader title="Services" />
       <SectionBody>
         <div className="space-y-14 mt-20">
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 relative">
-            <div className="space-y-6   h-full">
-              <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight">
+          <div className="mt-10 relative h-fit grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 ">
+            <div className="space-y-6 sticky top-10 h-fit  ">
+              <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight ">
                 my expertises.
               </h3>
               <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
@@ -62,8 +62,8 @@ const MyServices = () => {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 ">
-            <div className="space-y-6  ">
+          <div className="mt-10 relative h-fit grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 ">
+            <div className="space-y-6 sticky top-10 h-fit ">
               <div className="space-y-3 2xl:space-y-10  ">
                 <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight ">
                   my digital tool box.
