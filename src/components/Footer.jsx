@@ -22,23 +22,23 @@ export default function Footer() {
 
   return (
     <div
-      className="relative h-[30vh] hidden-scrollbar"
+      className="relative h-[20vh] xl:h-[30vh] hidden-scrollbar"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 h-[30vh] w-full">
-        <div className="bg-brown-1000 text-beige dark:text-brown-1000 dark:bg-beige  md:px-12 h-full w-full flex flex-col justify-between">
+        <div className="bg-brown-1000 text-beige dark:text-brown-1000 dark:bg-beige  px-2 h-full w-full flex flex-col justify-between">
           <div className="flex shrink-0 gap-20">
             {/* Add any additional elements here if necessary */}
           </div>
           <div className="flex justify-between items-end">
             <h1
-              className="text-[10vw] leading-[0.8] cursor-pointer"
+              className="text-[14vw] xl:text-[10vw] leading-[0.8] cursor-pointer"
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
             >
               Griezzman
             </h1>
-            <p className=" text-sm ">Chibuikem Ilonze ©{year} </p>
+            <p className=" text-sm text-right">Chibuikem Ilonze ©{year} </p>
           </div>
         </div>
       </div>

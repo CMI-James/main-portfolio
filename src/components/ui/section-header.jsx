@@ -2,19 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useTransform, motion } from "framer-motion";
 
 const SectionHeader = ({ title, scrollYProgress }) => {
-  const [device, setDevice] = useState(getDeviceType());
-
-  function getDeviceType() {
-    const width = window.innerWidth;
-    if (width < 768) return "mobile";
-    if (width < 1024) return "tablet";
-    return "desktop";
-  }
+  const [deviceType, setDeviceType] = useState(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setDevice(getDeviceType());
-    };
+    // Function to determine device type
+    function getDeviceType() {
+      const width = window.innerWidth;
+      if (width < 768) return "mobile";
+      if (width < 1024) return "tablet";
+      return "desktop";
+    }
+
+    // Set initial device type
+    setDeviceType(getDeviceType());
+
+    // Listen for window resize and update device type
+    const handleResize = () => setDeviceType(getDeviceType());
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -22,10 +25,10 @@ const SectionHeader = ({ title, scrollYProgress }) => {
 
   // Define font size ranges
   const fontSizeValues =
-    device === "mobile"
+    deviceType === "mobile"
       ? ["3rem", "2.5rem", "1.75rem"] // Mobile
-      : device === "tablet"
-      ? ["4rem", "3.5rem", "2.5rem"] // Tablet
+      : deviceType === "tablet"
+      ? ["4rem", "2.5rem", "1.5rem"] // Tablet
       : ["6rem", "4rem", "2rem"]; // Desktop
   // Stabilized useTransform
   const fontSize = useTransform(
@@ -36,7 +39,7 @@ const SectionHeader = ({ title, scrollYProgress }) => {
 
   return (
     <motion.p
-      className="z-[10000] sticky top-0.5 sm:top-0 mx-auto w-fit"
+      className="z-[10000] sticky top-0.5 md:top-1 lg:top-0 mx-auto w-fit"
       style={{ fontSize, willChange: "transform" }} // Optimized for smoother animations
     >
       {title}

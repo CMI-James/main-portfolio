@@ -136,9 +136,9 @@ const Navbar = ({ controls }) => {
           </AnimatePresence>
         </div>
 
-        <ul className="hidden sm:flex gap-10 items-center justify-between z-[100000] ">
+        <ul className="hidden sm:flex gap-10 md:gap-2  lg:gap-5 xl:gap-10 items-center justify-between z-[100000] ">
           {filteredLinks.map((link) => (
-            <li key={link.href} className="group flex items-center space-x-2">
+            <li key={link.href} className="group flex items-center ">
               <Link href={link.href} scroll={false} className="relative">
                 <span>{link.label}</span>
                 <span
