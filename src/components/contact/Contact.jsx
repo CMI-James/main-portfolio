@@ -3,7 +3,7 @@ import ContactDetails from "./components/contactDetails";
 import Section from "../ui/section";
 import SectionHeader from "../ui/section-header";
 import SectionBody from "../ui/section-body";
-import Footer from "../Footer";
+
 
 export default function ContactMe({ className = "" }) {
   return (
