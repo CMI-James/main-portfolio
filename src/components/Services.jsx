@@ -38,8 +38,9 @@ const MyServices = () => {
       <SectionHeader title="Services" />
       <SectionBody>
         <div className="space-y-14 mt-20">
+          {/* For mobile */}
           <div className="flex flex-col sm:hidden gap-5 relative">
-            <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
+            <h3 className="text-heading-3 2xl:text-7xl  font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
               my expertises.
             </h3>
             <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
@@ -80,6 +81,8 @@ const MyServices = () => {
               ))}
             </div>
           </div>
+
+          {/* For tablet and above */}
           <div className="hidden mt-10 relative h-fit sm:grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 ">
             <div className="space-y-6 sticky top-10 h-fit  ">
               <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight ">
@@ -103,7 +106,6 @@ const MyServices = () => {
               ))}
             </div>
           </div>
-
           <div className="hidden mt-10 relative h-fit sm:grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 ">
             <div className="space-y-6 sticky top-10 h-fit ">
               <div className="space-y-3 2xl:space-y-10  ">

@@ -2,11 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useTransform, motion } from "framer-motion";
 
 const SectionHeader = ({ title, scrollYProgress }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [device, setDevice] = useState(getDeviceType());
+
+  function getDeviceType() {
+    const width = window.innerWidth;
+    if (width < 768) return "mobile";
+    if (width < 1024) return "tablet";
+    return "desktop";
+  }
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
+      setDevice(getDeviceType());
     };
 
     window.addEventListener("resize", handleResize);
@@ -14,17 +21,22 @@ const SectionHeader = ({ title, scrollYProgress }) => {
   }, []);
 
   // Define font size ranges
-  const fontSizeValues = isMobile
-    ? ["4rem", "3rem", "2rem"] // Mobile/Tablet
-    : ["6rem", "4rem", "2rem"]; // Desktop
-
+  const fontSizeValues =
+    device === "mobile"
+      ? ["3rem", "2.5rem", "1.75rem"] // Mobile
+      : device === "tablet"
+      ? ["4rem", "3.5rem", "2.5rem"] // Tablet
+      : ["6rem", "4rem", "2rem"]; // Desktop
   // Stabilized useTransform
-  const fontSize = useTransform(scrollYProgress, [0, 0.15, 0.3], fontSizeValues);
-
+  const fontSize = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.3],
+    fontSizeValues
+  );
 
   return (
     <motion.p
-      className="z-[10000] sticky top-0 mx-auto w-fit"
+      className="z-[10000] sticky top-0.5 sm:top-0 mx-auto w-fit"
       style={{ fontSize, willChange: "transform" }} // Optimized for smoother animations
     >
       {title}
