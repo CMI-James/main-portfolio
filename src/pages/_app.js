@@ -17,15 +17,15 @@ function MyApp({ Component, pageProps }) {
           <Layout>
             <Head>
               <title>
-                Ilonze Chibuikem | Software Engineer & Web Developer
+                Ilonze Chibuikem | Electronics Engineer & Software Developer
               </title>
               <meta
                 name="description"
-                content="I'm Ilonze Chibuikem, a Software Engineer specializing in building modern, performant, and scalable web applications."
+                content="I'm Ilonze Chibuikem, an Electronics & Computer Engineering graduate and Software Developer specializing in embedded systems, web applications, and scalable software solutions."
               />
               <meta
                 name="keywords"
-                content="Ilonze Chibuikem, Software Engineer, Web Developer, Frontend Developer, JavaScript, React, Next.js, Tailwind CSS"
+                content="Ilonze Chibuikem, Electronics Engineer, Software Developer, Web Developer, Frontend Developer, Embedded Systems, IoT, JavaScript, React, Next.js, Tailwind CSS"
               />
               <meta name="author" content="Ilonze Chibuikem" />
               <meta name="robots" content="index, follow" />
@@ -33,13 +33,16 @@ function MyApp({ Component, pageProps }) {
               {/* Open Graph Meta Tags (for LinkedIn, Facebook, etc.) */}
               <meta
                 property="og:title"
-                content="Ilonze Chibuikem | Software Engineer & Web Developer"
+                content="Ilonze Chibuikem | Electronics Engineer & Software Developer"
               />
               <meta
                 property="og:description"
-                content="Building modern and scalable web applications with React, Next.js, and Tailwind CSS."
+                content="Electronics & Software Engineer skilled in embedded systems, web applications, and modern technologies like React, Next.js, and Tailwind CSS."
               />
-              <meta property="og:image" content="/images/portfolio-preview.png" />
+              <meta
+                property="og:image"
+                content="/images/portfolio-preview.png"
+              />
               <meta property="og:url" content="https://cmi-james.vercel.app/" />
               <meta property="og:type" content="website" />
 
@@ -47,13 +50,16 @@ function MyApp({ Component, pageProps }) {
               <meta name="twitter:card" content="summary_large_image" />
               <meta
                 name="twitter:title"
-                content="Ilonze Chibuikem | Software Engineer & Web Developer"
+                content="Ilonze Chibuikem | Electronics Engineer & Software Developer"
               />
               <meta
                 name="twitter:description"
-                content="Building modern and scalable web applications with React, Next.js, and Tailwind CSS."
+                content="Electronics & Software Engineer skilled in embedded systems, web applications, and modern technologies like React, Next.js, and Tailwind CSS."
               />
-              <meta name="twitter:image" content="/images/portfolio-preview.png" />
+              <meta
+                name="twitter:image"
+                content="/images/portfolio-preview.png"
+              />
             </Head>
             <Component {...pageProps} />
           </Layout>
