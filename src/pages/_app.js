@@ -16,11 +16,44 @@ function MyApp({ Component, pageProps }) {
         <ThemeProvider>
           <Layout>
             <Head>
-              <title>James</title>
+              <title>
+                Ilonze Chibuikem | Software Engineer & Web Developer
+              </title>
               <meta
                 name="description"
-                content="Default description for my website."
+                content="I'm Ilonze Chibuikem, a Software Engineer specializing in building modern, performant, and scalable web applications."
               />
+              <meta
+                name="keywords"
+                content="Ilonze Chibuikem, Software Engineer, Web Developer, Frontend Developer, JavaScript, React, Next.js, Tailwind CSS"
+              />
+              <meta name="author" content="Ilonze Chibuikem" />
+              <meta name="robots" content="index, follow" />
+
+              {/* Open Graph Meta Tags (for LinkedIn, Facebook, etc.) */}
+              <meta
+                property="og:title"
+                content="Ilonze Chibuikem | Software Engineer & Web Developer"
+              />
+              <meta
+                property="og:description"
+                content="Building modern and scalable web applications with React, Next.js, and Tailwind CSS."
+              />
+              <meta property="og:image" content="/images/portfolio-preview.png" />
+              <meta property="og:url" content="https://cmi-james.vercel.app/" />
+              <meta property="og:type" content="website" />
+
+              {/* Twitter Card Meta Tags */}
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta
+                name="twitter:title"
+                content="Ilonze Chibuikem | Software Engineer & Web Developer"
+              />
+              <meta
+                name="twitter:description"
+                content="Building modern and scalable web applications with React, Next.js, and Tailwind CSS."
+              />
+              <meta name="twitter:image" content="/images/portfolio-preview.png" />
             </Head>
             <Component {...pageProps} />
           </Layout>
