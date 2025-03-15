@@ -1,47 +1,70 @@
-import React from "react";
 import Section from "./ui/section";
 import SectionHeader from "./ui/section-header";
 import SectionBody from "./ui/section-body";
 import Image from "next/image";
 import { AboutDp } from "public/images";
+
 const AboutMe = () => {
   return (
     <Section className="theme-dark-light relative">
       <SectionHeader title="About Me" />
       <SectionBody>
-        <div className="min-h-screen mt-20 flex flex-col md:flex-row gap-x-10 relative ">
-          <div className="flex-1 md:sticky top-0 h-fit ">
-            <Image src={AboutDp} width={0} height={0} className="w-full " />
+        <div className=" mt-8 sm:mt-12 md:mt-20 flex flex-col md:flex-row gap-8 md:gap-x-10 relative">
+          <div className="flex-1 md:sticky md:top-0 h-fit max-w-full md:max-w-[45%]">
+            <Image
+              src={AboutDp || "/placeholder.svg"}
+              width={0}
+              height={0}
+              alt="Ilonze Chibuikem Michael"
+              className="w-full rounded-lg shadow-lg"
+              priority
+            />
           </div>
-          <div className="flex-1">
-            <h1 className="text-5xl">A brief intro, who am I ?</h1>
-            <p className="text-2xl leading-10">
-              I am Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Incidunt odit voluptates perspiciatis saepe, esse rerum
-              perferendis harum autem odio eaque adipisci numquam labore
-              veritatis fugiat laborum vel rem, iusto in id reprehenderit
-              aliquid expedita amet nisi repellendus? Nam deserunt, perspiciatis
-              non atque et amet eos rerum alias, quisquam vero repellat? Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Corporis
-              tenetur quo dolor eius accusamus doloremque nam maiores mollitia
-              ratione quos culpa nemo fuga molestiae ullam impedit, perspiciatis
-              eos aut perferendis ut ipsa. Commodi repellendus quaerat iste,
-              voluptatum animi amet magnam asperiores distinctio sint temporibus
-              facilis ducimus minus quam numquam odio porro veritatis incidunt
-              sed eius tenetur. Cumque, harum quam repellendus autem animi error
-              obcaecati possimus in quaerat provident sint dolores odit
-              temporibus, molestiae ut quidem pariatur laboriosam perferendis.
-              Repellendus temporibus voluptas facere dolore obcaecati saepe eos
-              facilis similique repudiandae animi sed quaerat, nisi magni, error
-              magnam explicabo tempora cupiditate officiis aliquam autem.
-              Impedit doloremque quas, dolor laudantium autem eius soluta fuga,
-              obcaecati, optio possimus et ad quo excepturi quidem qui maxime
-              iste? Ab nihil voluptatum est, corporis neque incidunt eius
-              blanditiis cumque maxime atque ex, iusto beatae repellat magnam
-              libero ipsum impedit. Voluptatibus, maiores! Incidunt ut accusamus
-              nemo molestiae exercitationem. Veniam illum sapiente eius
-              reiciendis minus. Fugit maiores tenetur porro commodi distinctio
-              ipsum magnam explicabo aliquam labore,
+          <div className="flex-1 flex flex-col gap-y-4 sm:gap-y-6 relative">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold sticky top-12 bg-beige dark:bg-brown-1000 pb-2 border-b-[1px]  dark:border-b-beige/30 border-b-brown-1000/30 transition-colors duration-700">
+            <span>  A brief intro, who am I?</span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose">
+              Hi, I'm{" "}
+              <span className="font-semibold">Ilonze Chibuikem Michael</span>, a
+              passionate{" "}
+              <span className="text-blue-600 font-semibold">
+                Frontend Developer
+              </span>{" "}
+              with <span className="font-semibold">years of experience</span>. I
+              specialize in building interactive, high-performance web
+              applications using modern technologies like{" "}
+              <span className="font-semibold">
+                React.js, Next.js, Framer Motion, Tailwind CSS, and TypeScript
+              </span>
+              .
+            </p>
+
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose">
+              I hold a{" "}
+              <span className="font-semibold">
+                B.Eng in Electronic and Computer Engineering
+              </span>{" "}
+              from UNN, where I gained in-depth knowledge of embedded systems,
+              digital signal processing, circuit design, and software-hardware
+              integration. My studies equipped me with a strong analytical
+              mindset, problem-solving skills, and the ability to design and
+              optimize complex electronic and computational systems.
+            </p>
+
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose">
+              Currently, I'm expanding my expertise by learning{" "}
+              <span className="font-semibold">Python for AI</span>. Beyond
+              coding, I enjoy{" "}
+              <span className="font-semibold">
+                playing football and spending time with friends
+              </span>
+              . Balancing work and personal life comes naturally to me because I
+              genuinely enjoy what I do.
+            </p>
+
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose font-semibold text-blue-600">
+              Let's build something amazing together! 🚀
             </p>
           </div>
         </div>

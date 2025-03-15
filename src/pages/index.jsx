@@ -14,7 +14,8 @@ const Home = () => {
   return (
     <Transition>
       <motion.div className={`min-h-screen relative`}>
-    
+        {/* Add the FloatingElements component at the top level */}
+        <FloatingElements />
 
         <Hero />
         <Description />
