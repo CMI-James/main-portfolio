@@ -22,11 +22,11 @@ export default function Footer() {
 
   return (
     <div
-      className="relative h-[20vh] xl:h-[30vh] hidden-scrollbar"
+      className="relative h-[20vh] xl:h-[30vh] hidden-scrollbar theme-light-dark"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 h-[30vh] w-full">
-        <div className="bg-brown-1000 text-beige dark:text-brown-1000 dark:bg-beige  px-2 h-full w-full flex flex-col justify-between">
+        <div className="  px-2 h-full w-full flex flex-col justify-between">
           <div className="flex shrink-0 gap-20">
             {/* Add any additional elements here if necessary */}
           </div>

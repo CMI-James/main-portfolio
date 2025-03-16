@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import LoadingScreen from "./ui/LoadingScreen";
 import AnimatedThemeIcon from "./AnimatedThemeIcon";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -20,12 +21,8 @@ export default function Layout({ children }) {
     }, 6000); // Adjust to match your loading duration
     return () => clearTimeout(timer);
   }, []);
-  const {
-    buttonControls,
-    scrollToTop,
-    handleMouseDown,
-    handleMouseUp,
-  } = useDynamicPageEffects(section);
+  const { buttonControls, scrollToTop, handleMouseDown, handleMouseUp } =
+    useDynamicPageEffects(section);
 
   return (
     <div className="">
@@ -33,6 +30,7 @@ export default function Layout({ children }) {
         <div key={router.pathname}>
           <Navbar />
           {children}
+          <Footer />
         </div>
       </AnimatePresence>
       <motion.button

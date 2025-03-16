@@ -9,7 +9,7 @@ const AboutMe = () => {
     <Section className="theme-dark-light relative">
       <SectionHeader title="About Me" />
       <SectionBody>
-        <div className=" mt-8 sm:mt-12 md:mt-20 flex flex-col md:flex-row gap-8 md:gap-x-10 relative">
+        <div className=" mt-8 sm:mt-12 md:mt-20 flex flex-col md:flex-row gap-8 md:gap-x-10 relative text-beige/80">
           <div className="flex-1 md:sticky md:top-0 h-fit max-w-full md:max-w-[45%]">
             <Image
               src={AboutDp || "/placeholder.svg"}
@@ -21,7 +21,7 @@ const AboutMe = () => {
             />
           </div>
           <div className="flex-1 flex flex-col gap-y-4 sm:gap-y-6 relative">
-            <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold sticky top-12 bg-beige dark:bg-brown-1000 pb-2 border-b-[1px]  dark:border-b-beige/30 border-b-brown-1000/30 transition-colors duration-700">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold sticky top-12 bg-beige dark:bg-brown-1000 pb-2 border-b-[1px]  dark:border-b-beige/30 border-b-brown-1000/30 transition-colors duration-700 text-beige">
             <span>  A brief intro, who am I?</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose">
