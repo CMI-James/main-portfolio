@@ -53,14 +53,14 @@ const Card = ({
   return (
     <div
       ref={container}
-      className="h-screen flex flex-col items-center justify-center sticky top-0"
+      className=" h-screen flex flex-col items-start justify-start sticky top-0"
     >
       <motion.div
         style={{
           scale,
           top: `calc(${i * 10}px)`,
         }}
-        className="flex flex-col relative h-[85%] w-full rounded-3xl p-8 origin-top mt-16 transition-colors duration-700"
+        className="flex flex-col  relative h-[70vh] md:h-[65vh] xl:h-[85vh] 2xl:h-[70vh] w-full rounded-3xl p-4 xl:p-8 origin-top mt-16 transition-colors duration-700"
         animate={{
           backgroundColor: currentColor,
         }}
@@ -71,8 +71,8 @@ const Card = ({
         <h2 className="text-center m-0 text-3xl text-brown-1000 dark:text-beige duration-700 transition-colors">
           {title}
         </h2>
-        <div className="flex h-full mt-6 gap-8">
-          <div className="relative w-[80%] h-full rounded-sm overflow-hidden">
+        <div className="flex flex-col xl:flex-row h-full mt-6 gap-8">
+          <div className="relative xl:w-[80%] h-[40%] md:h-[65%] xl:h-full rounded-sm overflow-hidden">
             <motion.div
               className="w-full h-full rounded-3xl"
               style={{ scale: imageScale }}
@@ -85,7 +85,7 @@ const Card = ({
               />
             </motion.div>
           </div>
-          <div className="w-[20%] relative top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors">
+          <div className="xl:w-[20%] relative top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors">
             <p className="text-base first-letter:text-3xl first-letter:font-serif">
               {description}
             </p>
