@@ -1,5 +1,4 @@
 import AboutMe from "@/components/About";
-import Footer from "@/components/Footer";
 import Transition from "@/components/ui/Transition";
 import React from "react";
 

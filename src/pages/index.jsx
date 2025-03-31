@@ -6,7 +6,6 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Transition from "@/components/ui/Transition";
 import Description from "@/components/Description";
-import Footer from "@/components/Footer";
 import ContactMe from "@/components/contact/Contact";
 import FloatingElements from "@/components/ui/FloatingElements";
 import Projects from "@/components/Projects";
