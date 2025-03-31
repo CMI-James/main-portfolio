@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 
 import { useScroll } from "framer-motion";
 
-
 import Card from "@/pages/projects/components/projectsCard";
 import { projects } from "@/data/project";
 import Section from "./layout/section";
@@ -14,11 +13,11 @@ const Projects = ({ limit }) => {
   const { scrollYProgress } = useScroll();
 
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
-console.log(displayedProjects)
+  console.log(displayedProjects);
   return (
     <Section className="theme-dark-light">
       <SectionHeader title="Projects" />
-      <SectionBody >
+      <SectionBody>
         <div className="projects-grid ">
           {displayedProjects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;

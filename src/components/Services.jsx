@@ -38,7 +38,7 @@ const MyServices = () => {
     <Section className="theme-dark-light ">
       <SectionHeader title="Services" />
       <SectionBody>
-        <div className="space-y-14 mt-20">
+        <div className="space-y-14">
           {/* For mobile */}
           <div className="flex flex-col sm:hidden gap-5 relative">
             <h3 className="text-heading-3 2xl:text-7xl  font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
