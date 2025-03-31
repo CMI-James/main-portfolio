@@ -31,7 +31,7 @@ export default function Hero() {
   };
 
   return (
-    <Section id="hero" className="!py-0">
+    <Section id="hero" wrapperClassName="!py-0">
       <motion.section
         className="relative h-[90vh] hero-clip flex justify-center"
         initial="hidden"

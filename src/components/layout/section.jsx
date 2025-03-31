@@ -32,7 +32,7 @@ const Section = ({
   return (
     <section
       ref={container}
-      className={`relative w-full  ${wrapperClassName}`}
+      className={`relative w-full py-12 md:py-16 lg:py-20 ${wrapperClassName}`}
     >
       <div className={`container px-4 md:px-6 mx-auto max-w-7xl ${className}`}>
         {React.Children.map(children, (child) =>

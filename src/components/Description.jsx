@@ -7,7 +7,7 @@ export default function Description() {
   return (
     <Section
       id="description-section"
-      wrapperClassName="relative z-20 h-screen hidden-scrollbar theme-light-dark  flex w-full items-center justify-center space-x-20"
+      wrapperClassName="relative !py-0 z-20 h-screen hidden-scrollbar theme-light-dark  flex w-full items-center justify-center space-x-20"
     >
       <Word paragraph={paragraph} />
     </Section>
