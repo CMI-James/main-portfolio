@@ -29,14 +29,14 @@ module.exports = {
         "accent-300": "#262626",
         "accent-200": "#4D4D4D",
         "accent-100": "#666666",
-        
       },
       fontSize: {
         title: ["clamp(3rem, 20vw, 9rem)"],
         heading: ["clamp(3rem, 8vw, 12rem)"],
-
+       
         "heading-1": ["clamp(2.5rem, 6.5vw, 10rem)"],
         "heading-2": ["clamp(2.4rem, 8vw, 10rem)"],
+        "heading-2.5": ["clamp(2.3rem, 6vw, 7rem)"],
         "heading-3": ["clamp(2rem, 5vw, 2.75rem)"],
         special: ["clamp(2rem, 4vw, 3.25rem)"],
         "works-title": ["clamp(1.25rem, 2vw, 1.5rem)"],
@@ -56,10 +56,10 @@ module.exports = {
   plugins: [
     function ({ addVariant }) {
       // Adding custom nth-of-type variants
-      addVariant('nth-1', '&:nth-of-type(1)');
-      addVariant('nth-2', '&:nth-of-type(2)');
-      addVariant('nth-3', '&:nth-of-type(3)');
-      addVariant('nth-4', '&:nth-of-type(4)');
+      addVariant("nth-1", "&:nth-of-type(1)");
+      addVariant("nth-2", "&:nth-of-type(2)");
+      addVariant("nth-3", "&:nth-of-type(3)");
+      addVariant("nth-4", "&:nth-of-type(4)");
       // Add more if needed
     },
   ],

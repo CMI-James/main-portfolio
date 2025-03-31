@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           <Layout>
             <Head>
               <title>
-                Ilonze Chibuikem | Electronics Engineer & Software Developer
+              James
               </title>
               <meta
                 name="description"

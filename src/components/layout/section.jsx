@@ -5,7 +5,9 @@ import Lenis from "@studio-freight/lenis";
 const Section = ({
   children,
   className,
-  extraPadding = "py-10 px-4 md:px-8 xl:px-12 ",
+ 
+  wrapperClassName,
+  id,
 }) => {
   const container = useRef(null);
 
@@ -28,11 +30,16 @@ const Section = ({
   }, []);
 
   return (
-    <div ref={container} className={`relative ${extraPadding} ${className}`}>
-      {React.Children.map(children, (child) =>
-        React.cloneElement(child, { scrollYProgress })
-      )}
-    </div>
+    <section
+      ref={container}
+      className={`relative w-full  ${wrapperClassName}`}
+    >
+      <div className={`container px-4 md:px-6 mx-auto max-w-7xl ${className}`}>
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, { scrollYProgress })
+        )}
+      </div>
+    </section>
   );
 };
 

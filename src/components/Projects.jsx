@@ -6,9 +6,9 @@ import { useScroll } from "framer-motion";
 
 import Card from "@/pages/projects/components/projectsCard";
 import { projects } from "@/data/project";
-import Section from "./ui/section";
-import SectionHeader from "./ui/section-header";
-import SectionBody from "./ui/section-body";
+import Section from "./layout/section";
+import SectionHeader from "./layout/section-header";
+import SectionBody from "./layout/section-body";
 
 const Projects = ({ limit }) => {
   const { scrollYProgress } = useScroll();
