@@ -5,7 +5,7 @@ import Lenis from "@studio-freight/lenis";
 const Section = ({
   children,
   className,
- 
+
   wrapperClassName,
   id,
 }) => {
@@ -31,6 +31,7 @@ const Section = ({
 
   return (
     <section
+      id={id}
       ref={container}
       className={`relative w-full py-12 md:py-16 lg:py-20 ${wrapperClassName}`}
     >

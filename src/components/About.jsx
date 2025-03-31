@@ -96,7 +96,7 @@ const AboutMe = ({ isFullPage }) => {
                   <Link href="/about" passHref>
                     <Button
                       variant="outline"
-                      className="mt-4 flex items-center gap-2 mx-auto relative z-10 theme-light-dark-button"
+                      className="mt-4 flex items-center gap-2 mx-auto relative z-10 theme-light-dark-button "
                     >
                       Read more <ChevronRight className="h-4 w-4" />
                     </Button>
