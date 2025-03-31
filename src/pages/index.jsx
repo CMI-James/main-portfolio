@@ -1,14 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Hero from "@/components/Hero"
-import About from "@/components/About"
-import Services from "@/components/Services"
-import Transition from "@/components/ui/Transition"
-import Description from "@/components/Description"
-import Footer from "@/components/Footer"
-import ContactMe from "@/components/contact/Contact"
-import FloatingElements from "@/components/ui/FloatingElements"
+import { motion } from "framer-motion";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Transition from "@/components/ui/Transition";
+import Description from "@/components/Description";
+import Footer from "@/components/Footer";
+import ContactMe from "@/components/contact/Contact";
+import FloatingElements from "@/components/ui/FloatingElements";
+import Projects from "@/components/Projects";
 
 const Home = () => {
   return (
@@ -20,13 +21,12 @@ const Home = () => {
         <Hero />
         <Description />
         <About />
+        <Projects limit={3}/>
         <Services />
-        <ContactMe  />
-        <Footer />
+        <ContactMe />
       </motion.div>
     </Transition>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;

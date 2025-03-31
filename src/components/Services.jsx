@@ -24,6 +24,7 @@ const MyServices = () => {
 
   const toolBoxItems = [
     "JavaScript",
+    "Typescript",
     // "HTML",
     // "CSS",
     "Figma",
