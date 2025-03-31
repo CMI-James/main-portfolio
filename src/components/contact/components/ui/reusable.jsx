@@ -9,8 +9,10 @@ const SocialLink = ({ href, platform, bgColor }) => {
       target="_blank"
       rel="noreferrer"
     >
-      <div className="relative">
-        <span>{platform}</span>
+      <div className="relative max-w-full">
+        <span className="block overflow-hidden whitespace-nowrap text-ellipsis">
+          {platform}
+        </span>
         <span
           className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-300 ease-in-out group-hover:w-full`}
         ></span>

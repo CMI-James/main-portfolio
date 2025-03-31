@@ -26,8 +26,8 @@ const ContactDetails = () => {
   const socialLinks = [
     { href: 'https://github.com/CMI-James', platform: 'Github' },
     { href: 'https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/', platform: 'LinkedIn' },
-    { href: 'https://web.facebook.com/chibuike.ilonze.1', platform: 'Facebook' },
-    { href: 'https://twitter.com/CMIJames', platform: 'X (Twitter)' }
+    { href: 'https://web.facebook.com/CMIJames', platform: 'Facebook' },
+    { href: 'https://twitter.com/cmi_james', platform: 'X (Twitter)' }
   ];
 
   return (
@@ -35,7 +35,7 @@ const ContactDetails = () => {
       {/* Contact Details */}
       <div className="space-y-3">
         <H4>Contact Details</H4>
-        <div className="flex flex-col space-y-3 text-body-2 2xl:text-3xl">
+        <div className="flex flex-col space-y-3 text-body-2 2xl:text-3xl ">
           <SocialLink
             href="mailto:chibuikemichaelilonze@gmail.com"
             platform="chibuikemichaelilonze@gmail.com"
@@ -46,7 +46,7 @@ const ContactDetails = () => {
       {/* Social Links */}
       <div className="space-y-3">
         <H4>Others</H4>
-        <div className="space-y-3 text-body-2 2xl:text-3xl">
+        <div className="space-y-3 text-body-2 2xl:text-3xl  w-full md:flex flex-col grid grid-cols-2 grid-rows-2 justify-between items-end md:items-start ">
           {socialLinks.map((link, index) => (
             <SocialLink key={index} href={link.href} platform={link.platform} />
           ))}
