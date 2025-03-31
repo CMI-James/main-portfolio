@@ -1,5 +1,5 @@
-import AboutMe from "@/components/About";
-import Transition from "@/components/ui/Transition";
+import AboutMe from "@/components/home/About";
+import Transition from "@/components/common/Transition";
 import React from "react";
 
 const About = () => {

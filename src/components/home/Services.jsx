@@ -1,9 +1,9 @@
 // src/components/Skills.js
 import React from "react";
-import Heading from "./ui/Heading";
-import Section from "./layout/section";
-import SectionHeader from "./layout/section-header";
-import SectionBody from "./layout/section-body";
+import Heading from "../common/Heading";
+import Section from "../layout/Section";
+import SectionHeader from "../layout/SectionHeader";
+import SectionBody from "../layout/SectionBody";
 
 const MyServices = () => {
   // const expertiseItems = [

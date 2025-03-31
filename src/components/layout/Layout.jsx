@@ -2,12 +2,12 @@ import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import useScrollSection from "@/hooks/useScrollSection";
 import { getSectionClasses } from "@/utils/sectionUtils";
-import Navbar from "./navbar/Navbar";
+import Navbar from "./Navbar";
 import useDynamicPageEffects from "@/hooks/useDynamicPageEffects";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import LoadingScreen from "./ui/LoadingScreen";
-import AnimatedThemeIcon from "./AnimatedThemeIcon";
+import LoadingScreen from "../ui/LoadingScreen";
+import AnimatedThemeIcon from "../common/AnimatedThemeIcon";
 import Footer from "./Footer";
 
 export default function Layout({ children }) {

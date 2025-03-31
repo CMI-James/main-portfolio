@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Transition from "@/components/ui/Transition";
-import Description from "@/components/Description";
-import ContactMe from "@/components/contact/Contact";
-import FloatingElements from "@/components/ui/FloatingElements";
-import Projects from "@/components/Projects";
+import Hero from "@/components/home/Hero";
+import About from "@/components/home/About";
+import Services from "@/components/home/Services";
+import Transition from "@/components/common/Transition";
+import Description from "@/components/home/Description";
+import ContactMe from "@/components/home/Contact";
+import FloatingElements from "@/components/common/FloatingElements";
+import Projects from "@/components/home/Projects";
 
 const Home = () => {
   return (

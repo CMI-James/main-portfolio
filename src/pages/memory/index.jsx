@@ -1,4 +1,4 @@
-import Transition from "@/components/ui/Transition";
+import Transition from "@/components/common/Transition";
 import { useMemory } from "@/context/MemoryContext";
 import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";

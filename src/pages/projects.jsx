@@ -1,7 +1,7 @@
 "use client";
-import Transition from "@/components/ui/Transition";
+import Transition from "@/components/common/Transition";
 import React from "react";
-import Projects from "@/components/Projects";
+import Projects from "@/components/home/Projects";
 const ProjectsPage = () => {
   return (
     <Transition>

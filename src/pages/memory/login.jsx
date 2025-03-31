@@ -1,7 +1,7 @@
 // pages/memory-login.js
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Transition from "@/components/ui/Transition";
+import Transition from "@/components/common/Transition";
 import { useMemory } from "@/context/MemoryContext";
 
 import { motion } from "framer-motion";

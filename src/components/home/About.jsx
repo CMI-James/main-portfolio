@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Section from "./layout/section";
-import SectionHeader from "./layout/section-header";
-import SectionBody from "./layout/section-body";
+import Section from "../layout/Section";
+import SectionHeader from "../layout/SectionHeader";
+import SectionBody from "../layout/SectionBody";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";

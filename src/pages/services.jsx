@@ -1,5 +1,5 @@
-import MyServices from "@/components/Services";
-import Transition from "@/components/ui/Transition";
+import MyServices from "@/components/home/Services";
+import Transition from "@/components/common/Transition";
 import React from "react";
 
 const Services = () => {

@@ -1,4 +1,4 @@
-import Transition from "@/components/ui/Transition";
+import Transition from "@/components/common/Transition";
 import React from "react";
 
 

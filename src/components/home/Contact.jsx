@@ -1,8 +1,9 @@
-import ContactForm from "./components/contactForm";
-import ContactDetails from "./components/contactDetails";
-import Section from "../layout/section";
-import SectionHeader from "../layout/section-header";
-import SectionBody from "../layout/section-body";
+
+import Section from "../layout/Section";
+import SectionHeader from "../layout/SectionHeader";
+import SectionBody from "../layout/SectionBody";
+import ContactDetails from "../contact/components/contactDetails";
+import ContactForm from "../contact/components/contactForm";
 
 export default function ContactMe({ className = "" }) {
   return (

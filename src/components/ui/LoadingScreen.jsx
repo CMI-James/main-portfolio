@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Transition from "./Transition";
+import Transition from "../common/Transition";
 
 const LoadingScreen = () => {
   const [percentage, setPercentage] = useState(0);

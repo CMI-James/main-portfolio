@@ -18,8 +18,8 @@
 
 "use client"
 import React, { useEffect } from "react";
-import Word from "./ui/TextReveal";
-import Section from "./layout/section";
+import Word from "../common/TextReveal";
+import Section from "../layout/Section";
 export default function Description() {
   useEffect(() => {
     console.log("✅ Description component mounted");

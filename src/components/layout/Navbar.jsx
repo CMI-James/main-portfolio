@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Nav from "./ui/nav";
-import MenuBar from "./ui/menubar";
+import Nav from "../navbar/ui/nav";
+import MenuBar from "../navbar/ui/menubar";
 
 const Navbar = ({ controls }) => {
   const [isActive, setIsActive] = useState(true);

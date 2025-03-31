@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Section from "./layout/section";
+import Section from "../layout/Section";
 
 export default function Hero() {
   const textArray = ["HEY, I'M JAMES", "HEY, I'M JAMES", "HEY, I'M JAMES"];

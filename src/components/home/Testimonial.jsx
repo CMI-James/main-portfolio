@@ -1,6 +1,6 @@
 // src/components/Footer.js
 import React from "react";
-import Heading from "./ui/Heading";
+import Heading from "../common/Heading";
 
 export const Testimonial = () => (
   <section

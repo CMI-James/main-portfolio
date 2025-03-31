@@ -5,15 +5,15 @@ import { useScroll } from "framer-motion";
 
 import Card from "@/pages/projects/components/projectsCard";
 import { projects } from "@/data/project";
-import Section from "./layout/section";
-import SectionHeader from "./layout/section-header";
-import SectionBody from "./layout/section-body";
+import Section from "../layout/Section";
+import SectionHeader from "../layout/SectionHeader";
+import SectionBody from "../layout/SectionBody";
 
 const Projects = ({ limit }) => {
   const { scrollYProgress } = useScroll();
 
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
-  console.log(displayedProjects);
+
   return (
     <Section className="theme-dark-light">
       <SectionHeader title="Projects" />
