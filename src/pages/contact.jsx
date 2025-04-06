@@ -1,5 +1,5 @@
-import ContactMe from "../components/contact/Contact";
 import Transition from "@/components/common/Transition";
+import ContactMe from "@/components/home/Contact";
 import React from "react";
 
 const ContactPage = () => {
