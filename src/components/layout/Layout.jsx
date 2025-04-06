@@ -9,6 +9,7 @@ import { FaArrowUp } from "react-icons/fa";
 import LoadingScreen from "../ui/LoadingScreen";
 import AnimatedThemeIcon from "../common/AnimatedThemeIcon";
 import Footer from "./Footer";
+import LoaderWrapper from "./Loader";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -25,29 +26,31 @@ export default function Layout({ children }) {
     useDynamicPageEffects(section);
 
   return (
-    <div className="">
-      <AnimatePresence mode="wait">
-        <div key={router.pathname}>
-          <Navbar />
-          {children}
-          <Footer />
+    <LoaderWrapper>
+      <div className="">
+        <AnimatePresence mode="wait">
+          <div key={router.pathname}>
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </AnimatePresence>
+        <motion.button
+          onClick={scrollToTop}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          className={`fixed bottom-14 right-2 z-[10000] p-2 rounded-full text-xl`}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={buttonControls}
+        >
+          <div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
+            <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
+          </div>
+        </motion.button>
+        <div className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}>
+          <AnimatedThemeIcon />
         </div>
-      </AnimatePresence>
-      <motion.button
-        onClick={scrollToTop}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        className={`fixed bottom-14 right-2 z-[10000] p-2 rounded-full`}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={buttonControls}
-      >
-        <div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
-          <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
-        </div>
-      </motion.button>
-      <div className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}>
-        <AnimatedThemeIcon />
-      </div>
-    </div>
+      </div>{" "}
+    </LoaderWrapper>
   );
 }
