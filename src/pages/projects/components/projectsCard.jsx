@@ -85,8 +85,8 @@ const Card = ({
               />
             </motion.div>
           </div>
-          <div className="xl:w-[20%] relative top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors">
-            <p className="text-base first-letter:text-3xl first-letter:font-serif">
+          <div className="xl:w-[20%] relative top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors font-lora">
+            <p className="text-base first-letter:text-3xl first-letter:font-serif ">
               {description}
             </p>
             <span className="flex items-center gap-1">
