@@ -60,7 +60,7 @@ const InputField = ({ type = "text", id, name, label }) => {
 // Reusable TextArea Component
 const TextAreaField = ({ id, name, rows = 5, label }) => {
   return (
-    <div className="relative z-0">
+    <div className="relative z-0 font-lora">
       <textarea
         required
         id={id}
