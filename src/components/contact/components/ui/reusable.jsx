@@ -9,7 +9,7 @@ const SocialLink = ({ href, platform, bgColor }) => {
       target="_blank"
       rel="noreferrer"
     >
-      <div className="relative max-w-full">
+      <div className="relative max-w-full font-lora">
         <span className="block overflow-hidden whitespace-nowrap text-ellipsis">
           {platform}
         </span>
