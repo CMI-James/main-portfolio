@@ -44,7 +44,7 @@ const MyServices = () => {
             <h3 className="text-heading-3 2xl:text-7xl  font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
               my expertises.
             </h3>
-            <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
+            <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl font-lora">
               I focus on all things design and web related. With each of my
               services, my goal is to deliver an impactful and elevating digital
               experience for everyone.
@@ -65,7 +65,7 @@ const MyServices = () => {
             <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
               my digital tool box.
             </h3>
-            <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
+            <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl font-lora">
               These are my go-to tech stack to make any projects happen. I am
               always eager to learn more about my current stack and new
               technologies that could expand my horizons.
@@ -89,7 +89,7 @@ const MyServices = () => {
               <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight ">
                 my expertises.
               </h3>
-              <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
+              <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl font-lora">
                 I focus on all things design and web related. With each of my
                 services, my goal is to deliver an impactful and elevating
                 digital experience for everyone.
@@ -113,7 +113,7 @@ const MyServices = () => {
                 <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight ">
                   my digital tool box.
                 </h3>
-                <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl">
+                <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl font-lora">
                   These are my go-to tech stack to make any projects happen. I
                   am always eager to learn more about my current stack and new
                   technologies that could expand my horizons.

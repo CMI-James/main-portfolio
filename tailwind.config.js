@@ -86,6 +86,12 @@ module.exports = {
       },
       fontFamily: {
         main: ["Main", "sans-serif"],
+        // Added Google fonts
+        inter: ["var(--font-inter)", "sans-serif"],
+        roboto: ["var(--font-roboto)", "sans-serif"],
+        lora: ["var(--font-lora)", "serif"],
+        sourceSerif: ["var(--font-source-serif)", "serif"],
+        workSans: ["var(--font-work-sans)", "sans-serif"],
       },
       clipPath: {
         "hero-clip": "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",

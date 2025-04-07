@@ -31,12 +31,12 @@ const AboutMe = ({ isFullPage }) => {
           </div>
           <div className="flex-1 flex flex-col gap-y-4 sm:gap-y-6 relative">
             <h1 className="text-3xl sm:text-3xl font-bold sticky top-12 bg-beige dark:bg-brown-1000 pb-2 border-b-[1px] dark:border-b-beige/30 border-b-brown-1000/30 transition-colors duration-700 text-brown-1000 dark:text-beige z-10">
-              <span>A brief intro, who am I?</span>
+              <span className="font-lora">A brief intro, who am I?</span>
             </h1>
 
             <div className="relative">
               <div
-                className={`flex flex-col gap-y-4 sm:gap-y-6 ${
+                className={`flex flex-col gap-y-4 sm:gap-y-6 font-lora ${
                   isAboutPage ? "" : "max-h-[300px] overflow-hidden"
                 }`}
               >
@@ -46,7 +46,7 @@ const AboutMe = ({ isFullPage }) => {
                     Ilonze Chibuikem Michael
                   </span>
                   , a passionate{" "}
-                  <span className="text-blue-600 font-semibold">
+                  <span className=" font-semibold">
                     Frontend Developer
                   </span>{" "}
                   with{" "}
