@@ -15,7 +15,7 @@ export default function ContactMe({ className = "" }) {
             <h3 className="max-w-lg 2xl:max-w-3xl text-heading-3 2xl:text-7xl font-semibold leading-tight ">
               Got a great idea? <br /> Let's make it happen!
             </h3>
-            <p className="pt-4 max-w-md 2xl:max-w-2xl text-body-2 2xl:text-4xl text-brown-700 dark:text-beige/70 ">
+            <p className="pt-4 max-w-md 2xl:max-w-2xl text-body-2 2xl:text-4xl text-brown-700 dark:text-beige/70 font-lora">
               I am currently available for freelance frontend development work
               and open to new projects.
             </p>

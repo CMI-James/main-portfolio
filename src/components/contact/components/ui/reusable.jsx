@@ -38,7 +38,7 @@ const H4 = ({ children, level = "h4", className = "" }) => {
 // Reusable Input Component
 const InputField = ({ type = "text", id, name, label }) => {
   return (
-    <div className="relative z-0">
+    <div className="relative z-0 font-lora">
       <input
         required
         type={type}
