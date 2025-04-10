@@ -41,7 +41,7 @@ const MyServices = () => {
         <div className="space-y-14">
           {/* For mobile */}
           <div className="flex flex-col sm:hidden gap-5 relative">
-            <h3 className="text-heading-3 2xl:text-7xl  font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
+            <h3 className="text-3xl 2xl:text-7xl  font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
               my expertises.
             </h3>
             <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl font-lora">
@@ -62,7 +62,7 @@ const MyServices = () => {
             </div>
           </div>
           <div className="flex flex-col sm:hidden gap-5 relative">
-            <h3 className="text-heading-3 2xl:text-7xl font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
+            <h3 className="text-3xl 2xl:text-7xl font-semibold leading-tight sticky top-12 bg-beige dark:bg-brown-1000">
               my digital tool box.
             </h3>
             <p className="max-w-md xl:max-w-2xl text-body-1 2xl:text-3xl font-lora">

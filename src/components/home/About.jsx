@@ -30,8 +30,8 @@ const AboutMe = ({ isFullPage }) => {
             />
           </div>
           <div className="flex-1 flex flex-col gap-y-4 sm:gap-y-6 relative">
-            <h1 className="text-3xl sm:text-3xl font-bold sticky top-12 bg-beige dark:bg-brown-1000 pb-2 border-b-[1px] dark:border-b-beige/30 border-b-brown-1000/30 transition-colors duration-700 text-brown-1000 dark:text-beige z-10">
-              <span >A brief intro, who am I?</span>
+            <h1 className="text-xl sm:text-2xl font-bold sticky top-12  bg-beige dark:bg-brown-1000 pb-2 border-b-[1px] dark:border-b-beige/30 border-b-brown-1000/30 transition-colors duration-700 text-brown-1000 dark:text-beige z-30">
+              A brief intro, who am I?
             </h1>
 
             <div className="relative">
@@ -46,9 +46,7 @@ const AboutMe = ({ isFullPage }) => {
                     Ilonze Chibuikem Michael
                   </span>
                   , a passionate{" "}
-                  <span className=" font-semibold">
-                    Frontend Developer
-                  </span>{" "}
+                  <span className=" font-semibold">Frontend Developer</span>{" "}
                   with{" "}
                   <span className="font-semibold">years of experience</span>. I
                   specialize in building interactive, high-performance web
@@ -91,7 +89,7 @@ const AboutMe = ({ isFullPage }) => {
 
               {!isAboutPage && (
                 <>
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-beige dark:from-brown-1000 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 -z-30 right-0 h-24 bg-gradient-to-t from-beige dark:from-brown-1000 to-transparent"></div>
 
                   <Link href="/about" passHref>
                     <Button

@@ -12,7 +12,7 @@ export default function Paragraph({ paragraph }) {
   return (
     <p
       ref={container}
-      className="flex text-heading lg:text-heading-1 2xl:text-heading-2.5  flex-wrap "
+      className="flex text-title-2 lg:text-heading-1 2xl:text-heading-2.5  flex-wrap "
     >
       {words.map((word, i) => {
         const start = i / words.length;

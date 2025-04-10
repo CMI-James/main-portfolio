@@ -72,6 +72,7 @@ module.exports = {
       },
       fontSize: {
         title: ["clamp(3rem, 20vw, 9rem)"],
+        "title-2": ["clamp(3rem, 13vw, 14rem)"],
         heading: ["clamp(3rem, 8vw, 12rem)"],
         "heading-1": ["clamp(2.5rem, 6.5vw, 10rem)"],
         "heading-2": ["clamp(2.4rem, 8vw, 10rem)"],
