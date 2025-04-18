@@ -67,7 +67,7 @@ const Card = ({
             scale,
             top: `calc(${i * 10}px)`,
           }}
-          className="flex flex-col  relative h-[70vh] md:h-[65vh] xl:h-[85vh] 2xl:h-[70vh] w-full rounded-3xl p-4 xl:p-8 origin-top mt-16 transition-colors duration-700"
+          className="flex flex-col  relative h-[70vh] md:h-[65vh] xl:h-[85vh] 2xl:h-[70vh] w-full rounded-xl md:rounded-2xl xl:rounded-3xl p-4 xl:p-8 origin-top mt-16 transition-colors duration-700"
           animate={{
             backgroundColor: currentColor,
           }}
@@ -88,11 +88,11 @@ const Card = ({
                   fill
                   src={`/images/projects/${src}`}
                   alt={title}
-                  className="object-cover rounded-3xl"
+                  className="object-cover rounded-xl md:rounded-2xl xl:rounded-3xl"
                 />
               </motion.div>
             </div>
-            <div className="xl:w-[20%] relative top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors font-lora">
+            <div className="xl:w-[20%] relative top-[5%] md:top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors font-lora">
               <p className="text-base first-letter:text-3xl first-letter:font-serif ">
                 {description}
               </p>
