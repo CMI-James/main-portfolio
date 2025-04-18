@@ -1,28 +1,17 @@
-"use client";
-
-import React from "react";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
+"use client"
+import { motion } from "framer-motion"
+import { Sun, Moon } from "lucide-react"
+import { useTheme } from "@/context/ThemeContext"
 
 const AnimatedThemeIcon = () => {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") === "dark";
-    }
-    return false;
-  });
+  const { theme, toggleTheme } = useTheme()
+  const isDark = theme === "dark"
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      document.documentElement.classList.toggle("dark", isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => {
-    setIsDark((prev) => !prev);
-  };
+  const iconVariants = {
+    hidden: { opacity: 0, scale: 0.5, rotate: 120 },
+    visible: { opacity: 1, scale: 1, rotate: 0 },
+    exit: { opacity: 0, scale: 0.5, rotate: -120 },
+  }
 
   return (
     <button
@@ -54,7 +43,7 @@ const AnimatedThemeIcon = () => {
         </motion.div>
       </motion.div>
     </button>
-  );
-};
+  )
+}
 
-export default AnimatedThemeIcon;
+export default AnimatedThemeIcon
