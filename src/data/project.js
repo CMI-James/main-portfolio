@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "HNG Zuri Portfolio",
     description:
-      "Originally hailing from Austria, Berlin-based photographer Matthias Leindinger is a young creative brimming with talent and ideas.",
+      "Zuri HNG Portfolio is a dynamic web application designed to help users create a personal online portfolio, similar to platforms like Medium. Users can sign up, log in, and personalize their profile by uploading content such as certificates, awards, blog posts, and other professional achievements. The platform empowers individuals to showcase their skills and milestones in a structured, visually appealing way.",
     src: "zuriportfolio.png",
     link: "https://zuriportfolio.vercel.app/",
     color: {
@@ -25,7 +25,7 @@ export const projects = [
   {
     title: "Nourify",
     description:
-      "The coastlines of Denmark are documented in tonal colors in a pensive new series by Danish photographers Ulrik Hasemann and Mathias Svold; an ongoing project investigating how humans interact with and disrupt the Danish coast.",
+      "Nourify is an e-commerce web platform where users can shop for freshly made groceries and pastries. The platform features a wide range of items including vegetables, fruits, cakes, croissants, doughnuts, and more. Nourify is designed with user experience in mind, making it easy for customers to browse, add items to cart, and place orders seamlessly from the comfort of their home.",
     src: "nourify.png",
     link: "https://nourify.vercel.app/",
     color: {
@@ -35,7 +35,7 @@ export const projects = [
   },
   {
     title: "BlogPost",
-    description: `This is a story on the border between reality and imaginary, about the contradictory feelings that the insularity of a rocky, arid, and wild territory provokes"—so French photographer Clément Chapillon describes his latest highly captivating project Les rochers fauves (French for 'The tawny rocks').`,
+    description: `Blogpost is a web-based platform that allows users to create an account and share their thoughts with the world by publishing blog posts in a public space. The platform promotes open expression and community engagement, similar to platforms like Dev.to or Medium, where content from different users is visible to everyone.`,
     src: "blogpost.png",
     link: "https://blogpost-rzdv.onrender.com/",
     color: {
@@ -43,16 +43,4 @@ export const projects = [
       dark: "#b23a48", // Deep Ruby Red
     },
   },
-
-  // {
-  //   title: "Mark Rammers",
-  //   description:
-  //     "Dutch photographer Mark Rammers has shared with IGNANT the first chapter of his latest photographic project, 'all over again'—captured while in residency at Hektor, an old farm in Los Valles, Lanzarote. Titled 'Beginnings', the mesmerizing collection of images is a visual and meditative journey into the origins of regrets and the uncertainty of stepping into new unknowns.",
-  //   src: "cactus.jpg",
-  //   link: "https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/",
-  //   color: {
-  //     light: "#9a678f", // Dusty Lavender
-  //     dark: "#7a547f", // Muted Plum
-  //   },
-  // },
 ];
