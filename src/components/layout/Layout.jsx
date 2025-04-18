@@ -10,6 +10,8 @@ import LoadingScreen from "../ui/LoadingScreen";
 import AnimatedThemeIcon from "../common/AnimatedThemeIcon";
 import Footer from "./Footer";
 import LoaderWrapper from "./Loader";
+import { BriefcaseBusiness } from "lucide-react";
+import Link from "next/link";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -35,20 +37,27 @@ export default function Layout({ children }) {
             <Footer />
           </div>
         </AnimatePresence>
-        <motion.button
-          onClick={scrollToTop}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          className={`fixed bottom-14 right-2 z-[10000] p-2 rounded-full text-xl`}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={buttonControls}
-        >
-          <div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
-            <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
+        <div className="fixed bottom-2 right-4 z-[10000]">
+          <div className="flex flex-col items-center justify-center">
+            <motion.button
+              onClick={scrollToTop}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              className={` z-[10000] p-2 rounded-full text-xl`}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={buttonControls}
+            >
+              <div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
+                <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
+              </div>
+            </motion.button>
+            <Link href="/resume" className={` p-2 rounded-full text-xl w-fit border-2 dark:border-beige border-brown-1000 transition-colors duration-500`}>
+              <BriefcaseBusiness className="dark:text-beige border-text-1000 transition-colors duration-500"/>
+            </Link>
+            <div className={` p-2 rounded-full`}>
+              <AnimatedThemeIcon />
+            </div>
           </div>
-        </motion.button>
-        <div className={`fixed bottom-2 right-2 z-[10000] p-2 rounded-full`}>
-          <AnimatedThemeIcon />
         </div>
       </div>{" "}
     </LoaderWrapper>
