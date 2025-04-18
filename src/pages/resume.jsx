@@ -84,7 +84,7 @@ const Resume = () => {
                 </Link>
                 <span className="mx-2">|</span>
                 <Link
-                  href="https://app.onlydust.com/"
+                  href="https://app.onlydust.com/users/CMI-James/overview"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline"
