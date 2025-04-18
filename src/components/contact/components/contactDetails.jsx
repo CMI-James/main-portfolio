@@ -1,7 +1,6 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { H4, SocialLink } from "./ui/reusable";
-
 
 const ContactDetails = () => {
   const [time, setTime] = useState("");
@@ -24,10 +23,15 @@ const ContactDetails = () => {
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
   const socialLinks = [
-    { href: 'https://github.com/CMI-James', platform: 'Github' },
-    { href: 'https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/', platform: 'LinkedIn' },
-    { href: 'https://web.facebook.com/CMIJames', platform: 'Facebook' },
-    { href: 'https://twitter.com/cmi_james', platform: 'X (Twitter)' }
+    { href: "https://github.com/CMI-James", platform: "Github" },
+    {
+      href: "https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/",
+      platform: "LinkedIn",
+    },
+    { href: "https://medium.com/CMI_James", platform: "Medium" },
+    { href: "https://x.com/cmi_james", platform: "X (Twitter)" },
+    { href: "https://instagram.com/cmi_james", platform: "Instagram" },
+    { href: "https://web.facebook.com/CMIJames", platform: "Facebook" },
   ];
 
   return (
