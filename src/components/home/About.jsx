@@ -21,7 +21,7 @@ const AboutMe = ({ isFullPage }) => {
         <div className="flex flex-col md:flex-row gap-8 md:gap-x-10 relative">
           <div className="flex-1 md:sticky md:top-0 h-fit max-w-full md:max-w-[45%]">
             <Image
-              src="/images/about-me.jpeg"
+              src="/images/about-me.jpg"
               width={800}
               height={600}
               alt="Ilonze Chibuikem Michael"
