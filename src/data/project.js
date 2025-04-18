@@ -14,7 +14,7 @@ export const projects = [
   {
     title: "Housinn",
     description:
-      "Though he views photography as a medium for storytelling, Zissou's images don't insist on a narrative. Both crisp and ethereal, they're encoded with an ambiguity—a certain tension—that lets the viewer find their own story within them.",
+      "Housinn is a real estate web platform that allows users to buy, sell, or rent properties such as lands, houses, stores, and outlets. The platform also features government-owned properties, giving users a wide range of real estate options. With a focus on accessibility and usability, Housinn simplifies the process of exploring and managing property listings online.",
     src: "housinn.png",
     link: "https://www.housinn.ng/",
     color: {
