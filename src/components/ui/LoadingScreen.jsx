@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Transition from "../common/Transition";
 
 const LoadingScreen = () => {
   const [percentage, setPercentage] = useState(0);
@@ -27,15 +26,13 @@ const LoadingScreen = () => {
   }, [percentage, intervalTime]);
 
   return (
-    <Transition>
-      <div className="fixed inset-0 bg-brown-1000 text-beige flex items-center justify-center">
-        <div className="absolute bottom-2 right-2 md:bottom-3 md:right-10">
-          <span className="text-heading font-bold tracking-wider">
-            {percentage}%
-          </span>
-        </div>
+    <div className="fixed inset-0 bg-brown-1000 text-beige flex items-center justify-center">
+      <div className="absolute bottom-2 right-2 md:bottom-3 md:right-10">
+        <span className="text-heading font-bold tracking-wider">
+          {percentage}%
+        </span>
       </div>
-    </Transition>
+    </div>
   );
 };
 
