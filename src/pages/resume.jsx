@@ -48,7 +48,7 @@ const Resume = () => {
             <h1 className="text-4xl sm:text-5xl font-bold mb-2">Chibuikem Ilonze</h1>
             <h2 className="text-xl sm:text-2xl mb-6">Electronic Engineer | Web Developer</h2>
 
-            <motion.p variants={itemVariants} className="mb-6 text-brown-700 dark:text-beige/80 leading-relaxed">
+            <motion.p variants={itemVariants} className="mb-6 text-brown-700 dark:text-beige/80 leading-relaxed font-lora">
               A dedicated and versatile software engineer with a solid background in web development. Experienced in
               designing secure systems, managing API endpoints, and integrating frontend and backend components. Known
               for improving project efficiency and enhancing user experiences. Actively contributes to open source
@@ -126,7 +126,7 @@ const Resume = () => {
                 <span className="text-brown-700 dark:text-beige/70">February 2025 - Present</span>
               </div>
 
-              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80">
+              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80 font-lora">
                 <motion.li variants={listItemVariants}>
                   Contributed to 20+ open-source projects through OnlyDust, consistently delivering clean,
                   well-structured code with a focus on frontend technologies like JavaScript, TypeScript, Next.js,
@@ -153,7 +153,7 @@ const Resume = () => {
                 <span className="text-brown-700 dark:text-beige/70">April 2023 - May 2024</span>
               </div>
 
-              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80">
+              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80 font-lora">
                 <motion.li variants={listItemVariants}>
                   Received hands-on training in the installation and maintenance of CCTV systems (analog and digital),
                   including camera setup, cable management, and troubleshooting recording devices.
@@ -179,7 +179,7 @@ const Resume = () => {
                 <span className="text-brown-700 dark:text-beige/70">September 2023 - November 2023</span>
               </div>
 
-              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80">
+              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80 font-lora">
                 <motion.li variants={listItemVariants}>
                   Enhanced multiple web applications by 20% through effective collaboration and developed a Chrome
                   extension with cloud storage integration via APIs
@@ -227,7 +227,7 @@ const Resume = () => {
                   </motion.div>
                 </div>
 
-                <div>
+                <div className="font-lora">
                   <p className="text-brown-700 dark:text-beige/70">2018 - 2024</p>
                   <h3 className="text-lg font-semibold">University of Nigeria, Nsukka</h3>
                   <p className="text-brown-700 dark:text-beige/80">Electronic and Computer Engineering</p>
@@ -239,7 +239,7 @@ const Resume = () => {
             <motion.section variants={itemVariants}>
               <h2 className="text-2xl font-bold mb-6 border-b pb-2 border-brown-300 dark:border-beige/30">Skills</h2>
 
-              <motion.ul className="space-y-3 text-brown-700 dark:text-beige/80">
+              <motion.ul className="space-y-3 text-brown-700 dark:text-beige/80 font-lora">
                 <motion.li variants={listItemVariants}>
                   <strong>Languages:</strong> HTML, CSS, JavaScript, TypeScript
                 </motion.li>
