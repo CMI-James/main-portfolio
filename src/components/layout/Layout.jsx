@@ -47,12 +47,12 @@ export default function Layout({ children }) {
               initial={{ opacity: 0, scale: 0 }}
               animate={buttonControls}
             >
-              <div className="border-2 p-1 rounded-full border-brown-1000 dark:border-beige">
-                <FaArrowUp className="text-2xl text-brown-1000 dark:text-beige" />
+              <div className="border-2 p-2 rounded-full border-zinc-500 dark:border-zinc-500">
+                <FaArrowUp className="text-2xl text-zinc-500" />
               </div>
             </motion.button>
-            <Link href="/resume" className={` p-2 rounded-full text-xl w-fit border-2 dark:border-beige border-brown-1000 transition-colors duration-500`}>
-              <BriefcaseBusiness className="dark:text-beige border-text-1000 transition-colors duration-500"/>
+            <Link href="/resume" className={` p-2 rounded-full text-xl w-fit border-2 text-green-500 border-green-500 transition-colors duration-500`}>
+              <BriefcaseBusiness />
             </Link>
             <div className={` p-2 rounded-full`}>
               <AnimatedThemeIcon />
