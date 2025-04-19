@@ -16,7 +16,7 @@ const AnimatedThemeIcon = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="w-[40px] h-[40px] dark:w-[36px] dark:h-[36px] rounded-full flex items-center justify-center focus:outline-none ring-2 focus:ring-gray-800 dark:ring-yellow-500 dark:focus:ring-yellow-500 bg-gray-800 dark:bg-brown-1000 transition-colors duration-700"
+      className="w-[40px] h-[40px]  rounded-full flex items-center justify-center focus:outline-none ring-2 focus:ring-gray-800 dark:ring-yellow-500 dark:focus:ring-yellow-500 bg-gray-800 dark:bg-brown-1000 transition-colors duration-700"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <motion.div

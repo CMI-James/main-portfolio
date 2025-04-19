@@ -1,54 +1,54 @@
-"use client"
+"use client";
 
-import { motion, AnimatePresence } from "framer-motion"
-import { ArrowUp, BriefcaseBusiness } from "lucide-react"
-import Link from "next/link"
-import { useState, useEffect } from "react"
-import AnimatedThemeIcon from "./AnimatedThemeIcon"
-import { useRouter } from "next/router"
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUp, BriefcaseBusiness } from "lucide-react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import AnimatedThemeIcon from "./AnimatedThemeIcon";
+import { useRouter } from "next/router";
 
 const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
-  const [activeTooltip, setActiveTooltip] = useState(null)
-  const [showScrollButton, setShowScrollButton] = useState(false)
-  const router = useRouter()
-  const isResumePage = router.pathname === "/resume"
+  const [activeTooltip, setActiveTooltip] = useState(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+  const router = useRouter();
+  const isResumePage = router.pathname === "/resume";
 
   // Track scroll position to show/hide scroll button
   useEffect(() => {
     const handleScroll = () => {
       // Show button when scrolled down 300px or more
-      setShowScrollButton(window.scrollY > 300)
-    }
+      setShowScrollButton(window.scrollY > 300);
+    };
 
     // Set initial state
-    handleScroll()
+    handleScroll();
 
     // Add scroll listener
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Tooltip variants
   const tooltipVariants = {
     hidden: { opacity: 0, x: 20, scale: 0.8 },
     visible: { opacity: 1, x: 0, scale: 1 },
-  }
+  };
 
   // Button hover handlers
-  const showTooltip = (id) => setActiveTooltip(id)
-  const hideTooltip = () => setActiveTooltip(null)
+  const showTooltip = (id) => setActiveTooltip(id);
+  const hideTooltip = () => setActiveTooltip(null);
 
   // Custom scroll to top function
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   return (
     <div className="fixed bottom-2 right-4 z-[10000]">
-      <div className="flex flex-col items-center justify-center gap-2">
+      <div className="flex flex-col items-center justify-center ">
         {/* Scroll to top button */}
         <AnimatePresence>
           {showScrollButton && (
@@ -63,12 +63,12 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
             >
               <motion.button
                 onClick={handleScrollToTop}
-                className="p-2 rounded-full text-xl"
+                className="rounded-full text-xl "
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <div className="border-2 p-2 rounded-full border-zinc-500 dark:border-zinc-500">
-                  <ArrowUp className="text-2xl text-zinc-500 dark:text-zinc-400" />
+                <div className="border-2 p-2 rounded-full border-zinc-500 ">
+                  <ArrowUp className=" text-zinc-500 " />
                 </div>
               </motion.button>
 
@@ -92,7 +92,11 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
 
         {/* Resume button - only show if not on resume page */}
         {!isResumePage && (
-          <div className="relative" onMouseEnter={() => showTooltip("resume")} onMouseLeave={hideTooltip}>
+          <div
+            className="relative"
+            onMouseEnter={() => showTooltip("resume")}
+            onMouseLeave={hideTooltip}
+          >
             <Link href="/resume">
               <motion.div
                 className="p-2 rounded-full text-xl w-fit border-2 text-green-500 border-green-500 transition-colors duration-500"
@@ -121,7 +125,11 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
         )}
 
         {/* Theme toggle button */}
-        <div className="relative" onMouseEnter={() => showTooltip("theme")} onMouseLeave={hideTooltip}>
+        <div
+          className="relative"
+          onMouseEnter={() => showTooltip("theme")}
+          onMouseLeave={hideTooltip}
+        >
           <div className="p-2 rounded-full">
             <AnimatedThemeIcon />
           </div>
@@ -143,7 +151,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FloatingActions
+export default FloatingActions;

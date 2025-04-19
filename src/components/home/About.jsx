@@ -85,20 +85,41 @@ const AboutMe = ({ isFullPage }) => {
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose font-semibold text-blue-600">
                   Let's build something amazing together! 🚀
                 </p>
+                <div className="flex  justify-start">
+                  {" "}
+                  <Link href="/resume">
+                    <Button
+                      variant="outline"
+                      className="mt-4  flex items-center gap-2 mx-auto relative z-10 theme-light-dark-button "
+                    >
+                      View Resume
+                    </Button>
+                  </Link>
+                </div>
               </div>
 
               {!isAboutPage && (
                 <>
                   <div className="absolute bottom-0 left-0 -z-30 right-0 h-24 bg-gradient-to-t from-beige dark:from-brown-1000 to-transparent"></div>
 
-                  <Link href="/about" passHref>
-                    <Button
-                      variant="outline"
-                      className="mt-4 flex items-center gap-2 mx-auto relative z-10 theme-light-dark-button "
-                    >
-                      Read more <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <div className="flex w-full justify-center gap-x-2">
+                    <Link href="/about" passHref>
+                      <Button
+                        variant="outline"
+                        className="mt-4 flex items-center gap-2 mx-auto relative z-10 theme-light-dark-button "
+                      >
+                        Read more <ChevronRight className="h-4 w-4" />
+                      </Button>
+                    </Link>
+                    <Link href="/resume">
+                      <Button
+                        variant="outline"
+                        className="mt-4  flex items-center gap-2 mx-auto relative z-10 theme-light-dark-button "
+                      >
+                        View Resume
+                      </Button>
+                    </Link>
+                  </div>
                 </>
               )}
             </div>
