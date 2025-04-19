@@ -47,7 +47,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
   };
 
   return (
-    <div className="fixed bottom-2 right-4 z-[10000]">
+    <div className="fixed bottom-2 right-0 z-[10000]">
       <div className="flex flex-col items-center justify-center ">
         {/* Scroll to top button */}
         <AnimatePresence>
