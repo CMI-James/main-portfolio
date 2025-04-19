@@ -9,7 +9,7 @@ export default function Footer() {
 
   const handleMouseDown = () => {
     const newTimer = setTimeout(() => {
-      router.push("/memory-login");
+      router.push("/memory/login");
     }, 1500);
     setTimer(newTimer);
   };
@@ -22,7 +22,7 @@ export default function Footer() {
 
   return (
     <div
-      className="relative h-[20vh] xl:h-[30vh] hidden-scrollbar theme-light-dark"
+      className="relative h-[20vh] hidden-scrollbar theme-light-dark"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 h-[30vh] w-full">
