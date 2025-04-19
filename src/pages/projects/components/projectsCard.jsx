@@ -92,7 +92,7 @@ const Card = ({
                 />
               </motion.div>
             </div>
-            <div className="xl:w-[20%] relative top-[5%] md:top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors font-lora">
+            <div className="xl:w-[20%] relative top-[3%] md:top-[10%] text-brown-1000 dark:text-beige duration-700 transition-colors font-lora">
               <p className="text-base first-letter:text-3xl first-letter:font-serif ">
                 {description}
               </p>
