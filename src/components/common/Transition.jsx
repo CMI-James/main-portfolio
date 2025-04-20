@@ -17,9 +17,11 @@ export default function Transition({ children, backgroundColor, className }) {
 
   const nbOfColumns = 5;
 
-
   return (
-    <div className={`page stairs theme-dark-light ${className}`} style={{ backgroundColor }}>
+    <div
+      className={`page stairs theme-dark-light ${className}`}
+      style={{ backgroundColor }}
+    >
       <motion.div
         {...anim(opacity)}
         className={`fixed w-full h-screen  z-[100000] pointer-events-none top-0 left-0 bg-brown-1000 dark:bg-beige`}
