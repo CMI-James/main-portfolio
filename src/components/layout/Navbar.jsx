@@ -24,6 +24,7 @@ const Navbar = ({ controls }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       const navLinks = [
+        { href: "/resume", label: "Resume" },
         { href: "/about", label: "About" },
         { href: "/services", label: "Services" },
         { href: "/projects", label: "Projects" },
