@@ -22,7 +22,7 @@ export default function Transition({ children, backgroundColor, className }) {
     >
       <motion.div
         {...anim(opacity)}
-        className={`fixed w-full h-screen  z-[100000] pointer-events-none top-0 left-0 bg-brown-1000 dark:bg-beige`}
+        className={`fixed w-full h-screen  z-[200] pointer-events-none top-0 left-0 bg-brown-1000 dark:bg-beige`}
       />
       <div className="fixed w-screen h-screen flex left-0 top-0 pointer-events-none z-[200000]">
         {[...Array(nbOfColumns)].map((_, i) => {

@@ -39,7 +39,7 @@ const SectionHeader = ({ title, scrollYProgress }) => {
 
   return (
     <motion.p
-      className="z-[10000] sticky top-0.5 md:top-1 lg:top-0 mx-auto w-fit  mb-20"
+      className="z-[100] sticky top-0.5 md:top-1 lg:top-0 mx-auto w-fit  mb-20"
       style={{ fontSize, willChange: "transform" }} // Optimized for smoother animations
     >
       {title}

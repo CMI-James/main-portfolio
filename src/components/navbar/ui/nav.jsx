@@ -37,7 +37,7 @@ export default function Nav({ currentTheme = "theme-dark-light" }) {
       initial="initial"
       animate="enter"
       exit="exit"
-      className={`h-screen w-[80%] sm:w-[50%] md:w-[40%] xl:w-[25%] fixed right-0 top-0  ${navTheme}`}
+      className={`h-screen w-[80%] sm:w-[50%] md:w-[40%] xl:w-[25%] fixed right-0 top-0  ${navTheme} z-[100000000000]`}
     >
       <div className="box-border h-screen flex justify-between pt-[5rem] pb-[5rem] items-center flex-col">
         <div

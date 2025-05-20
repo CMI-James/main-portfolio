@@ -41,7 +41,7 @@ const Navbar = ({ controls }) => {
   // Simple scroll-based approach
   useEffect(() => {
     // Get navbar height once on mount
-    const navbar = document.querySelector('[class*="fixed top-0 z-[1000]"]');
+    const navbar = document.querySelector('[class*="fixed top-0 z-30"]');
     if (navbar) {
       navbarHeight.current = navbar.offsetHeight;
     }
@@ -104,20 +104,20 @@ const Navbar = ({ controls }) => {
 
   return (
     <motion.div
-      className={`fixed top-0 z-[1000] ${themeClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
+      className={`fixed top-0 z-30 ${themeClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
       variants={navbarVariants}
       initial="hidden"
       animate="visible"
     >
       <div>
-        <p className="text-2xl font-extrabold z-[10000]">
+        <p className="text-2xl font-extrabold ">
           <Link href="/" scroll={false}>
             CMI
           </Link>
         </p>
       </div>
       <div>
-        <div className="relative z-[100] flex sm:hidden">
+        <div className="relative  flex sm:hidden">
           <div className="absolute -top-4 right-0">
             <div
               onClick={() => {
@@ -137,7 +137,7 @@ const Navbar = ({ controls }) => {
           </AnimatePresence>
         </div>
 
-        <ul className="hidden sm:flex gap-10 md:gap-2  lg:gap-5 xl:gap-10 items-center justify-between z-[100000] ">
+        <ul className="hidden sm:flex gap-10 md:gap-2  lg:gap-5 xl:gap-10 items-center justify-between  ">
           {filteredLinks.map((link) => (
             <li key={link.href} className="group flex items-center ">
               <Link href={link.href} scroll={false} className="relative">
