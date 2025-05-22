@@ -34,7 +34,7 @@ export default function Nav({ currentTheme = "theme-dark-light" }) {
       initial="initial"
       animate="enter"
       exit="exit"
-      className={`h-screen w-[80%] sm:w-[50%] md:w-[40%] xl:w-[25%] fixed right-0 top-0 ${navTheme} z-[30] `}
+      className={`h-screen w-[80%] sm:w-[50%] md:w-[40%] xl:w-[25%] fixed right-0 top-0 ${navTheme} z-50 `}
     >
       <div className="box-border h-screen flex justify-between pt-[5rem] pb-[5rem] items-center flex-col">
         <div onMouseLeave={() => setSelectedIndicator(router.pathname)} className="flex flex-col text-5xl gap-8">
@@ -49,7 +49,8 @@ export default function Nav({ currentTheme = "theme-dark-light" }) {
         </div>
         <NavFooter />
       </div>
-      <Curve />
+      {/* Pass the currentTheme to Curve */}
+      <Curve currentTheme={navTheme} />
     </motion.div>
   )
 }

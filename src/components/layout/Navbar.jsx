@@ -14,7 +14,7 @@ const Navbar = ({ themeClass, filteredLinks, showContact }) => {
 
   return (
     <motion.div
-      className={`fixed top-0 z-[21] ${themeClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
+      className={`fixed top-0 z-30 ${themeClass} py-2 px-4 md:px-8 xl:px-12 w-full flex justify-between items-center`}
       variants={navbarVariants}
       initial="hidden"
       animate="visible"
