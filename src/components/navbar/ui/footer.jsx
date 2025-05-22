@@ -21,12 +21,12 @@ const socialLinks = [
 
 export default function NavFooter() {
   return (
-    <div className="flex w-full justify-center gap-x-20 text-2xl">
+    <div className="flex w-full justify-center gap-x-10 text-2xl ">
       {socialLinks.map(({ href, icon, label }) => (
         <a
           key={label}
           href={href}
-          className="group flex items-center space-x-2"
+          className="group flex items-center space-x-2 border-2 p-2 rounded-full"
           target="_blank"
           rel="noreferrer"
           aria-label={label}

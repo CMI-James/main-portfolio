@@ -1,54 +1,127 @@
-"use client";
+"use client"
 
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, BriefcaseBusiness } from "lucide-react";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import AnimatedThemeIcon from "./AnimatedThemeIcon";
-import { useRouter } from "next/router";
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowUp, BriefcaseBusiness, UserRoundPlus, UserRoundMinus } from "lucide-react"
+import Link from "next/link"
+import { useState, useEffect, useRef } from "react"
+import AnimatedThemeIcon from "./AnimatedThemeIcon"
+import { useRouter } from "next/router"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
+
+// Social links data
+const socialLinks = [
+  {
+    href: "https://github.com/CMI-James",
+    icon: <FaGithub />,
+    label: "GitHub",
+    color: "#333",
+  },
+  {
+    href: "https://www.linkedin.com/in/chibuikem-ilonze-7397a522a/",
+    icon: <FaLinkedin />,
+    label: "LinkedIn",
+    color: "#0077B5",
+  },
+  {
+    href: "https://x.com/cmi_james",
+    icon: <FaXTwitter />,
+    label: "Twitter",
+    color: "#1DA1F2",
+  },
+]
 
 const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
-  const [activeTooltip, setActiveTooltip] = useState(null);
-  const [showScrollButton, setShowScrollButton] = useState(false);
-  const router = useRouter();
-  const isResumePage = router.pathname === "/resume";
+  const [activeTooltip, setActiveTooltip] = useState(null)
+  const [showScrollButton, setShowScrollButton] = useState(false)
+  const [socialsExpanded, setSocialsExpanded] = useState(false)
+  const router = useRouter()
+  const isResumePage = router.pathname === "/resume"
+  const tooltipTimeoutRef = useRef(null)
+  const lastScrollY = useRef(0)
+  const scrollThreshold = useRef(window.innerHeight * 0.1) // 10vh
 
-  // Track scroll position to show/hide scroll button
+  // Track scroll position to show/hide scroll button and close socials on scroll
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
       // Show button when scrolled down 300px or more
-      setShowScrollButton(window.scrollY > 300);
-    };
+      setShowScrollButton(currentScrollY > 300)
+
+      // Only close social icons if we've scrolled more than the threshold (10vh)
+      if (socialsExpanded) {
+        const scrollDifference = Math.abs(currentScrollY - lastScrollY.current)
+        if (scrollDifference > scrollThreshold.current) {
+          setSocialsExpanded(false)
+          console.log("Closing social icons after scrolling", scrollDifference, "pixels")
+        }
+      }
+
+      // Update last scroll position
+      lastScrollY.current = currentScrollY
+    }
+
+    // Set initial scroll position
+    lastScrollY.current = window.scrollY
+
+    // Update threshold on window resize
+    const handleResize = () => {
+      scrollThreshold.current = window.innerHeight * 0.1 // 10vh
+    }
 
     // Set initial state
-    handleScroll();
+    handleScroll()
 
-    // Add scroll listener
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Add event listeners
+    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [socialsExpanded])
 
   // Tooltip variants
   const tooltipVariants = {
     hidden: { opacity: 0, x: 20, scale: 0.8 },
     visible: { opacity: 1, x: 0, scale: 1 },
-  };
+  }
 
-  // Button hover handlers
-  const showTooltip = (id) => setActiveTooltip(id);
-  const hideTooltip = () => setActiveTooltip(null);
+  // Button hover handlers with improved behavior for mobile
+  const showTooltip = (id) => {
+    // Clear any existing timeout
+    if (tooltipTimeoutRef.current) {
+      clearTimeout(tooltipTimeoutRef.current)
+    }
+    setActiveTooltip(id)
+  }
+
+  const hideTooltip = () => {
+    // Use a small timeout to prevent flickering
+    tooltipTimeoutRef.current = setTimeout(() => {
+      setActiveTooltip(null)
+    }, 100)
+  }
+
+  // Toggle social icons
+  const toggleSocials = () => {
+    setSocialsExpanded(!socialsExpanded)
+    console.log("Social icons toggled:", !socialsExpanded) // Debug log
+  }
 
   // Custom scroll to top function
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    });
-  };
+    })
+  }
 
   return (
     <div className="fixed bottom-2 right-0 z-[100]">
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center gap-2">
         {/* Scroll to top button */}
         <AnimatePresence>
           {showScrollButton && (
@@ -63,12 +136,12 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
             >
               <motion.button
                 onClick={handleScrollToTop}
-                className="rounded-full text-xl "
+                className="rounded-full text-xl"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <div className="border-2 p-2 rounded-full border-zinc-500 ">
-                  <ArrowUp className=" text-zinc-500 " />
+                <div className="border-2 p-2 rounded-full border-zinc-500">
+                  <ArrowUp className="text-zinc-500" />
                 </div>
               </motion.button>
 
@@ -96,6 +169,8 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
             className="relative"
             onMouseEnter={() => showTooltip("resume")}
             onMouseLeave={hideTooltip}
+            onTouchStart={() => showTooltip("resume")}
+            onTouchEnd={hideTooltip}
           >
             <Link href="/resume">
               <motion.div
@@ -129,6 +204,8 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
           className="relative"
           onMouseEnter={() => showTooltip("theme")}
           onMouseLeave={hideTooltip}
+          onTouchStart={() => showTooltip("theme")}
+          onTouchEnd={hideTooltip}
         >
           <div className="p-2 rounded-full">
             <AnimatedThemeIcon />
@@ -149,9 +226,105 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
             )}
           </AnimatePresence>
         </div>
+
+        {/* Social Icons Section */}
+        <div className="relative">
+          {/* Social Icons Toggle Button */}
+          <div
+            className="relative"
+            onMouseEnter={() => showTooltip("socials")}
+            onMouseLeave={hideTooltip}
+            onTouchStart={() => showTooltip("socials")}
+            onTouchEnd={hideTooltip}
+          >
+            <motion.button
+              onClick={toggleSocials}
+              className="rounded-full text-xl relative z-10"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="border-2 p-2 rounded-full border-blue-500">
+                {socialsExpanded ? (
+                  <UserRoundMinus className="text-blue-500" />
+                ) : (
+                  <UserRoundPlus className="text-blue-500" />
+                )}
+              </div>
+            </motion.button>
+
+            {/* Only show tooltip when social icons are NOT expanded */}
+            <AnimatePresence>
+              {activeTooltip === "socials" && !socialsExpanded && (
+                <motion.div
+                  className="absolute right-full top-1/4 -translate-y-1/2 mr-2 bg-zinc-800 dark:bg-zinc-700 text-white px-3 py-1 rounded text-sm whitespace-nowrap"
+                  variants={tooltipVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  transition={{ duration: 0.2 }}
+                >
+                  Social Links
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Social Icons - Horizontal Layout on Same Line */}
+          <AnimatePresence>
+            {socialsExpanded && (
+              <>
+                {socialLinks.map((social, i) => (
+                  <motion.div
+                    key={social.label}
+                    className="absolute top-1 -translate-y-1/2"
+                    style={{ right: 0 }}
+                    initial={{ opacity: 0, x: 0, scale: 0 }}
+                    animate={{
+                      opacity: 1,
+                      x: -60 * (i + 1),
+                      scale: 1,
+                      transition: {
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        delay: i * 0.1,
+                      },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      x: 0,
+                      scale: 0,
+                      transition: {
+                        duration: 0.2,
+                        delay: (socialLinks.length - 1 - i) * 0.05,
+                      },
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="border-2 p-2 rounded-full flex items-center justify-center text-xl"
+                      style={{
+                        borderColor: social.color,
+                        color: social.color,
+                      }}
+                      aria-label={social.label}
+                    >
+                      {social.icon}
+                    </a>
+                  </motion.div>
+                ))}
+              </>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FloatingActions;
+export default FloatingActions
