@@ -1,15 +1,28 @@
 "use client"
 import { createContext, useContext, useEffect, useState } from "react"
 
+// Define the possible theme modes
+const THEME_MODES = {
+  SYSTEM: "system",
+  LIGHT: "light",
+  DARK: "dark",
+}
+
+// Create the context with default values
 const ThemeContext = createContext({
   theme: "light",
+  themeMode: THEME_MODES.SYSTEM,
   toggleTheme: () => {},
+  setThemeMode: () => {},
   isSystemTheme: true,
 })
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light") // Default to light
-  const [isSystemTheme, setIsSystemTheme] = useState(true)
+  // The actual theme applied (light or dark)
+  const [theme, setTheme] = useState("light")
+
+  // The user's selected theme mode (system, light, or dark)
+  const [themeMode, setThemeMode] = useState(THEME_MODES.SYSTEM)
 
   // Function to get system color scheme preference
   const getSystemTheme = () => {
@@ -19,60 +32,84 @@ export const ThemeProvider = ({ children }) => {
     return "light" // Default fallback
   }
 
+  // Initialize theme on first load
   useEffect(() => {
-    // First check if there's a stored theme preference
-    const storedTheme = localStorage.getItem("theme")
-    const storedIsSystem = localStorage.getItem("isSystemTheme") === "true"
+    // Get stored theme mode from localStorage
+    const storedThemeMode = localStorage.getItem("themeMode") || THEME_MODES.SYSTEM
 
-    if (storedTheme && !storedIsSystem) {
-      // User has manually set a theme preference
-      setTheme(storedTheme)
-      setIsSystemTheme(false)
-    } else {
-      // Use system preference
+    // Set the theme mode
+    setThemeMode(storedThemeMode)
+
+    // Set the actual theme based on the theme mode
+    if (storedThemeMode === THEME_MODES.SYSTEM) {
       setTheme(getSystemTheme())
-      setIsSystemTheme(true)
+    } else {
+      setTheme(storedThemeMode) // For light or dark mode
     }
+  }, [])
+
+  // Apply theme changes and set up system theme listener
+  useEffect(() => {
+    // Apply theme to document
+    document.documentElement.classList.toggle("dark", theme === "dark")
 
     // Set up listener for system theme changes
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const handleChange = (e) => {
-      if (isSystemTheme) {
+      if (themeMode === THEME_MODES.SYSTEM) {
         setTheme(e.matches ? "dark" : "light")
       }
     }
 
     mediaQuery.addEventListener("change", handleChange)
     return () => mediaQuery.removeEventListener("change", handleChange)
-  }, []) // Empty dependency array for initialization
+  }, [theme, themeMode])
 
+  // Update theme when theme mode changes
   useEffect(() => {
-    // Apply theme to document
-    document.documentElement.classList.toggle("dark", theme === "dark")
-
-    // Store preferences
-    localStorage.setItem("theme", theme)
-    localStorage.setItem("isSystemTheme", isSystemTheme.toString())
-  }, [theme, isSystemTheme])
-
-  // Now let's fix the system theme listener to properly handle manual changes
-
-  // Add this separate effect to handle system theme changes:
-
-  useEffect(() => {
-    if (isSystemTheme) {
+    if (themeMode === THEME_MODES.SYSTEM) {
       setTheme(getSystemTheme())
+    } else {
+      setTheme(themeMode)
     }
-  }, [isSystemTheme])
 
-  // And update the toggleTheme function to be more explicit:
+    // Store the theme mode in localStorage
+    localStorage.setItem("themeMode", themeMode)
+  }, [themeMode])
 
-  const toggleTheme = () => {
-    setIsSystemTheme(false) // First set that we're using manual mode
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light")) // Then toggle the theme
+  // Function to set a specific theme mode
+  const setSpecificThemeMode = (mode) => {
+    if (Object.values(THEME_MODES).includes(mode)) {
+      setThemeMode(mode)
+    }
   }
 
-  return <ThemeContext.Provider value={{ theme, toggleTheme, isSystemTheme }}>{children}</ThemeContext.Provider>
+  // Legacy toggle function for backward compatibility
+  const toggleTheme = (useSystemTheme = null) => {
+    if (useSystemTheme === true) {
+      setThemeMode(THEME_MODES.SYSTEM)
+    } else if (useSystemTheme === false) {
+      // If explicitly turning off system theme, keep current theme
+      setThemeMode(theme)
+    } else {
+      // Toggle between light and dark
+      setThemeMode(themeMode === THEME_MODES.LIGHT ? THEME_MODES.DARK : THEME_MODES.LIGHT)
+    }
+  }
+
+  return (
+    <ThemeContext.Provider
+      value={{
+        theme,
+        themeMode,
+        toggleTheme,
+        setThemeMode: setSpecificThemeMode,
+        isSystemTheme: themeMode === THEME_MODES.SYSTEM,
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  )
 }
 
 export const useTheme = () => useContext(ThemeContext)

@@ -1,13 +1,14 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowUp, BriefcaseBusiness, UserRoundPlus, UserRoundMinus } from "lucide-react"
+import { ArrowUp, BriefcaseBusiness, UserRoundPlus, UserRoundMinus, MonitorSmartphone, Sun, Moon } from "lucide-react"
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
-import AnimatedThemeIcon from "./AnimatedThemeIcon"
+import { useTheme } from "@/context/ThemeContext"
 import { useRouter } from "next/router"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
+import { toast } from "sonner"
 
 // Social links data
 const socialLinks = [
@@ -35,13 +36,17 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
   const [activeTooltip, setActiveTooltip] = useState(null)
   const [showScrollButton, setShowScrollButton] = useState(false)
   const [socialsExpanded, setSocialsExpanded] = useState(false)
+  const [themeExpanded, setThemeExpanded] = useState(false)
   const router = useRouter()
   const isResumePage = router.pathname === "/resume"
   const tooltipTimeoutRef = useRef(null)
   const lastScrollY = useRef(0)
   const scrollThreshold = useRef(window.innerHeight * 0.1) // 10vh
 
-  // Track scroll position to show/hide scroll button and close socials on scroll
+  // Get theme context
+  const { theme, themeMode, setThemeMode, isSystemTheme } = useTheme()
+
+  // Track scroll position to show/hide scroll button and close expanded menus on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
@@ -49,12 +54,14 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
       // Show button when scrolled down 300px or more
       setShowScrollButton(currentScrollY > 300)
 
-      // Only close social icons if we've scrolled more than the threshold (10vh)
-      if (socialsExpanded) {
-        const scrollDifference = Math.abs(currentScrollY - lastScrollY.current)
-        if (scrollDifference > scrollThreshold.current) {
+      // Only close expanded menus if we've scrolled more than the threshold (10vh)
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY.current)
+      if (scrollDifference > scrollThreshold.current) {
+        if (socialsExpanded) {
           setSocialsExpanded(false)
-          console.log("Closing social icons after scrolling", scrollDifference, "pixels")
+        }
+        if (themeExpanded) {
+          setThemeExpanded(false)
         }
       }
 
@@ -81,7 +88,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
       window.removeEventListener("scroll", handleScroll)
       window.removeEventListener("resize", handleResize)
     }
-  }, [socialsExpanded])
+  }, [socialsExpanded, themeExpanded])
 
   // Tooltip variants
   const tooltipVariants = {
@@ -108,7 +115,37 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
   // Toggle social icons
   const toggleSocials = () => {
     setSocialsExpanded(!socialsExpanded)
-    console.log("Social icons toggled:", !socialsExpanded) // Debug log
+    if (themeExpanded) setThemeExpanded(false)
+  }
+
+  // Toggle theme options
+  const toggleThemeOptions = () => {
+    setThemeExpanded(!themeExpanded)
+    if (socialsExpanded) setSocialsExpanded(false)
+  }
+
+  // Set specific theme
+  const setSpecificTheme = (newTheme) => {
+    // If current theme is already the selected one, do nothing
+    if (newTheme === themeMode) {
+      setThemeExpanded(false)
+      return
+    }
+
+    // Set the new theme mode
+    setThemeMode(newTheme)
+
+    // Show toast notification
+    if (newTheme === "system") {
+      toast.success("System theme preference applied")
+    } else if (newTheme === "light") {
+      toast.success("Light theme applied")
+    } else if (newTheme === "dark") {
+      toast.success("Dark theme applied")
+    }
+
+    // Close theme options
+    setThemeExpanded(false)
   }
 
   // Custom scroll to top function
@@ -119,8 +156,31 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
     })
   }
 
+  // Get current theme icon and border color
+  const getThemeStyles = () => {
+    if (themeMode === "system") {
+      return {
+        icon: <MonitorSmartphone className="text-purple-500" />,
+        borderColor: "border-purple-500",
+      }
+    } else if (themeMode === "light") {
+      return {
+        icon: <Sun className="text-yellow-500" />,
+        borderColor: "border-yellow-500",
+      }
+    } else {
+      return {
+        icon: <Moon className="text-blue-500" />,
+        borderColor: "border-blue-500",
+      }
+    }
+  }
+
+  // Replace the getCurrentThemeIcon function with this more comprehensive function
+  const themeStyles = getThemeStyles()
+
   return (
-    <div className="fixed bottom-2 right-0 z-[100]">
+    <div className="fixed bottom-2 right-0 z-20">
       <div className="flex flex-col items-center justify-center gap-2">
         {/* Scroll to top button */}
         <AnimatePresence>
@@ -199,30 +259,155 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
           </div>
         )}
 
-        {/* Theme toggle button */}
-        <div
-          className="relative"
-          onMouseEnter={() => showTooltip("theme")}
-          onMouseLeave={hideTooltip}
-          onTouchStart={() => showTooltip("theme")}
-          onTouchEnd={hideTooltip}
-        >
-          <div className="p-2 rounded-full">
-            <AnimatedThemeIcon />
+        {/* Theme toggle button with expandable options */}
+        <div className="relative">
+          <div
+            className="relative"
+            onMouseEnter={() => showTooltip("theme")}
+            onMouseLeave={hideTooltip}
+            onTouchStart={() => showTooltip("theme")}
+            onTouchEnd={hideTooltip}
+          >
+            <motion.button
+              onClick={toggleThemeOptions}
+              className="rounded-full text-xl relative z-10"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={`border-2 p-2 rounded-full ${themeStyles.borderColor}`}>{themeStyles.icon}</div>
+            </motion.button>
+
+            {/* Only show tooltip when theme options are NOT expanded */}
+            <AnimatePresence>
+              {activeTooltip === "theme" && !themeExpanded && (
+                <motion.div
+                  className="absolute right-full top-1/4 -translate-y-1/2 mr-2 bg-zinc-800 dark:bg-zinc-700 text-white px-3 py-1 rounded text-sm whitespace-nowrap"
+                  variants={tooltipVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  transition={{ duration: 0.2 }}
+                >
+                  {themeMode === "system" ? "System theme" : themeMode === "light" ? "Light theme" : "Dark theme"}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
+          {/* Theme Options - Horizontal Layout */}
           <AnimatePresence>
-            {activeTooltip === "theme" && (
-              <motion.div
-                className="absolute right-full top-1/4 -translate-y-1/2 mr-2 bg-zinc-800 dark:bg-zinc-700 text-white px-3 py-1 rounded text-sm whitespace-nowrap"
-                variants={tooltipVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                transition={{ duration: 0.2 }}
-              >
-                Toggle theme
-              </motion.div>
+            {themeExpanded && (
+              <>
+                {/* System Theme Option */}
+                <motion.div
+                  className="absolute top-1 -translate-y-1/2"
+                  style={{ right: 0 }}
+                  initial={{ opacity: 0, x: 0, scale: 0 }}
+                  animate={{
+                    opacity: 1,
+                    x: -60,
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                      delay: 0.1,
+                    },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: 0,
+                    scale: 0,
+                    transition: {
+                      duration: 0.2,
+                      delay: 0.1,
+                    },
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <button
+                    onClick={() => setSpecificTheme("system")}
+                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-purple-500 text-purple-500"
+                    aria-label="System theme"
+                  >
+                    <MonitorSmartphone />
+                  </button>
+                </motion.div>
+
+                {/* Light Theme Option */}
+                <motion.div
+                  className="absolute top-1 -translate-y-1/2"
+                  style={{ right: 0 }}
+                  initial={{ opacity: 0, x: 0, scale: 0 }}
+                  animate={{
+                    opacity: 1,
+                    x: -120,
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                      delay: 0.2,
+                    },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: 0,
+                    scale: 0,
+                    transition: {
+                      duration: 0.2,
+                    },
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <button
+                    onClick={() => setSpecificTheme("light")}
+                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-yellow-500 text-yellow-500"
+                    aria-label="Light theme"
+                  >
+                    <Sun />
+                  </button>
+                </motion.div>
+
+                {/* Dark Theme Option */}
+                <motion.div
+                  className="absolute top-1 -translate-y-1/2"
+                  style={{ right: 0 }}
+                  initial={{ opacity: 0, x: 0, scale: 0 }}
+                  animate={{
+                    opacity: 1,
+                    x: -180,
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                      delay: 0.3,
+                    },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: 0,
+                    scale: 0,
+                    transition: {
+                      duration: 0.2,
+                    },
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <button
+                    onClick={() => setSpecificTheme("dark")}
+                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-blue-500 text-blue-500"
+                    aria-label="Dark theme"
+                  >
+                    <Moon />
+                  </button>
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </div>

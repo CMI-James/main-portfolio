@@ -8,6 +8,7 @@ import Footer from "./Footer"
 import LoaderWrapper from "./Loader"
 import FloatingActions from "../common/FloatingActions"
 import Navigation from "./Navigation"
+import { Toaster } from "sonner"
 
 export default function Layout({ children }) {
   const router = useRouter()
@@ -31,7 +32,7 @@ export default function Layout({ children }) {
             <Footer />
           </div>
         </AnimatePresence>
-
+        <Toaster position="top-right" />
         <FloatingActions />
       </div>
     </LoaderWrapper>
