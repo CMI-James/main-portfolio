@@ -1,57 +1,49 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X } from "lucide-react"
 
-const MenuBar = ({ currentTheme = "theme-dark-light" }) => {
-  const [isActive, setIsActive] = useState(false);
-  const [isDelayedActive, setIsDelayedActive] = useState(false);
+const MenuBar = ({ currentTheme = "theme-dark-light", isActive }) => {
+  const [isDelayedActive, setIsDelayedActive] = useState(false)
 
   // Determine icon themes based on current navbar theme
-  const menuIconTheme =
-    currentTheme === "theme-dark-light"
-      ? "theme-dark-light"
-      : "theme-light-dark";
-  const closeIconTheme =
-    currentTheme === "theme-dark-light"
-      ? "theme-light-dark"
-      : "theme-dark-light";
+  const menuIconTheme = currentTheme === "theme-dark-light" ? "theme-dark-light" : "theme-light-dark"
+  const closeIconTheme = currentTheme === "theme-dark-light" ? "theme-light-dark" : "theme-dark-light"
 
   useEffect(() => {
-    let timer;
+    let timer
     if (isActive) {
       timer = setTimeout(() => {
-        setIsDelayedActive(true);
-      }, 400);
+        setIsDelayedActive(true)
+      }, 400)
     } else {
-      setIsDelayedActive(false);
+      setIsDelayedActive(false)
     }
 
     return () => {
-      if (timer) clearTimeout(timer);
-    };
-  }, [isActive]);
+      if (timer) clearTimeout(timer)
+    }
+  }, [isActive])
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, rotate: 120 },
     visible: { opacity: 1, scale: 1, rotate: 0 },
     exit: { opacity: 0, scale: 0.5, rotate: -120 },
-  };
+  }
   const iconVariantsX = {
     hidden: { opacity: 0, scale: 0.5, rotate: -120 },
     visible: { opacity: 1, scale: 1, rotate: 0 },
     exit: { opacity: 0, scale: 0.5, rotate: 120 },
-  };
+  }
   const buttonVariants = {
     hover: { scale: 1.1 },
     tap: { scale: 0.95 },
-  };
+  }
 
   return (
     <motion.button
-      className="relative w-8 h-8 focus:outline-none z-[60000000]"
-      onClick={() => setIsActive(!isActive)}
+      className="relative w-8 h-8 focus:outline-none"
       aria-label="Toggle menu"
       variants={buttonVariants}
       whileHover="hover"
@@ -83,7 +75,7 @@ const MenuBar = ({ currentTheme = "theme-dark-light" }) => {
         )}
       </AnimatePresence>
     </motion.button>
-  );
-};
+  )
+}
 
-export default MenuBar;
+export default MenuBar

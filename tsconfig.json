@@ -25,7 +25,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/layout/Navigation.jsx"  ],
   "exclude": [
     "node_modules"
   ]
