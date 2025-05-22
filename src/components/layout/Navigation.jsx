@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { AnimatePresence } from "framer-motion"
 import { useRouter } from "next/router"
 import Navbar from "./Navbar"
-import Nav from "../navbar/ui/nav"
+import Nav from "../navbar/ui/Hamburger"
 import MenuBar from "../navbar/ui/menubar"
 
 const Navigation = () => {
@@ -83,7 +83,7 @@ const Navigation = () => {
       <Navbar themeClass={themeClass} filteredLinks={filteredLinks} showContact={showContact} />
 
       {/* MenuBar positioned absolutely with highest z-index */}
-      <div className="fixed top-2 right-4 z-[200] sm:hidden">
+      <div className="fixed top-2 right-4 z-[100] sm:hidden">
         <div onClick={toggleMenu}>
           <MenuBar currentTheme={themeClass} isActive={isActive} />
         </div>
