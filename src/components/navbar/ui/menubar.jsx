@@ -50,7 +50,7 @@ const MenuBar = ({ currentTheme = "theme-dark-light" }) => {
 
   return (
     <motion.button
-      className="relative w-8 h-8 focus:outline-none"
+      className="relative w-8 h-8 focus:outline-none z-[60000000]"
       onClick={() => setIsActive(!isActive)}
       aria-label="Toggle menu"
       variants={buttonVariants}
