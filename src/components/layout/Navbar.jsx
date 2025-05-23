@@ -1,16 +1,19 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Navbar = ({ themeClass, filteredLinks, showContact }) => {
   // Determine button theme class based on navbar theme
-  const buttonThemeClass = themeClass === "theme-dark-light" ? "theme-light-dark-button" : "theme-dark-light-button"
+  const buttonThemeClass =
+    themeClass === "theme-dark-light"
+      ? "theme-light-dark-button"
+      : "theme-dark-light-button";
 
   const navbarVariants = {
     hidden: { y: -100, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 1, ease: "easeOut" } },
-  }
+  };
 
   return (
     <motion.div
@@ -20,9 +23,12 @@ const Navbar = ({ themeClass, filteredLinks, showContact }) => {
       animate="visible"
     >
       <div>
-        <p className="text-2xl font-extrabold ">
-          <Link href="/" scroll={false}>
-            CMI
+        <p className="text-2xl font-extrabold group">
+          <Link href="/" scroll={false} className="relative">
+           <span> CMI</span>
+            <span
+              className={`absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-brown-1000 dark:bg-beige duration-700 group-hover:w-full`}
+            ></span>
           </Link>
         </p>
       </div>
@@ -43,7 +49,9 @@ const Navbar = ({ themeClass, filteredLinks, showContact }) => {
 
           {showContact && (
             <li>
-              <button className={`rounded-lg border py-1 px-2 ${buttonThemeClass}`}>
+              <button
+                className={`rounded-lg border py-1 px-2 ${buttonThemeClass}`}
+              >
                 <Link href="/contact" scroll={false}>
                   Contact me
                 </Link>
@@ -53,7 +61,7 @@ const Navbar = ({ themeClass, filteredLinks, showContact }) => {
         </ul>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
