@@ -1,63 +1,63 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { timeOfDayMap, videoMap } from "@/data/time-video-map";
-import Transition from "../common/Transition";
+import { useState, useEffect, useRef } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { timeOfDayMap, videoMap } from "@/data/time-video-map"
+import Transition from "../common/Transition"
 
 // This component wraps your existing Layout component
 export default function LoaderWrapper({ children }) {
-  const [timeOfDay, setTimeOfDay] = useState("morning");
-  const [count, setCount] = useState(100);
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-  const [videoSrc, setVideoSrc] = useState("");
-  const videoRef = useRef(null);
+  const [timeOfDay, setTimeOfDay] = useState("morning")
+  const [count, setCount] = useState(100)
+  const [isLoading, setIsLoading] = useState(true)
+  const [showContent, setShowContent] = useState(false)
+  const [videoSrc, setVideoSrc] = useState("")
+  const videoRef = useRef(null)
 
   // Determine time of day based on current hour
   useEffect(() => {
-    const hour = new Date().getHours();
-    let currentTimeOfDay;
+    const hour = new Date().getHours()
+    let currentTimeOfDay
 
     if (hour >= 6 && hour < 12) {
-      currentTimeOfDay = "morning";
+      currentTimeOfDay = "morning"
     } else if (hour >= 12 && hour < 18) {
-      currentTimeOfDay = "afternoon";
+      currentTimeOfDay = "afternoon"
     } else if (hour >= 18 && hour < 22) {
-      currentTimeOfDay = "evening";
+      currentTimeOfDay = "evening"
     } else {
-      currentTimeOfDay = "night";
+      currentTimeOfDay = "night"
     }
 
-    setTimeOfDay(currentTimeOfDay);
+    setTimeOfDay(currentTimeOfDay)
 
     // Set video source based on time of day
-    const videoUrl = videoMap[currentTimeOfDay] || videoMap.default;
-    setVideoSrc(videoUrl);
-  }, []);
+    const videoUrl = videoMap[currentTimeOfDay] || videoMap.default
+    setVideoSrc(videoUrl)
+  }, [])
 
   // Countdown timer
   useEffect(() => {
-    if (!isLoading) return;
+    if (!isLoading) return
 
     const interval = setInterval(() => {
       setCount((prevCount) => {
         if (prevCount <= 0) {
-          clearInterval(interval);
+          clearInterval(interval)
           setTimeout(() => {
-            setIsLoading(false);
+            setIsLoading(false)
             setTimeout(() => {
-              setShowContent(true);
-            }, 500);
-          }, 500);
-          return 0;
+              setShowContent(true)
+            }, 500)
+          }, 500)
+          return 0
         }
-        return prevCount - 1;
-      });
-    }, 50); // 5000ms / 100 steps = 50ms per step
+        return prevCount - 1
+      })
+    }, 50) // 5000ms / 100 steps = 50ms per step
 
-    return () => clearInterval(interval);
-  }, [isLoading]);
+    return () => clearInterval(interval)
+  }, [isLoading])
 
   return (
     <Transition>
@@ -74,14 +74,7 @@ export default function LoaderWrapper({ children }) {
               {/* Video background */}
               <div className="absolute inset-0 w-full h-full">
                 {videoSrc && (
-                  <video
-                    ref={videoRef}
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
+                  <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted loop playsInline>
                     <source src={videoSrc} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -98,9 +91,7 @@ export default function LoaderWrapper({ children }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <h2 className="text-3xl font-bold mb-1">
-                  {timeOfDayMap[timeOfDay]?.greeting}
-                </h2>
+                <h2 className="text-3xl font-bold mb-1">{timeOfDayMap[timeOfDay]?.greeting}</h2>
                 <p className="text-xl opacity-80">Welcome to our experience</p>
               </motion.div>
 
@@ -117,30 +108,34 @@ export default function LoaderWrapper({ children }) {
                 </div>
               </div>
 
-              {/* Progress bar */}
-              {/* <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700 dark:bg-gray-300">
-              <div
-                className="h-full bg-beige dark:bg-brown-1000 transition-all duration-50 ease-linear"
-                style={{ width: `${count}%` }}
-              />
-            </div> */}
+              {/* Skip button */}
+              <motion.button
+                onClick={() => {
+                  setIsLoading(false)
+                  setTimeout(() => {
+                    setShowContent(true)
+                  }, 100)
+                }}
+                className="absolute top-10 right-10 px-4 py-2 border border-beige dark:border-brown-1000 text-beige dark:text-brown-1000 rounded-lg hover:bg-beige/10 dark:hover:bg-brown-1000/10 transition-colors duration-300"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2 }}
+              >
+                Skip
+              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Render the children (your Layout component) when loading is complete */}
+        {/* Render the children when loading is complete or not needed */}
         <AnimatePresence mode="wait">
-          {showContent && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
+          {showContent || !isLoading ? (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
               {children}
             </motion.div>
-          )}
+          ) : null}
         </AnimatePresence>
       </div>
     </Transition>
-  );
+  )
 }
