@@ -30,16 +30,15 @@ const SectionHeader = ({ title, scrollYProgress }) => {
       : deviceType === "tablet"
       ? ["4rem", "2.5rem", "1.5rem"] // Tablet
       : ["6rem", "4rem", "2rem"]; // Desktop
-  // Stabilized useTransform
-  const fontSize = useTransform(
-    scrollYProgress,
-    [0, 0.15, 0.3],
-    fontSizeValues
-  );
+
+  // Only use useTransform if scrollYProgress is provided
+  const fontSize = scrollYProgress 
+    ? useTransform(scrollYProgress, [0, 0.15, 0.3], fontSizeValues)
+    : fontSizeValues[0]; // Use the largest font size as default
 
   return (
     <motion.p
-      className="z-40 sticky top-0.5 md:top-1 lg:top-0 mx-auto w-fit  mb-20"
+      className="z-40 sticky top-0.5 md:top-1 lg:top-0 mx-auto w-fit mb-20"
       style={{ fontSize, willChange: "transform" }} // Optimized for smoother animations
     >
       {title}
