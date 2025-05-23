@@ -72,7 +72,7 @@ const Resume = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <motion.div variants={itemVariants} className="flex items-center">
                 <MapPin className="mr-2 h-5 w-5" />
-                <span>Enugu State, Nigeria</span>
+                <span>Abuja, Nigeria</span>
               </motion.div>
 
               <motion.div

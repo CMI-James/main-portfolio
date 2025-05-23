@@ -62,7 +62,7 @@ const ContactDetails = () => {
         <H4>Location</H4>
         <div className="space-y-2 text-body-2 2xl:text-3xl font-lora">
           <p>
-            Enugu State, Nigeria. <br />
+            Abuja, Nigeria. <br />
             {time}
           </p>
         </div>
