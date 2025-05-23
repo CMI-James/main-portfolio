@@ -41,13 +41,22 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
   const isResumePage = router.pathname === "/resume"
   const tooltipTimeoutRef = useRef(null)
   const lastScrollY = useRef(0)
-  const scrollThreshold = useRef(window.innerHeight * 0.1) // 10vh
+  const scrollThreshold = useRef(0) // Initialize with 0 instead of window.innerHeight
 
   // Get theme context
   const { theme, themeMode, setThemeMode, isSystemTheme } = useTheme()
 
+  // Initialize scrollThreshold after component mounts
+  useEffect(() => {
+    // Now we're safely on the client side
+    scrollThreshold.current = window.innerHeight * 0.1 // 10vh
+  }, [])
+
   // Track scroll position to show/hide scroll button and close expanded menus on scroll
   useEffect(() => {
+    // Skip if we're not in the browser
+    if (typeof window === "undefined") return
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
@@ -150,10 +159,12 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
 
   // Custom scroll to top function
   const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    }
   }
 
   // Get current theme icon and border color
@@ -238,7 +249,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <BriefcaseBusiness  className="text-green-500"/>
+                <BriefcaseBusiness className="text-green-500" />
               </motion.div>
             </Link>
 
@@ -332,7 +343,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                     className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-purple-500 text-purple-500 theme-dark-light"
                     aria-label="System theme"
                   >
-                    <MonitorSmartphone className="text-purple-500"/>
+                    <MonitorSmartphone className="text-purple-500" />
                   </button>
                 </motion.div>
 
@@ -368,7 +379,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                     className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-yellow-500 text-yellow-500 theme-dark-light"
                     aria-label="Light theme"
                   >
-                    <Sun className="text-yellow-500"/>
+                    <Sun className="text-yellow-500" />
                   </button>
                 </motion.div>
 
@@ -404,7 +415,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                     className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-blue-500 text-blue-500 theme-dark-light"
                     aria-label="Dark theme"
                   >
-                    <Moon className="text-blue-500"/>
+                    <Moon className="text-blue-500" />
                   </button>
                 </motion.div>
               </>

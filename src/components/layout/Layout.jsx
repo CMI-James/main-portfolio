@@ -5,7 +5,6 @@ import { AnimatePresence } from "framer-motion"
 import useScrollSection from "@/hooks/useScrollSection"
 import { useEffect, useState } from "react"
 import Footer from "./Footer"
-import LoaderWrapper from "./Loader"
 import FloatingActions from "../common/FloatingActions"
 import Navigation from "./Navigation"
 import { Toaster } from "sonner"
@@ -23,7 +22,7 @@ export default function Layout({ children }) {
   }, [])
 
   return (
-    <LoaderWrapper>
+  
       <div className="">
         <AnimatePresence mode="wait">
           <div key={router.pathname}>
@@ -35,6 +34,6 @@ export default function Layout({ children }) {
         <Toaster position="top-right" />
         <FloatingActions />
       </div>
-    </LoaderWrapper>
+
   )
 }

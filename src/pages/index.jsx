@@ -9,22 +9,25 @@ import Description from "@/components/home/Description";
 import ContactMe from "@/components/home/Contact";
 import FloatingElements from "@/components/common/FloatingElements";
 import Projects from "@/components/home/Projects";
+import LoaderWrapper from "@/components/layout/Loader";
 
 const Home = () => {
   return (
-    <Transition>
-      <motion.div className={`min-h-screen relative`}>
-        {/* Add the FloatingElements component at the top level */}
-        {/* <FloatingElements /> */}
+    <LoaderWrapper>
+      <Transition>
+        <motion.div className={`min-h-screen relative`}>
+          {/* Add the FloatingElements component at the top level */}
+          {/* <FloatingElements /> */}
 
-        <Hero />
-        <Description />
-        <About />
-        <Projects limit={3}/>
-        <Services />
-        <ContactMe />
-      </motion.div>
-    </Transition>
+          <Hero />
+          <Description />
+          <About />
+          <Projects limit={3} />
+          <Services />
+          <ContactMe />
+        </motion.div>
+      </Transition>{" "}
+    </LoaderWrapper>
   );
 };
 
