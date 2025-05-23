@@ -1,14 +1,12 @@
-"use client";
+"use client"
 
-import Transition from "@/components/common/Transition";
-import { motion } from "framer-motion";
-import { Download, MapPin, Linkedin, Github } from "lucide-react";
-import Link from "next/link";
-
-import { useState } from "react";
+import Transition from "@/components/common/Transition"
+import { motion } from "framer-motion"
+import { Download, MapPin, Linkedin, Github } from "lucide-react"
+import Link from "next/link"
 
 const Resume = () => {
-  const resumeLink = "/Chibuikem_Ilonze_Resume.pdf";
+  const resumeLink = "/Chibuikem_Ilonze_Resume.pdf"
 
   // Animation variants
   const containerVariants = {
@@ -19,7 +17,7 @@ const Resume = () => {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -28,7 +26,7 @@ const Resume = () => {
       opacity: 1,
       transition: { duration: 0.5, ease: "easeOut" },
     },
-  };
+  }
 
   const listItemVariants = {
     hidden: { x: -10, opacity: 0 },
@@ -37,35 +35,72 @@ const Resume = () => {
       opacity: 1,
       transition: { duration: 0.3, ease: "easeOut" },
     },
-  };
+  }
+
+  // Work experience data
+  const workExperience = [
+    {
+      id: 1,
+      title: "Open-Source Contributor",
+      company: "OnlyDust",
+      duration: "February 2025 - Present",
+      responsibilities: [
+        "Contributed to 20+ open-source projects through OnlyDust, consistently delivering clean, well-structured code with a focus on frontend technologies like JavaScript, TypeScript, Next.js, ShadCN, and Framer Motion",
+        "Known for timely delivery and high-quality contributions, which led to repeated collaboration with teams from Nigeria, Argentina, France, Puerto Rico, the US, and many more",
+        "Currently a maintainer on one of the projects, actively managing issue tracking, reviewing and merging pull requests, and strengthening team communication through GitHub collaboration tools",
+      ],
+    },
+    {
+      id: 2,
+      title: "IT trainee",
+      company: "Cata Automated Systems Ltd.",
+      duration: "April 2023 - May 2024",
+      responsibilities: [
+        "Received hands-on training in the installation and maintenance of CCTV systems (analog and digital), including camera setup, cable management, and troubleshooting recording devices.",
+        "Participated in network administration tasks, such as configuring routers and switches, assigning IP addresses, and resolving connectivity issues.",
+        "Trained in the setup and maintenance of intercom systems, ensuring reliable communication between devices and performing regular system checks.",
+      ],
+    },
+    {
+      id: 3,
+      title: "Backend Developer",
+      company: "HNG TECH",
+      duration: "July 2024 - August 2024",
+      responsibilities: [
+        "Designed and implemented a backend system for managing user organizations, including secure user authentication and authorization.",
+        "Built and documented API endpoints, managed development tickets, and ensured seamless integration with frontend components.",
+        "Collaborated with frontends, backends, and DevOps teams to ensure smooth integration, deployment, and operation of the blog site, addressing cross-functional challenges effectively.",
+      ],
+    },
+    {
+      id: 4,
+      title: "Frontend Developer",
+      company: "HNG TECH",
+      duration: "September 2023 - November 2023",
+      responsibilities: [
+        "Enhanced multiple web applications by 20% through effective collaboration and developed a Chrome extension with cloud storage integration via APIs",
+        "Utilized React, Next.js, and Tailwind CSS to build and optimize applications, incorporating user authentication and data storage with Firebase and Firestore.",
+        "Leveraged GitHub for seamless team collaboration, ensuring timely project completions and adapting quickly to new technologies.",
+      ],
+    },
+  ]
 
   return (
     <Transition className="theme-dark-light">
       <div className="min-h-screen py-16 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
-        <motion.div
-          className="max-w-4xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div className="max-w-4xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
           {/* Header Section */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-2">
-              Chibuikem Ilonze
-            </h1>
-            <h2 className="text-xl sm:text-2xl mb-6">
-              Electronic Engineer | Web Developer
-            </h2>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-2">Chibuikem Ilonze</h1>
+            <h2 className="text-xl sm:text-2xl mb-6">Electronics Engineer | Web Developer</h2>
 
             <motion.p
               variants={itemVariants}
               className="mb-6 text-brown-700 dark:text-beige/80 leading-relaxed font-lora"
             >
-              A dedicated and versatile software engineer with a solid
-              background in web development. Experienced in designing secure
-              systems, managing API endpoints, and integrating frontend and
-              backend components. Known for improving project efficiency and
-              enhancing user experiences. Actively contributes to open source
+              A dedicated and versatile software engineer with a solid background in web development. Experienced in
+              designing secure systems, managing API endpoints, and integrating frontend and backend components. Known
+              for improving project efficiency and enhancing user experiences. Actively contributes to open source
               projects and manages tasks on GitHub.
             </motion.p>
 
@@ -75,10 +110,7 @@ const Resume = () => {
                 <span>Abuja, Nigeria</span>
               </motion.div>
 
-              <motion.div
-                variants={itemVariants}
-                className="flex items-center gap-4"
-              >
+              <motion.div variants={itemVariants} className="flex items-center gap-4">
                 <Link
                   href="https://linkedin.com/in/chibuikem-ilonze-7397a522a/"
                   target="_blank"
@@ -132,114 +164,37 @@ const Resume = () => {
               Work Experience
             </h2>
 
-            <motion.div variants={itemVariants} className="mb-8">
-              <div className="flex flex-col sm:flex-row justify-between mb-2">
-                <div className="flex items-center">
-                  <h3 className="text-xl font-semibold">
-                    Open-Source Contributor
-                  </h3>
-                  <span className="mx-2">•</span>
-                  <span>OnlyDust</span>
+            {workExperience.map((job, index) => (
+              <motion.div
+                key={job.id}
+                variants={itemVariants}
+                className={index < workExperience.length - 1 ? "mb-8" : ""}
+              >
+                <div className="flex flex-col sm:flex-row justify-between mb-2">
+                  <div className="flex items-center">
+                    <h3 className="text-xl font-semibold">{job.title}</h3>
+                    <span className="mx-2">•</span>
+                    <span>{job.company}</span>
+                  </div>
+                  <span className="text-brown-700 dark:text-beige/70">{job.duration}</span>
                 </div>
-                <span className="text-brown-700 dark:text-beige/70">
-                  February 2025 - Present
-                </span>
-              </div>
 
-              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80 font-lora">
-                <motion.li variants={listItemVariants}>
-                  Contributed to 20+ open-source projects through OnlyDust,
-                  consistently delivering clean, well-structured code with a
-                  focus on frontend technologies like JavaScript, TypeScript,
-                  Next.js, ShadCN, and Framer Motion
-                </motion.li>
-                <motion.li variants={listItemVariants}>
-                  Known for timely delivery and high-quality contributions,
-                  which led to repeated collaboration with teams from Nigeria,
-                  Argentina, France, Puerto Rico, the US, and many more
-                </motion.li>
-                <motion.li variants={listItemVariants}>
-                  Currently a maintainer on one of the projects, actively
-                  managing issue tracking, reviewing and merging pull requests,
-                  and strengthening team communication through GitHub
-                  collaboration tools
-                </motion.li>
-              </motion.ul>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="mb-8">
-              <div className="flex flex-col sm:flex-row justify-between mb-2">
-                <div className="flex items-center">
-                  <h3 className="text-xl font-semibold">IT trainee</h3>
-                  <span className="mx-2">•</span>
-                  <span>Cata Automated Systems Ltd.</span>
-                </div>
-                <span className="text-brown-700 dark:text-beige/70">
-                  April 2023 - May 2024
-                </span>
-              </div>
-
-              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80 font-lora">
-                <motion.li variants={listItemVariants}>
-                  Received hands-on training in the installation and maintenance
-                  of CCTV systems (analog and digital), including camera setup,
-                  cable management, and troubleshooting recording devices.
-                </motion.li>
-                <motion.li variants={listItemVariants}>
-                  Participated in network administration tasks, such as
-                  configuring routers and switches, assigning IP addresses, and
-                  resolving connectivity issues.
-                </motion.li>
-                <motion.li variants={listItemVariants}>
-                  Trained in the setup and maintenance of intercom systems,
-                  ensuring reliable communication between devices and performing
-                  regular system checks.
-                </motion.li>
-              </motion.ul>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <div className="flex flex-col sm:flex-row justify-between mb-2">
-                <div className="flex items-center">
-                  <h3 className="text-xl font-semibold">Frontend Developer</h3>
-                  <span className="mx-2">•</span>
-                  <span>HNG TECH</span>
-                </div>
-                <span className="text-brown-700 dark:text-beige/70">
-                  September 2023 - November 2023
-                </span>
-              </div>
-
-              <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80 font-lora">
-                <motion.li variants={listItemVariants}>
-                  Enhanced multiple web applications by 20% through effective
-                  collaboration and developed a Chrome extension with cloud
-                  storage integration via APIs
-                </motion.li>
-                <motion.li variants={listItemVariants}>
-                  Utilized React, Next.js, and Tailwind CSS to build and
-                  optimize applications, incorporating user authentication and
-                  data storage with Firebase and Firestore.
-                </motion.li>
-                <motion.li variants={listItemVariants}>
-                  Leveraged GitHub for seamless team collaboration, ensuring
-                  timely project completions and adapting quickly to new
-                  technologies.
-                </motion.li>
-              </motion.ul>
-            </motion.div>
+                <motion.ul className="list-disc pl-6 space-y-2 text-brown-700 dark:text-beige/80 font-lora">
+                  {job.responsibilities.map((responsibility, respIndex) => (
+                    <motion.li key={respIndex} variants={listItemVariants}>
+                      {responsibility}
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </motion.div>
+            ))}
           </motion.section>
 
           {/* Education and Skills Section */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Education Section */}
             <motion.section variants={itemVariants}>
-              <h2 className="text-2xl font-bold mb-6 border-b pb-2 border-brown-300 dark:border-beige/30">
-                Education
-              </h2>
+              <h2 className="text-2xl font-bold mb-6 border-b pb-2 border-brown-300 dark:border-beige/30">Education</h2>
 
               <div className="flex items-start">
                 <div className="mr-4">
@@ -270,41 +225,30 @@ const Resume = () => {
                 </div>
 
                 <div className="font-lora">
-                  <p className="text-brown-700 dark:text-beige/70">
-                    2018 - 2024
-                  </p>
-                  <h3 className="text-lg font-semibold">
-                    University of Nigeria, Nsukka
-                  </h3>
-                  <p className="text-brown-700 dark:text-beige/80">
-                    Electronic and Computer Engineering
-                  </p>
+                  <p className="text-brown-700 dark:text-beige/70">2018 - 2024</p>
+                  <h3 className="text-lg font-semibold">University of Nigeria, Nsukka</h3>
+                  <p className="text-brown-700 dark:text-beige/80">Electronics and Computer Engineering</p>
                 </div>
               </div>
             </motion.section>
 
             {/* Skills Section */}
             <motion.section variants={itemVariants}>
-              <h2 className="text-2xl font-bold mb-6 border-b pb-2 border-brown-300 dark:border-beige/30">
-                Skills
-              </h2>
+              <h2 className="text-2xl font-bold mb-6 border-b pb-2 border-brown-300 dark:border-beige/30">Skills</h2>
 
               <motion.ul className="space-y-3 text-brown-700 dark:text-beige/80 font-lora">
                 <motion.li variants={listItemVariants}>
                   <strong>Languages:</strong> HTML, CSS, JavaScript, TypeScript
                 </motion.li>
                 <motion.li variants={listItemVariants}>
-                  <strong>Frameworks & Libraries:</strong> React, NextJs,
-                  Tailwind CSS, Framer Motion
+                  <strong>Frameworks & Libraries:</strong> React, NextJs, Tailwind CSS, Framer Motion
                 </motion.li>
                 <motion.li variants={listItemVariants}>
-                  <strong>Tools & Platforms:</strong> Git, GitHub, Vite,
-                  Firebase, Figma, Chrome DevTools, Postman
+                  <strong>Tools & Platforms:</strong> Git, GitHub, Vite, Firebase, Figma, Chrome DevTools, Postman
                 </motion.li>
                 <motion.li variants={listItemVariants}>
-                  <strong>Core Skills:</strong> Responsive Design, REST API
-                  Integration, Debugging & Troubleshooting, Code Reviews, Team
-                  Collaboration
+                  <strong>Core Skills:</strong> Responsive Design, REST API Integration, Debugging & Troubleshooting,
+                  Code Reviews, Team Collaboration
                 </motion.li>
               </motion.ul>
             </motion.section>
@@ -312,7 +256,7 @@ const Resume = () => {
         </motion.div>
       </div>
     </Transition>
-  );
-};
+  )
+}
 
-export default Resume;
+export default Resume
