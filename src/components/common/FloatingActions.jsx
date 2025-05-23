@@ -161,7 +161,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
     if (themeMode === "system") {
       return {
         icon: <MonitorSmartphone className="text-purple-500" />,
-        borderColor: "border-purple-500",
+        borderColor: "border-purple-500 theme-dark-light",
       }
     } else if (themeMode === "light") {
       return {
@@ -200,7 +200,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <div className="border-2 p-2 rounded-full border-zinc-500">
+                <div className="border-2 p-2 rounded-full border-zinc-500 theme-dark-light">
                   <ArrowUp className="text-zinc-500" />
                 </div>
               </motion.button>
@@ -234,11 +234,11 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
           >
             <Link href="/resume">
               <motion.div
-                className="p-2 rounded-full text-xl w-fit border-2 text-green-500 border-green-500 transition-colors duration-500"
+                className="p-2 rounded-full text-xl w-fit border-2 text-green-500 border-green-500 transition-colors duration-500  bg-inherit"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <BriefcaseBusiness />
+                <BriefcaseBusiness  className="text-green-500"/>
               </motion.div>
             </Link>
 
@@ -301,7 +301,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
               <>
                 {/* System Theme Option */}
                 <motion.div
-                  className="absolute top-1 -translate-y-1/2"
+                  className="absolute top-0 -translate-y-1/2"
                   style={{ right: 0 }}
                   initial={{ opacity: 0, x: 0, scale: 0 }}
                   animate={{
@@ -329,16 +329,16 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                 >
                   <button
                     onClick={() => setSpecificTheme("system")}
-                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-purple-500 text-purple-500"
+                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-purple-500 text-purple-500 theme-dark-light"
                     aria-label="System theme"
                   >
-                    <MonitorSmartphone />
+                    <MonitorSmartphone className="text-purple-500"/>
                   </button>
                 </motion.div>
 
                 {/* Light Theme Option */}
                 <motion.div
-                  className="absolute top-1 -translate-y-1/2"
+                  className="absolute top-0 -translate-y-1/2"
                   style={{ right: 0 }}
                   initial={{ opacity: 0, x: 0, scale: 0 }}
                   animate={{
@@ -365,16 +365,16 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                 >
                   <button
                     onClick={() => setSpecificTheme("light")}
-                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-yellow-500 text-yellow-500"
+                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-yellow-500 text-yellow-500 theme-dark-light"
                     aria-label="Light theme"
                   >
-                    <Sun />
+                    <Sun className="text-yellow-500"/>
                   </button>
                 </motion.div>
 
                 {/* Dark Theme Option */}
                 <motion.div
-                  className="absolute top-1 -translate-y-1/2"
+                  className="absolute top-0 -translate-y-1/2"
                   style={{ right: 0 }}
                   initial={{ opacity: 0, x: 0, scale: 0 }}
                   animate={{
@@ -401,10 +401,10 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                 >
                   <button
                     onClick={() => setSpecificTheme("dark")}
-                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-blue-500 text-blue-500"
+                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-blue-500 text-blue-500 theme-dark-light"
                     aria-label="Dark theme"
                   >
-                    <Moon />
+                    <Moon className="text-blue-500"/>
                   </button>
                 </motion.div>
               </>
@@ -429,7 +429,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
               whileTap={{ scale: 0.9 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="border-2 p-2 rounded-full border-blue-500">
+              <div className="border-2 p-2 rounded-full border-blue-500 theme-dark-light">
                 {socialsExpanded ? (
                   <UserRoundMinus className="text-blue-500" />
                 ) : (
@@ -492,7 +492,7 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="border-2 p-2 rounded-full flex items-center justify-center text-xl"
+                      className="border-2 p-2 rounded-full flex items-center justify-center text-xl theme-dark-light"
                       style={{
                         borderColor: social.color,
                         color: social.color,
