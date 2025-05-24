@@ -37,6 +37,11 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
   const [showScrollButton, setShowScrollButton] = useState(false)
   const [socialsExpanded, setSocialsExpanded] = useState(false)
   const [themeExpanded, setThemeExpanded] = useState(false)
+
+  // Add mobile detection
+  const [isMobile, setIsMobile] = useState(false)
+  const [pressTimer, setPressTimer] = useState(null)
+
   const router = useRouter()
   const isResumePage = router.pathname === "/resume"
   const tooltipTimeoutRef = useRef(null)
@@ -49,7 +54,19 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
   // Initialize scrollThreshold after component mounts
   useEffect(() => {
     // Now we're safely on the client side
-    scrollThreshold.current = window.innerHeight * 0.1 // 10vh
+    scrollThreshold.current = window.innerHeight * 0.03 // 10vh
+  }, [])
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || "ontouchstart" in window)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
   // Track scroll position to show/hide scroll button and close expanded menus on scroll
@@ -105,9 +122,10 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
     visible: { opacity: 1, x: 0, scale: 1 },
   }
 
-  // Button hover handlers with improved behavior for mobile
+  // Mobile-aware tooltip handlers
   const showTooltip = (id) => {
-    // Clear any existing timeout
+    if (isMobile) return // Don't show on hover for mobile
+
     if (tooltipTimeoutRef.current) {
       clearTimeout(tooltipTimeoutRef.current)
     }
@@ -115,10 +133,36 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
   }
 
   const hideTooltip = () => {
-    // Use a small timeout to prevent flickering
+    if (isMobile) return // Don't hide on hover leave for mobile
+
     tooltipTimeoutRef.current = setTimeout(() => {
       setActiveTooltip(null)
     }, 100)
+  }
+
+  // Press and hold handlers for mobile
+  const handlePressStart = (id) => {
+    if (!isMobile) return
+
+    const timer = setTimeout(() => {
+      setActiveTooltip(id)
+    }, 500) // Show tooltip after 500ms press
+
+    setPressTimer(timer)
+  }
+
+  const handlePressEnd = () => {
+    if (!isMobile) return
+
+    if (pressTimer) {
+      clearTimeout(pressTimer)
+      setPressTimer(null)
+    }
+
+    // Hide tooltip after a delay
+    setTimeout(() => {
+      setActiveTooltip(null)
+    }, 2000)
   }
 
   // Toggle social icons
@@ -177,18 +221,34 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
     } else if (themeMode === "light") {
       return {
         icon: <Sun className="text-yellow-500" />,
-        borderColor: "border-yellow-500",
+        borderColor: "border-yellow-500 theme-dark-light",
       }
     } else {
       return {
         icon: <Moon className="text-blue-500" />,
-        borderColor: "border-blue-500",
+        borderColor: "border-blue-500 theme-dark-light",
       }
     }
   }
 
   // Replace the getCurrentThemeIcon function with this more comprehensive function
   const themeStyles = getThemeStyles()
+
+  // Get available theme options (excluding current theme)
+  const getAvailableThemeOptions = () => {
+    const allThemes = [
+      {
+        mode: "system",
+        icon: <MonitorSmartphone className="text-purple-500" />,
+        color: "border-purple-500",
+        label: "System theme",
+      },
+      { mode: "light", icon: <Sun className="text-yellow-500" />, color: "border-yellow-500", label: "Light theme" },
+      { mode: "dark", icon: <Moon className="text-blue-500" />, color: "border-blue-500", label: "Dark theme" },
+    ]
+
+    return allThemes.filter((theme) => theme.mode !== themeMode)
+  }
 
   return (
     <div className="fixed bottom-2 right-0 z-20">
@@ -200,6 +260,8 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
               className="relative"
               onMouseEnter={() => showTooltip("top")}
               onMouseLeave={hideTooltip}
+              onTouchStart={() => handlePressStart("top")}
+              onTouchEnd={handlePressEnd}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0 }}
@@ -240,12 +302,12 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
             className="relative"
             onMouseEnter={() => showTooltip("resume")}
             onMouseLeave={hideTooltip}
-            onTouchStart={() => showTooltip("resume")}
-            onTouchEnd={hideTooltip}
+            onTouchStart={() => handlePressStart("resume")}
+            onTouchEnd={handlePressEnd}
           >
             <Link href="/resume">
               <motion.div
-                className="p-2 rounded-full text-xl w-fit border-2 text-green-500 border-green-500 transition-colors duration-500  bg-inherit"
+                className="p-2 rounded-full text-xl w-fit border-2 text-green-500 border-green-500 transition-colors duration-500 theme-dark-light"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -276,8 +338,8 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
             className="relative"
             onMouseEnter={() => showTooltip("theme")}
             onMouseLeave={hideTooltip}
-            onTouchStart={() => showTooltip("theme")}
-            onTouchEnd={hideTooltip}
+            onTouchStart={() => handlePressStart("theme")}
+            onTouchEnd={handlePressEnd}
           >
             <motion.button
               onClick={toggleThemeOptions}
@@ -310,114 +372,44 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
           <AnimatePresence>
             {themeExpanded && (
               <>
-                {/* System Theme Option */}
-                <motion.div
-                  className="absolute top-0 -translate-y-1/2"
-                  style={{ right: 0 }}
-                  initial={{ opacity: 0, x: 0, scale: 0 }}
-                  animate={{
-                    opacity: 1,
-                    x: -60,
-                    scale: 1,
-                    transition: {
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                      delay: 0.1,
-                    },
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: 0,
-                    scale: 0,
-                    transition: {
-                      duration: 0.2,
-                      delay: 0.1,
-                    },
-                  }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <button
-                    onClick={() => setSpecificTheme("system")}
-                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-purple-500 text-purple-500 theme-dark-light"
-                    aria-label="System theme"
+                {getAvailableThemeOptions().map((themeOption, index) => (
+                  <motion.div
+                    key={themeOption.mode}
+                    className="absolute top-0 -translate-y-1/2"
+                    style={{ right: 0 }}
+                    initial={{ opacity: 0, x: 0, scale: 0 }}
+                    animate={{
+                      opacity: 1,
+                      x: -60 * (index + 1),
+                      scale: 1,
+                      transition: {
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        delay: index * 0.1,
+                      },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      x: 0,
+                      scale: 0,
+                      transition: {
+                        duration: 0.2,
+                        delay: (getAvailableThemeOptions().length - 1 - index) * 0.05,
+                      },
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    <MonitorSmartphone className="text-purple-500" />
-                  </button>
-                </motion.div>
-
-                {/* Light Theme Option */}
-                <motion.div
-                  className="absolute top-0 -translate-y-1/2"
-                  style={{ right: 0 }}
-                  initial={{ opacity: 0, x: 0, scale: 0 }}
-                  animate={{
-                    opacity: 1,
-                    x: -120,
-                    scale: 1,
-                    transition: {
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                      delay: 0.2,
-                    },
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: 0,
-                    scale: 0,
-                    transition: {
-                      duration: 0.2,
-                    },
-                  }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <button
-                    onClick={() => setSpecificTheme("light")}
-                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-yellow-500 text-yellow-500 theme-dark-light"
-                    aria-label="Light theme"
-                  >
-                    <Sun className="text-yellow-500" />
-                  </button>
-                </motion.div>
-
-                {/* Dark Theme Option */}
-                <motion.div
-                  className="absolute top-0 -translate-y-1/2"
-                  style={{ right: 0 }}
-                  initial={{ opacity: 0, x: 0, scale: 0 }}
-                  animate={{
-                    opacity: 1,
-                    x: -180,
-                    scale: 1,
-                    transition: {
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                      delay: 0.3,
-                    },
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: 0,
-                    scale: 0,
-                    transition: {
-                      duration: 0.2,
-                    },
-                  }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <button
-                    onClick={() => setSpecificTheme("dark")}
-                    className="border-2 p-2 rounded-full flex items-center justify-center text-xl border-blue-500 text-blue-500 theme-dark-light"
-                    aria-label="Dark theme"
-                  >
-                    <Moon className="text-blue-500" />
-                  </button>
-                </motion.div>
+                    <button
+                      onClick={() => setSpecificTheme(themeOption.mode)}
+                      className={`border-2 p-2 rounded-full flex items-center justify-center text-xl ${themeOption.color} theme-dark-light`}
+                      aria-label={themeOption.label}
+                    >
+                      {themeOption.icon}
+                    </button>
+                  </motion.div>
+                ))}
               </>
             )}
           </AnimatePresence>
@@ -430,8 +422,8 @@ const FloatingActions = ({ scrollToTop, handleMouseDown, handleMouseUp }) => {
             className="relative"
             onMouseEnter={() => showTooltip("socials")}
             onMouseLeave={hideTooltip}
-            onTouchStart={() => showTooltip("socials")}
-            onTouchEnd={hideTooltip}
+            onTouchStart={() => handlePressStart("socials")}
+            onTouchEnd={handlePressEnd}
           >
             <motion.button
               onClick={toggleSocials}
