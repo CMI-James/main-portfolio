@@ -44,7 +44,7 @@ export default function Hero() {
               <motion.p
                 key={index}
                 variants={textVariants}
-                className={`z-10 leading-[5rem] text-title sm:leading-[6rem] lg:leading-[10rem] font-extrabold  ${
+                className={`z-10 leading-[6rem] text-8xl sm:leading-[7.5rem] lg:leading-[10rem] font-extrabold  ${
                   index === 1
                     ? "transparent-text transition-colors duration-700"
                     : ""
